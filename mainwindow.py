@@ -24,7 +24,8 @@ class MainWindow(QMainWindow):
 
         closeBTN = self.findChild(QPushButton,"btClose")
         closeBTN.clicked.connect(lambda: btClose(closeBTN,self))
-        time.sleep(2)
+        self.show()
+        time.sleep(1)
         self.showFullScreen()
 
 
