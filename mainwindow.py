@@ -1,5 +1,6 @@
 # This Python file uses the following encoding: utf-8
 import sys
+import time
 
 from PySide6.QtWidgets import QApplication, QMainWindow, QPushButton
 from PySide6.QtCore import Slot
@@ -20,9 +21,11 @@ class MainWindow(QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         print("INICIANDO")
+
         closeBTN = self.findChild(QPushButton,"btClose")
         closeBTN.clicked.connect(lambda: btClose(closeBTN,self))
-
+        time.sleep(2)
+        self.showFullScreen()
 
 
 def btClose(bt,wndw):
