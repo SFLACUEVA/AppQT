@@ -20,7 +20,7 @@ class MainWindow(QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         print("INICIANDO")
-        baseCon = sqlite3.connect("Resources\AppDB.db")
+        baseCon = sqlite3.connect("./Resources/AppDB.db")
         cur = baseCon.cursor()
         res = cur.execute("SELECT * FROM SRVR_IP")
         cosa = res.fetchone()
