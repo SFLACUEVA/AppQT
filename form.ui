@@ -27,7 +27,7 @@
      <string>Close</string>
     </property>
    </widget>
-   <widget class="QTabWidget" name="tabWidget">
+   <widget class="QTabWidget" name="Tabs">
     <property name="geometry">
      <rect>
       <x>0</x>
@@ -37,25 +37,50 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>2</number>
     </property>
-    <widget class="QWidget" name="tab">
+    <widget class="QWidget" name="tabGen">
      <attribute name="title">
-      <string>Tab 1</string>
+      <string>General</string>
      </attribute>
     </widget>
-    <widget class="QWidget" name="tab_2">
+    <widget class="QWidget" name="tabCons">
      <attribute name="title">
-      <string>Tab 2</string>
+      <string>Consulta</string>
      </attribute>
+    </widget>
+    <widget class="QWidget" name="tabAju">
+     <attribute name="title">
+      <string>Ajustes</string>
+     </attribute>
+     <widget class="QComboBox" name="comboBox">
+      <property name="geometry">
+       <rect>
+        <x>400</x>
+        <y>240</y>
+        <width>72</width>
+        <height>24</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>100</y>
+        <width>113</width>
+        <height>24</height>
+       </rect>
+      </property>
+     </widget>
     </widget>
    </widget>
-   <zorder>tabWidget</zorder>
+   <zorder>Tabs</zorder>
    <zorder>btClose</zorder>
   </widget>
  </widget>
  <tabstops>
-  <tabstop>tabWidget</tabstop>
+  <tabstop>Tabs</tabstop>
   <tabstop>btClose</tabstop>
  </tabstops>
  <resources/>
