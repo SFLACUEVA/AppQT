@@ -1,12 +1,11 @@
 # This Python file uses the following encoding: utf-8
 import sys
 import time
+import sqlite3 
+from PySide6.QtWidgets import QApplication, QMainWindow, QPushButton, QLabel 
+import urllib.request
 
-from PySide6.QtWidgets import QApplication, QMainWindow, QPushButton
-from PySide6.QtCore import Slot
-from PySide6.QtCore import QObject as obj
-
-
+ip = None
 
 # Important:
 # You need to run the following command to generate the ui_form.py file
@@ -21,7 +20,23 @@ class MainWindow(QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         print("INICIANDO")
-
+        baseCon = sqlite3.connect("Resources\AppDB.db")
+        cur = baseCon.cursor()
+        res = cur.execute("SELECT * FROM SRVR_IP")
+        cosa = res.fetchone()
+        ip = cosa[0].strip()
+        
+        IPTAG = self.findChild(QLabel,"lbIP")
+        IPTAG.setText(ip)
+        print(ip)
+        
+        GET = urllib.request.urlopen("http://"+ip+"/accesoDB.php?t=u&m=t&c=10").read().decode().strip()
+        TESTTAG = self.findChild(QLabel,"lbHTTP")
+        print(GET)
+        print(type(GET))
+        TESTTAG.setText(GET)
+        
+        
         closeBTN = self.findChild(QPushButton,"btClose")
         closeBTN.clicked.connect(lambda: btClose(closeBTN,self))
         self.show()
