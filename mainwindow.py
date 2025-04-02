@@ -3,9 +3,11 @@ import sys
 import time
 import sqlite3 
 from PySide6.QtWidgets import QApplication, QMainWindow, QPushButton, QLabel, QTableWidget, QTableWidgetItem
+from PySide6 import QtCore
 import urllib.request
 import LocalDB as LDB
 from sys import platform
+
 
 ip = None
 srvrName = None
@@ -23,6 +25,7 @@ class MainWindow(QMainWindow):
         super().__init__(parent)
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
+        self.setWindowFlag(QtCore.Qt.WindowType.FramelessWindowHint)
         print("INICIANDO")
         db = LDB.ConfigDB(confPath)
         tmp = db.getServer()
@@ -56,6 +59,7 @@ class MainWindow(QMainWindow):
         toggleSCR = self.findChild(QPushButton,"testMaxi")
         toggleSCR.clicked.connect(lambda: toggleFullScreen(self))
         print(self.winId())
+       
         self.show()
         self.setGeometry(0,50,800,480)
         if platform == "linux":
