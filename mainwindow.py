@@ -55,7 +55,7 @@ class MainWindow(QMainWindow):
         self.setGeometry(0,-20,800,480)
         toggleSCR = self.findChild(QPushButton,"testMaxi")
         toggleSCR.clicked.connect(lambda: toggleFullScreen(self))
-        
+        print(self.winId())
         self.show()
         if platform == "linux":
             pass
