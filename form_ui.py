@@ -23,7 +23,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(800, 480)
+        MainWindow.resize(800, 500)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.btClose = QPushButton(self.centralwidget)
@@ -55,9 +55,9 @@ class Ui_MainWindow(object):
         self.tabla.setHorizontalHeaderItem(1, __qtablewidgetitem1)
         self.tabla.setObjectName(u"tabla")
         self.tabla.setGeometry(QRect(0, 240, 221, 192))
-        self.pushButton = QPushButton(self.tabAju)
-        self.pushButton.setObjectName(u"pushButton")
-        self.pushButton.setGeometry(QRect(670, 70, 80, 24))
+        self.testMaxi = QPushButton(self.tabAju)
+        self.testMaxi.setObjectName(u"testMaxi")
+        self.testMaxi.setGeometry(QRect(670, 70, 80, 24))
         self.widget = QWidget(self.tabAju)
         self.widget.setObjectName(u"widget")
         self.widget.setGeometry(QRect(420, 50, 224, 48))
@@ -109,7 +109,7 @@ class Ui_MainWindow(object):
         ___qtablewidgetitem.setText(QCoreApplication.translate("MainWindow", u"IP", None));
         ___qtablewidgetitem1 = self.tabla.horizontalHeaderItem(1)
         ___qtablewidgetitem1.setText(QCoreApplication.translate("MainWindow", u"Name", None));
-        self.pushButton.setText(QCoreApplication.translate("MainWindow", u"PushButton", None))
+        self.testMaxi.setText(QCoreApplication.translate("MainWindow", u"PushButton", None))
         self.label.setText(QCoreApplication.translate("MainWindow", u"Direcci\u00f3n IP", None))
         self.label_3.setText(QCoreApplication.translate("MainWindow", u"Nombre", None))
         self.Tabs.setTabText(self.Tabs.indexOf(self.tabAju), QCoreApplication.translate("MainWindow", u"Ajustes", None))
