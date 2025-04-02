@@ -17,8 +17,7 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QGridLayout, QHeaderView, QLabel,
     QLineEdit, QMainWindow, QPushButton, QSizePolicy,
-    QTabWidget, QTableWidget, QTableWidgetItem, QVBoxLayout,
-    QWidget)
+    QTabWidget, QTableWidget, QTableWidgetItem, QWidget)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -47,14 +46,21 @@ class Ui_MainWindow(object):
         self.lbHTTP = QLabel(self.tabAju)
         self.lbHTTP.setObjectName(u"lbHTTP")
         self.lbHTTP.setGeometry(QRect(300, 60, 121, 16))
+        self.tabla = QTableWidget(self.tabAju)
+        if (self.tabla.columnCount() < 2):
+            self.tabla.setColumnCount(2)
+        __qtablewidgetitem = QTableWidgetItem()
+        self.tabla.setHorizontalHeaderItem(0, __qtablewidgetitem)
+        __qtablewidgetitem1 = QTableWidgetItem()
+        self.tabla.setHorizontalHeaderItem(1, __qtablewidgetitem1)
+        self.tabla.setObjectName(u"tabla")
+        self.tabla.setGeometry(QRect(0, 240, 221, 192))
         self.widget = QWidget(self.tabAju)
         self.widget.setObjectName(u"widget")
-        self.widget.setGeometry(QRect(0, 190, 258, 248))
-        self.verticalLayout = QVBoxLayout(self.widget)
-        self.verticalLayout.setObjectName(u"verticalLayout")
-        self.verticalLayout.setContentsMargins(0, 0, 0, 0)
-        self.gridLayout = QGridLayout()
+        self.widget.setGeometry(QRect(420, 50, 224, 48))
+        self.gridLayout = QGridLayout(self.widget)
         self.gridLayout.setObjectName(u"gridLayout")
+        self.gridLayout.setContentsMargins(0, 0, 0, 0)
         self.label = QLabel(self.widget)
         self.label.setObjectName(u"label")
 
@@ -74,20 +80,6 @@ class Ui_MainWindow(object):
         self.nameAdd.setObjectName(u"nameAdd")
 
         self.gridLayout.addWidget(self.nameAdd, 1, 1, 1, 1)
-
-
-        self.verticalLayout.addLayout(self.gridLayout)
-
-        self.tabla = QTableWidget(self.widget)
-        if (self.tabla.columnCount() < 2):
-            self.tabla.setColumnCount(2)
-        __qtablewidgetitem = QTableWidgetItem()
-        self.tabla.setHorizontalHeaderItem(0, __qtablewidgetitem)
-        __qtablewidgetitem1 = QTableWidgetItem()
-        self.tabla.setHorizontalHeaderItem(1, __qtablewidgetitem1)
-        self.tabla.setObjectName(u"tabla")
-
-        self.verticalLayout.addWidget(self.tabla)
 
         self.Tabs.addTab(self.tabAju, "")
         MainWindow.setCentralWidget(self.centralwidget)
@@ -110,12 +102,12 @@ class Ui_MainWindow(object):
         self.Tabs.setTabText(self.Tabs.indexOf(self.tabCons), QCoreApplication.translate("MainWindow", u"Consulta", None))
         self.lbIP.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
         self.lbHTTP.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
-        self.label.setText(QCoreApplication.translate("MainWindow", u"Direcci\u00f3n IP", None))
-        self.label_3.setText(QCoreApplication.translate("MainWindow", u"Nombre", None))
         ___qtablewidgetitem = self.tabla.horizontalHeaderItem(0)
         ___qtablewidgetitem.setText(QCoreApplication.translate("MainWindow", u"IP", None));
         ___qtablewidgetitem1 = self.tabla.horizontalHeaderItem(1)
         ___qtablewidgetitem1.setText(QCoreApplication.translate("MainWindow", u"Name", None));
+        self.label.setText(QCoreApplication.translate("MainWindow", u"Direcci\u00f3n IP", None))
+        self.label_3.setText(QCoreApplication.translate("MainWindow", u"Nombre", None))
         self.Tabs.setTabText(self.Tabs.indexOf(self.tabAju), QCoreApplication.translate("MainWindow", u"Ajustes", None))
     # retranslateUi
 
