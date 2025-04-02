@@ -53,6 +53,7 @@ class MainWindow(QMainWindow):
             tabla.setItem(i,1,cNam)
         
         tabla.show()
+        time.sleep(2)
         tabla.showMaximized()
             
         
