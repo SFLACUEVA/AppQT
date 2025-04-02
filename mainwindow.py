@@ -51,11 +51,10 @@ class MainWindow(QMainWindow):
             cNam = QTableWidgetItem(lista[i][1])
             tabla.setItem(i,0,cIP)
             tabla.setItem(i,1,cNam)
-        
         tabla.show()
-        time.sleep(2)
-        self.showFullScreen()
-            
+        
+        toggleSCR = self.findChild(QPushButton,"testMaxi")
+        toggleSCR.clicked.connect(lambda: toggleFullScreen(self))
         
         self.show()
         if platform == "linux":
@@ -67,6 +66,13 @@ def btClose(bt,wndw):
     print("Close")
     bt.setText("CLICK")
     wndw.close()
+    
+def toggleFullScreen(self):
+        if self.isFullScreen():
+            self.showNormal()
+        else:
+            self.showFullScreen()
+
 
 
 
