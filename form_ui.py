@@ -57,7 +57,7 @@ class Ui_MainWindow(object):
         self.tabla.setGeometry(QRect(0, 240, 221, 192))
         self.widget = QWidget(self.tabAju)
         self.widget.setObjectName(u"widget")
-        self.widget.setGeometry(QRect(0, 190, 224, 48))
+        self.widget.setGeometry(QRect(420, 50, 224, 48))
         self.gridLayout = QGridLayout(self.widget)
         self.gridLayout.setObjectName(u"gridLayout")
         self.gridLayout.setContentsMargins(0, 0, 0, 0)

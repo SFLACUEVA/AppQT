@@ -49,7 +49,6 @@ class MainWindow(QMainWindow):
         for i in range(len(lista)):
             cIP = QTableWidgetItem(lista[i][0])
             cNam = QTableWidgetItem(lista[i][1])
-            #fila.setText("1")
             tabla.setItem(i,0,cIP)
             tabla.setItem(i,1,cNam)
             
@@ -58,7 +57,8 @@ class MainWindow(QMainWindow):
         
         self.show()
         if platform == "linux":
-            self.showFullScreen()
+            pass
+            #self.showFullScreen()
 
 
 def btClose(bt,wndw):
