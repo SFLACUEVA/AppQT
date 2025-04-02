@@ -52,7 +52,7 @@ class MainWindow(QMainWindow):
             tabla.setItem(i,0,cIP)
             tabla.setItem(i,1,cNam)
         tabla.show()
-        
+        self.setGeometry(0,-20,800,480)
         toggleSCR = self.findChild(QPushButton,"testMaxi")
         toggleSCR.clicked.connect(lambda: toggleFullScreen(self))
         
