@@ -51,8 +51,9 @@ class MainWindow(QMainWindow):
             cNam = QTableWidgetItem(lista[i][1])
             tabla.setItem(i,0,cIP)
             tabla.setItem(i,1,cNam)
-            
+        
         tabla.show()
+        tabla.showMaximized()
             
         
         self.show()
