@@ -54,7 +54,7 @@ class MainWindow(QMainWindow):
         
         tabla.show()
         time.sleep(2)
-        tabla.showMaximized()
+        self.showFullScreen()
             
         
         self.show()
