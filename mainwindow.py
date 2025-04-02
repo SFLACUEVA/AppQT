@@ -57,7 +57,7 @@ class MainWindow(QMainWindow):
         toggleSCR.clicked.connect(lambda: toggleFullScreen(self))
         print(self.winId())
         self.show()
-        self.setGeometry(0,-20,800,480)
+        self.setGeometry(0,50,800,480)
         if platform == "linux":
             pass
             #self.showFullScreen()
