@@ -2,10 +2,13 @@
 import sys
 import time
 import sqlite3 
-from PySide6.QtWidgets import QApplication, QMainWindow, QPushButton, QLabel 
+from PySide6.QtWidgets import QApplication, QMainWindow, QPushButton, QLabel, QTableWidget, QTableWidgetItem
 import urllib.request
+import LocalDB as LDB
 
 ip = None
+srvrName = None
+confPath= "./Resources/conf.db"
 
 # Important:
 # You need to run the following command to generate the ui_form.py file
@@ -20,12 +23,11 @@ class MainWindow(QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         print("INICIANDO")
-        baseCon = sqlite3.connect("./Resources/AppDB.db")
-        cur = baseCon.cursor()
-        res = cur.execute("SELECT * FROM SRVR_IP")
-        cosa = res.fetchone()
-        ip = cosa[0].strip()
-        
+        db = LDB.ConfigDB(confPath)
+        tmp = db.getServer()
+        ip = tmp[0]
+        srvrName = tmp[1]
+    
         IPTAG = self.findChild(QLabel,"lbIP")
         IPTAG.setText(ip)
         print(ip)
@@ -33,12 +35,26 @@ class MainWindow(QMainWindow):
         GET = urllib.request.urlopen("http://"+ip+"/accesoDB.php?t=u&m=t&c=10").read().decode().strip()
         TESTTAG = self.findChild(QLabel,"lbHTTP")
         print(GET)
-        print(type(GET))
         TESTTAG.setText(GET)
         
         
         closeBTN = self.findChild(QPushButton,"btClose")
         closeBTN.clicked.connect(lambda: btClose(closeBTN,self))
+        
+        lista = db.getServerList()
+        tabla = self.findChild(QTableWidget,"tabla")
+        print(type(lista))
+        tabla.setRowCount(len(lista))
+        for i in range(len(lista)):
+            cIP = QTableWidgetItem(lista[i][0])
+            cNam = QTableWidgetItem(lista[i][1])
+            #fila.setText("1")
+            tabla.setItem(i,0,cIP)
+            tabla.setItem(i,1,cNam)
+            
+        tabla.show()
+            
+        
         self.show()
         #self.showFullScreen()
 
@@ -47,7 +63,6 @@ def btClose(bt,wndw):
     print("Close")
     bt.setText("CLICK")
     wndw.close()
-
 
 
 

@@ -15,8 +15,9 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QComboBox, QLabel, QLineEdit,
-    QMainWindow, QPushButton, QSizePolicy, QTabWidget,
+from PySide6.QtWidgets import (QApplication, QComboBox, QGridLayout, QHeaderView,
+    QLabel, QLineEdit, QMainWindow, QPushButton,
+    QSizePolicy, QTabWidget, QTableWidget, QTableWidgetItem,
     QWidget)
 
 class Ui_MainWindow(object):
@@ -42,16 +43,48 @@ class Ui_MainWindow(object):
         self.tabAju.setObjectName(u"tabAju")
         self.comboBox = QComboBox(self.tabAju)
         self.comboBox.setObjectName(u"comboBox")
-        self.comboBox.setGeometry(QRect(270, 110, 72, 24))
-        self.lineEdit = QLineEdit(self.tabAju)
-        self.lineEdit.setObjectName(u"lineEdit")
-        self.lineEdit.setGeometry(QRect(330, 170, 113, 24))
+        self.comboBox.setGeometry(QRect(230, 210, 121, 24))
         self.lbIP = QLabel(self.tabAju)
         self.lbIP.setObjectName(u"lbIP")
         self.lbIP.setGeometry(QRect(300, 78, 111, 16))
         self.lbHTTP = QLabel(self.tabAju)
         self.lbHTTP.setObjectName(u"lbHTTP")
         self.lbHTTP.setGeometry(QRect(300, 60, 121, 16))
+        self.tabla = QTableWidget(self.tabAju)
+        if (self.tabla.columnCount() < 2):
+            self.tabla.setColumnCount(2)
+        __qtablewidgetitem = QTableWidgetItem()
+        self.tabla.setHorizontalHeaderItem(0, __qtablewidgetitem)
+        __qtablewidgetitem1 = QTableWidgetItem()
+        self.tabla.setHorizontalHeaderItem(1, __qtablewidgetitem1)
+        self.tabla.setObjectName(u"tabla")
+        self.tabla.setGeometry(QRect(360, 140, 211, 192))
+        self.widget = QWidget(self.tabAju)
+        self.widget.setObjectName(u"widget")
+        self.widget.setGeometry(QRect(0, 190, 224, 48))
+        self.gridLayout = QGridLayout(self.widget)
+        self.gridLayout.setObjectName(u"gridLayout")
+        self.gridLayout.setContentsMargins(0, 0, 0, 0)
+        self.label = QLabel(self.widget)
+        self.label.setObjectName(u"label")
+
+        self.gridLayout.addWidget(self.label, 0, 0, 1, 1)
+
+        self.label_3 = QLabel(self.widget)
+        self.label_3.setObjectName(u"label_3")
+
+        self.gridLayout.addWidget(self.label_3, 0, 1, 1, 1)
+
+        self.ipAdd = QLineEdit(self.widget)
+        self.ipAdd.setObjectName(u"ipAdd")
+
+        self.gridLayout.addWidget(self.ipAdd, 1, 0, 1, 1)
+
+        self.nameAdd = QLineEdit(self.widget)
+        self.nameAdd.setObjectName(u"nameAdd")
+
+        self.gridLayout.addWidget(self.nameAdd, 1, 1, 1, 1)
+
         self.Tabs.addTab(self.tabAju, "")
         MainWindow.setCentralWidget(self.centralwidget)
         self.Tabs.raise_()
@@ -73,6 +106,12 @@ class Ui_MainWindow(object):
         self.Tabs.setTabText(self.Tabs.indexOf(self.tabCons), QCoreApplication.translate("MainWindow", u"Consulta", None))
         self.lbIP.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
         self.lbHTTP.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
+        ___qtablewidgetitem = self.tabla.horizontalHeaderItem(0)
+        ___qtablewidgetitem.setText(QCoreApplication.translate("MainWindow", u"IP", None));
+        ___qtablewidgetitem1 = self.tabla.horizontalHeaderItem(1)
+        ___qtablewidgetitem1.setText(QCoreApplication.translate("MainWindow", u"Name", None));
+        self.label.setText(QCoreApplication.translate("MainWindow", u"Direcci\u00f3n IP", None))
+        self.label_3.setText(QCoreApplication.translate("MainWindow", u"Nombre", None))
         self.Tabs.setTabText(self.Tabs.indexOf(self.tabAju), QCoreApplication.translate("MainWindow", u"Ajustes", None))
     # retranslateUi
 
