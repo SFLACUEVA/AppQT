@@ -5,6 +5,7 @@ import sqlite3
 from PySide6.QtWidgets import QApplication, QMainWindow, QPushButton, QLabel, QTableWidget, QTableWidgetItem
 import urllib.request
 import LocalDB as LDB
+from sys import platform
 
 ip = None
 srvrName = None
@@ -56,7 +57,8 @@ class MainWindow(QMainWindow):
             
         
         self.show()
-        #self.showFullScreen()
+        if platform == "linux":
+            self.showFullScreen()
 
 
 def btClose(bt,wndw):

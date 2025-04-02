@@ -15,10 +15,9 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QComboBox, QGridLayout, QHeaderView,
-    QLabel, QLineEdit, QMainWindow, QPushButton,
-    QSizePolicy, QTabWidget, QTableWidget, QTableWidgetItem,
-    QWidget)
+from PySide6.QtWidgets import (QApplication, QGridLayout, QHeaderView, QLabel,
+    QLineEdit, QMainWindow, QPushButton, QSizePolicy,
+    QTabWidget, QTableWidget, QTableWidgetItem, QWidget)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -41,9 +40,6 @@ class Ui_MainWindow(object):
         self.Tabs.addTab(self.tabCons, "")
         self.tabAju = QWidget()
         self.tabAju.setObjectName(u"tabAju")
-        self.comboBox = QComboBox(self.tabAju)
-        self.comboBox.setObjectName(u"comboBox")
-        self.comboBox.setGeometry(QRect(230, 210, 121, 24))
         self.lbIP = QLabel(self.tabAju)
         self.lbIP.setObjectName(u"lbIP")
         self.lbIP.setGeometry(QRect(300, 78, 111, 16))
@@ -58,7 +54,7 @@ class Ui_MainWindow(object):
         __qtablewidgetitem1 = QTableWidgetItem()
         self.tabla.setHorizontalHeaderItem(1, __qtablewidgetitem1)
         self.tabla.setObjectName(u"tabla")
-        self.tabla.setGeometry(QRect(360, 140, 211, 192))
+        self.tabla.setGeometry(QRect(0, 240, 221, 192))
         self.widget = QWidget(self.tabAju)
         self.widget.setObjectName(u"widget")
         self.widget.setGeometry(QRect(0, 190, 224, 48))

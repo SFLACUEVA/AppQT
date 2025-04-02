@@ -53,16 +53,6 @@
      <attribute name="title">
       <string>Ajustes</string>
      </attribute>
-     <widget class="QComboBox" name="comboBox">
-      <property name="geometry">
-       <rect>
-        <x>230</x>
-        <y>210</y>
-        <width>121</width>
-        <height>24</height>
-       </rect>
-      </property>
-     </widget>
      <widget class="QLabel" name="lbIP">
       <property name="geometry">
        <rect>
@@ -92,9 +82,9 @@
      <widget class="QTableWidget" name="tabla">
       <property name="geometry">
        <rect>
-        <x>360</x>
-        <y>140</y>
-        <width>211</width>
+        <x>0</x>
+        <y>240</y>
+        <width>221</width>
         <height>192</height>
        </rect>
       </property>
