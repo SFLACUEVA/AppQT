@@ -25,7 +25,9 @@ class MainWindow(QMainWindow):
         super().__init__(parent)
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
-        self.setWindowFlag(QtCore.Qt.WindowType.FramelessWindowHint)
+        if platform == "linux":
+            self.setWindowFlag(QtCore.Qt.WindowType.FramelessWindowHint)
+        
         print("INICIANDO")
         db = LDB.ConfigDB(confPath)
         tmp = db.getServer()
@@ -61,9 +63,8 @@ class MainWindow(QMainWindow):
         print(self.winId())
        
         self.show()
-        self.setGeometry(0,50,800,480)
-        if platform == "linux":
-            pass
+        
+        
             #self.showFullScreen()
 
 
