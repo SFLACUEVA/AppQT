@@ -7,7 +7,7 @@ import urllib.request
 import LocalDB as LDB
 from sys import platform
 from setup import StartServerIn
-
+from PySide6 import QtCore
 from ui_form import Ui_MainWindow
 
 ip = None
@@ -60,6 +60,7 @@ class MainWindow(QMainWindow):
         
         self.show()
         if platform == "linux":
+            self.setWindowFlag(QtCore.Qt.WindowType.FramelessWindowHint)
             self.showFullScreen()
 
 
