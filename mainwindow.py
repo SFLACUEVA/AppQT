@@ -47,7 +47,7 @@ class MainWindow(QMainWindow):
         
         lista = db.getServerList()
         tabla = self.findChild(QTableWidget,"tabla")
-        print(type(lista))
+        
         tabla.setRowCount(len(lista))
         for i in range(len(lista)):
             cIP = QTableWidgetItem(lista[i][0])
@@ -56,7 +56,7 @@ class MainWindow(QMainWindow):
             tabla.setItem(i,0,cIP)
             tabla.setItem(i,1,cNam)
             
-        StartServerIn()
+        StartServerIn(self)
         
         self.show()
         if platform == "linux":

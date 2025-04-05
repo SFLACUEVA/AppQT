@@ -4,14 +4,20 @@ from PySide6 import QtCore
 from PySide6.QtGui import QFocusEvent
 from CustomWidgets import LineEdit 
 
-def StartServerIn(self):
-    grid = self.findChild(QHBoxLayout,"svrIN")
+
+
+
+def StartServerIn(wd):
+    ventana = wd
+    grid = ventana.findChild(QHBoxLayout,"svrIN")
     
     ipIN = LineEdit("")
     ipIN.setObjectName("ipIN")
+    ipIN.setWD(wd)
     
     nameIN = LineEdit("")
     nameIN.setObjectName("nameIN")
+    nameIN.setWD(wd)
     
     grid.addWidget(nameIN)
     grid.addWidget(ipIN)
