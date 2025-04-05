@@ -2,12 +2,14 @@
 import sys
 import time
 import sqlite3 
-from PySide6.QtWidgets import QApplication, QMainWindow, QPushButton, QLabel, QTableWidget, QTableWidgetItem
+from PySide6.QtWidgets import QApplication, QMainWindow, QPushButton, QHBoxLayout, QLabel, QTableWidget, QTabWidget, QTableWidgetItem,QLineEdit, QWidget, QGridLayout
+from PySide6.QtCore import QEvent
 from PySide6 import QtCore
+from PySide6.QtGui import QFocusEvent
 import urllib.request
 import LocalDB as LDB
 from sys import platform
-
+import CustomWidgets
 
 ip = None
 srvrName = None
@@ -49,7 +51,6 @@ class MainWindow(QMainWindow):
         
         lista = db.getServerList()
         tabla = self.findChild(QTableWidget,"tabla")
-        print(type(lista))
         tabla.setRowCount(len(lista))
         for i in range(len(lista)):
             cIP = QTableWidgetItem(lista[i][0])
@@ -60,18 +61,26 @@ class MainWindow(QMainWindow):
         
         toggleSCR = self.findChild(QPushButton,"testMaxi")
         toggleSCR.clicked.connect(lambda: toggleFullScreen(self))
-        print(self.winId())
-       
+        
         self.show()
         
         
+        
+      
+        
+        
             #self.showFullScreen()
+            
 
+        
 
 def btClose(bt,wndw):
     print("Close")
     bt.setText("CLICK")
     wndw.close()
+ 
+def test():
+    print("test")
     
 def toggleFullScreen(self):
         if self.isFullScreen():

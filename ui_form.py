@@ -15,15 +15,15 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QGridLayout, QHeaderView, QLabel,
-    QLineEdit, QMainWindow, QPushButton, QSizePolicy,
+from PySide6.QtWidgets import (QApplication, QGridLayout, QHBoxLayout, QHeaderView,
+    QLabel, QMainWindow, QPushButton, QSizePolicy,
     QTabWidget, QTableWidget, QTableWidgetItem, QWidget)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(800, 500)
+        MainWindow.resize(800, 480)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.btClose = QPushButton(self.centralwidget)
@@ -58,32 +58,28 @@ class Ui_MainWindow(object):
         self.testMaxi = QPushButton(self.tabAju)
         self.testMaxi.setObjectName(u"testMaxi")
         self.testMaxi.setGeometry(QRect(670, 70, 80, 24))
-        self.widget = QWidget(self.tabAju)
-        self.widget.setObjectName(u"widget")
-        self.widget.setGeometry(QRect(420, 50, 224, 48))
-        self.gridLayout = QGridLayout(self.widget)
+        self.layoutWidget = QWidget(self.tabAju)
+        self.layoutWidget.setObjectName(u"layoutWidget")
+        self.layoutWidget.setGeometry(QRect(420, 50, 221, 21))
+        self.gridLayout = QGridLayout(self.layoutWidget)
         self.gridLayout.setObjectName(u"gridLayout")
         self.gridLayout.setContentsMargins(0, 0, 0, 0)
-        self.label = QLabel(self.widget)
+        self.label = QLabel(self.layoutWidget)
         self.label.setObjectName(u"label")
 
         self.gridLayout.addWidget(self.label, 0, 0, 1, 1)
 
-        self.label_3 = QLabel(self.widget)
+        self.label_3 = QLabel(self.layoutWidget)
         self.label_3.setObjectName(u"label_3")
 
         self.gridLayout.addWidget(self.label_3, 0, 1, 1, 1)
 
-        self.ipAdd = QLineEdit(self.widget)
-        self.ipAdd.setObjectName(u"ipAdd")
-
-        self.gridLayout.addWidget(self.ipAdd, 1, 0, 1, 1)
-
-        self.nameAdd = QLineEdit(self.widget)
-        self.nameAdd.setObjectName(u"nameAdd")
-
-        self.gridLayout.addWidget(self.nameAdd, 1, 1, 1, 1)
-
+        self.horizontalLayoutWidget = QWidget(self.tabAju)
+        self.horizontalLayoutWidget.setObjectName(u"horizontalLayoutWidget")
+        self.horizontalLayoutWidget.setGeometry(QRect(420, 70, 221, 31))
+        self.horizontalLayout = QHBoxLayout(self.horizontalLayoutWidget)
+        self.horizontalLayout.setObjectName(u"horizontalLayout")
+        self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
         self.Tabs.addTab(self.tabAju, "")
         MainWindow.setCentralWidget(self.centralwidget)
         self.Tabs.raise_()
