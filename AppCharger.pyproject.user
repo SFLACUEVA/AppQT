@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 16.0.0, 2025-04-01T00:01:54. -->
+<!-- Written by QtCreator 16.0.0, 2025-04-05T12:06:48. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -233,7 +233,7 @@
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">ui_form.py</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration.</value>
     <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/sflac/Desktop/Euss/4to/TFG/AppQT/AppCharger/ui_form.py</value>
-    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">true</value>
     <value type="QString" key="PythonEditor.RunConfiguation.Script">C:\Users\sflac\Desktop\Euss\4to\TFG\AppQT\AppCharger\ui_form.py</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>

@@ -1,0 +1,18 @@
+from PySide6.QtWidgets import QApplication, QMainWindow, QPushButton, QHBoxLayout, QLabel, QTableWidget, QTabWidget, QTableWidgetItem,QLineEdit, QWidget, QGridLayout
+from PySide6.QtCore import QEvent
+from PySide6 import QtCore
+from PySide6.QtGui import QFocusEvent
+from CustomWidgets import LineEdit 
+
+def StartServerIn(self):
+    grid = self.findChild(QHBoxLayout,"svrIN")
+    
+    ipIN = LineEdit("")
+    ipIN.setObjectName("ipIN")
+    
+    nameIN = LineEdit("")
+    nameIN.setObjectName("nameIN")
+    
+    grid.addWidget(nameIN)
+    grid.addWidget(ipIN)
+            

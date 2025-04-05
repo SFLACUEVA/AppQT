@@ -2,10 +2,13 @@
 import sys
 import time
 import sqlite3 
-from PySide6.QtWidgets import QApplication, QMainWindow, QPushButton, QLabel, QTableWidget, QTableWidgetItem
+from PySide6.QtWidgets import QApplication, QMainWindow, QPushButton, QLabel, QTableWidget, QTableWidgetItem, QHBoxLayout
 import urllib.request
 import LocalDB as LDB
 from sys import platform
+from setup import StartServerIn
+
+from ui_form import Ui_MainWindow
 
 ip = None
 srvrName = None
@@ -16,7 +19,7 @@ confPath= "./Resources/conf.db"
 #     pyside6-uic form.ui -o ui_form.py, or
 #     pyside2-uic form.ui -o ui_form.py
 
-from ui_form import Ui_MainWindow
+
 
 class MainWindow(QMainWindow):
     def __init__(self, parent=None):
@@ -53,8 +56,7 @@ class MainWindow(QMainWindow):
             tabla.setItem(i,0,cIP)
             tabla.setItem(i,1,cNam)
             
-        tabla.show()
-            
+        StartServerIn()
         
         self.show()
         if platform == "linux":

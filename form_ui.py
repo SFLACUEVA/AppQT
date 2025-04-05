@@ -15,8 +15,8 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QGridLayout, QHeaderView, QLabel,
-    QLineEdit, QMainWindow, QPushButton, QSizePolicy,
+from PySide6.QtWidgets import (QApplication, QGridLayout, QHBoxLayout, QHeaderView,
+    QLabel, QMainWindow, QPushButton, QSizePolicy,
     QTabWidget, QTableWidget, QTableWidgetItem, QWidget)
 
 class Ui_MainWindow(object):
@@ -55,32 +55,28 @@ class Ui_MainWindow(object):
         self.tabla.setHorizontalHeaderItem(1, __qtablewidgetitem1)
         self.tabla.setObjectName(u"tabla")
         self.tabla.setGeometry(QRect(0, 240, 221, 192))
-        self.widget = QWidget(self.tabAju)
-        self.widget.setObjectName(u"widget")
-        self.widget.setGeometry(QRect(0, 190, 224, 48))
-        self.gridLayout = QGridLayout(self.widget)
+        self.layoutWidget = QWidget(self.tabAju)
+        self.layoutWidget.setObjectName(u"layoutWidget")
+        self.layoutWidget.setGeometry(QRect(360, 150, 221, 21))
+        self.gridLayout = QGridLayout(self.layoutWidget)
         self.gridLayout.setObjectName(u"gridLayout")
         self.gridLayout.setContentsMargins(0, 0, 0, 0)
-        self.label = QLabel(self.widget)
-        self.label.setObjectName(u"label")
-
-        self.gridLayout.addWidget(self.label, 0, 0, 1, 1)
-
-        self.label_3 = QLabel(self.widget)
+        self.label_3 = QLabel(self.layoutWidget)
         self.label_3.setObjectName(u"label_3")
 
         self.gridLayout.addWidget(self.label_3, 0, 1, 1, 1)
 
-        self.ipAdd = QLineEdit(self.widget)
-        self.ipAdd.setObjectName(u"ipAdd")
+        self.label = QLabel(self.layoutWidget)
+        self.label.setObjectName(u"label")
 
-        self.gridLayout.addWidget(self.ipAdd, 1, 0, 1, 1)
+        self.gridLayout.addWidget(self.label, 0, 0, 1, 1)
 
-        self.nameAdd = QLineEdit(self.widget)
-        self.nameAdd.setObjectName(u"nameAdd")
-
-        self.gridLayout.addWidget(self.nameAdd, 1, 1, 1, 1)
-
+        self.horizontalLayoutWidget = QWidget(self.tabAju)
+        self.horizontalLayoutWidget.setObjectName(u"horizontalLayoutWidget")
+        self.horizontalLayoutWidget.setGeometry(QRect(360, 170, 221, 31))
+        self.svrIN = QHBoxLayout(self.horizontalLayoutWidget)
+        self.svrIN.setObjectName(u"svrIN")
+        self.svrIN.setContentsMargins(0, 0, 0, 0)
         self.Tabs.addTab(self.tabAju, "")
         MainWindow.setCentralWidget(self.centralwidget)
         self.Tabs.raise_()
@@ -106,8 +102,8 @@ class Ui_MainWindow(object):
         ___qtablewidgetitem.setText(QCoreApplication.translate("MainWindow", u"IP", None));
         ___qtablewidgetitem1 = self.tabla.horizontalHeaderItem(1)
         ___qtablewidgetitem1.setText(QCoreApplication.translate("MainWindow", u"Name", None));
-        self.label.setText(QCoreApplication.translate("MainWindow", u"Direcci\u00f3n IP", None))
         self.label_3.setText(QCoreApplication.translate("MainWindow", u"Nombre", None))
+        self.label.setText(QCoreApplication.translate("MainWindow", u"Direcci\u00f3n IP", None))
         self.Tabs.setTabText(self.Tabs.indexOf(self.tabAju), QCoreApplication.translate("MainWindow", u"Ajustes", None))
     # retranslateUi
 
