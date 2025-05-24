@@ -28,12 +28,18 @@ class Ui_MainWindow(object):
         self.centralwidget.setObjectName(u"centralwidget")
         self.btClose = QPushButton(self.centralwidget)
         self.btClose.setObjectName(u"btClose")
-        self.btClose.setGeometry(QRect(720, 440, 61, 21))
+        self.btClose.setGeometry(QRect(730, 0, 61, 20))
         self.Tabs = QTabWidget(self.centralwidget)
         self.Tabs.setObjectName(u"Tabs")
         self.Tabs.setGeometry(QRect(0, 0, 800, 480))
         self.tabGen = QWidget()
         self.tabGen.setObjectName(u"tabGen")
+        self.horizontalLayoutWidget_2 = QWidget(self.tabGen)
+        self.horizontalLayoutWidget_2.setObjectName(u"horizontalLayoutWidget_2")
+        self.horizontalLayoutWidget_2.setGeometry(QRect(0, 0, 651, 451))
+        self.grapLayout = QHBoxLayout(self.horizontalLayoutWidget_2)
+        self.grapLayout.setObjectName(u"grapLayout")
+        self.grapLayout.setContentsMargins(0, 0, 0, 0)
         self.Tabs.addTab(self.tabGen, "")
         self.tabCons = QWidget()
         self.tabCons.setObjectName(u"tabCons")
@@ -85,7 +91,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.Tabs.setCurrentIndex(2)
+        self.Tabs.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(MainWindow)

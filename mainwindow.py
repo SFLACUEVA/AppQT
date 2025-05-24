@@ -56,13 +56,21 @@ class MainWindow(QMainWindow):
             tabla.setItem(i,0,cIP)
             tabla.setItem(i,1,cNam)
             
-        StartServerIn(self)
+        grafico = StartServerIn(self)
+        
+        x = [0,1,2,3,4,5]
+        tension = [9,11,13,14,15,15 ]   # Voltaje
+        corriente = [3,3,3,3,2,1]  # Corriente
+        
+        grafico.plot(tension,corriente,x)
         
         self.show()
         if platform == "linux":
             self.setWindowFlag(QtCore.Qt.WindowType.FramelessWindowHint)
             self.showFullScreen()
 
+
+        
 
 def btClose(bt,wndw):
     print("Close")
@@ -75,4 +83,5 @@ if __name__ == "__main__":
     app = QApplication(sys.argv)
     widget = MainWindow()
     widget.show()
+    
     sys.exit(app.exec())

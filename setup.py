@@ -2,10 +2,10 @@ from PySide6.QtWidgets import QApplication, QMainWindow, QPushButton, QHBoxLayou
 from PySide6.QtCore import QEvent
 from PySide6 import QtCore
 from PySide6.QtGui import QFocusEvent
-from CustomWidgets import LineEdit 
+from CustomWidgets import LineEdit, DualAxisChart 
 
-
-
+from matplotlib.figure import Figure
+from matplotlib.backends.backend_qtagg import FigureCanvasQTAgg as FigureCanvas
 
 def StartServerIn(wd):
     ventana = wd
@@ -21,4 +21,18 @@ def StartServerIn(wd):
     
     grid.addWidget(nameIN)
     grid.addWidget(ipIN)
+    grafico = DualAxisChart(wd)
+    
+    
+    
+    return grafico
+    
+    
+    
+    
+    
+   
+   
+    
+    
             
