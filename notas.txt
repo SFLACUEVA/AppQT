@@ -1,0 +1,18 @@
+CREATE TABLE "summary" (
+	"Name"	TEXT,
+	"Start"	TEXT,
+	"Stop"	TEXT,
+	"Table"	TEXT,
+	"LimVMax"	NUMERIC,
+	"LimIMax"	NUMERIC,
+	"LimIMin"	NUMERIC,
+	"ct"	NUMERIC,
+	"LimTMax"	NUMERIC,
+	"MeasVMax"	INTEGER,
+	"MeasVMin"	NUMERIC,
+	"MeasIMax"	NUMERIC,
+	"MeasIMin"	NUMERIC,
+	"MeasTMax"	NUMERIC,
+	"MeasTMin"	NUMERIC,
+	"DeviceName"	TEXT
+) 

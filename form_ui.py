@@ -15,9 +15,11 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QGridLayout, QHBoxLayout, QHeaderView,
-    QLabel, QMainWindow, QPushButton, QSizePolicy,
-    QTabWidget, QTableWidget, QTableWidgetItem, QWidget)
+from PySide6.QtWidgets import (QApplication, QCheckBox, QComboBox, QGridLayout,
+    QGroupBox, QHBoxLayout, QHeaderView, QLabel,
+    QMainWindow, QPlainTextEdit, QPushButton, QSizePolicy,
+    QTabWidget, QTableWidget, QTableWidgetItem, QVBoxLayout,
+    QWidget)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -36,13 +38,368 @@ class Ui_MainWindow(object):
         self.tabGen.setObjectName(u"tabGen")
         self.horizontalLayoutWidget_2 = QWidget(self.tabGen)
         self.horizontalLayoutWidget_2.setObjectName(u"horizontalLayoutWidget_2")
-        self.horizontalLayoutWidget_2.setGeometry(QRect(0, 0, 651, 451))
+        self.horizontalLayoutWidget_2.setGeometry(QRect(0, 0, 521, 451))
         self.grapLayout = QHBoxLayout(self.horizontalLayoutWidget_2)
         self.grapLayout.setObjectName(u"grapLayout")
         self.grapLayout.setContentsMargins(0, 0, 0, 0)
+        self.btCharge = QPushButton(self.tabGen)
+        self.btCharge.setObjectName(u"btCharge")
+        self.btCharge.setGeometry(QRect(530, 0, 261, 41))
+        self.groupBox = QGroupBox(self.tabGen)
+        self.groupBox.setObjectName(u"groupBox")
+        self.groupBox.setGeometry(QRect(530, 50, 261, 171))
+        self.horizontalLayoutWidget_3 = QWidget(self.groupBox)
+        self.horizontalLayoutWidget_3.setObjectName(u"horizontalLayoutWidget_3")
+        self.horizontalLayoutWidget_3.setGeometry(QRect(10, 30, 241, 130))
+        self.configLayout = QHBoxLayout(self.horizontalLayoutWidget_3)
+        self.configLayout.setObjectName(u"configLayout")
+        self.configLayout.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout = QVBoxLayout()
+        self.verticalLayout.setObjectName(u"verticalLayout")
+        self.label_13 = QLabel(self.horizontalLayoutWidget_3)
+        self.label_13.setObjectName(u"label_13")
+
+        self.verticalLayout.addWidget(self.label_13)
+
+        self.label_2 = QLabel(self.horizontalLayoutWidget_3)
+        self.label_2.setObjectName(u"label_2")
+
+        self.verticalLayout.addWidget(self.label_2)
+
+        self.label_4 = QLabel(self.horizontalLayoutWidget_3)
+        self.label_4.setObjectName(u"label_4")
+
+        self.verticalLayout.addWidget(self.label_4)
+
+        self.label_5 = QLabel(self.horizontalLayoutWidget_3)
+        self.label_5.setObjectName(u"label_5")
+
+        self.verticalLayout.addWidget(self.label_5)
+
+        self.label_10 = QLabel(self.horizontalLayoutWidget_3)
+        self.label_10.setObjectName(u"label_10")
+
+        self.verticalLayout.addWidget(self.label_10)
+
+        self.label_11 = QLabel(self.horizontalLayoutWidget_3)
+        self.label_11.setObjectName(u"label_11")
+
+        self.verticalLayout.addWidget(self.label_11)
+
+
+        self.configLayout.addLayout(self.verticalLayout)
+
+        self.limLayout = QVBoxLayout()
+        self.limLayout.setObjectName(u"limLayout")
+
+        self.configLayout.addLayout(self.limLayout)
+
+        self.unitsLayout = QVBoxLayout()
+        self.unitsLayout.setObjectName(u"unitsLayout")
+        self.label_14 = QLabel(self.horizontalLayoutWidget_3)
+        self.label_14.setObjectName(u"label_14")
+
+        self.unitsLayout.addWidget(self.label_14)
+
+        self.label_6 = QLabel(self.horizontalLayoutWidget_3)
+        self.label_6.setObjectName(u"label_6")
+
+        self.unitsLayout.addWidget(self.label_6)
+
+        self.label_7 = QLabel(self.horizontalLayoutWidget_3)
+        self.label_7.setObjectName(u"label_7")
+
+        self.unitsLayout.addWidget(self.label_7)
+
+        self.label_8 = QLabel(self.horizontalLayoutWidget_3)
+        self.label_8.setObjectName(u"label_8")
+
+        self.unitsLayout.addWidget(self.label_8)
+
+        self.label_9 = QLabel(self.horizontalLayoutWidget_3)
+        self.label_9.setObjectName(u"label_9")
+
+        self.unitsLayout.addWidget(self.label_9)
+
+        self.label_12 = QLabel(self.horizontalLayoutWidget_3)
+        self.label_12.setObjectName(u"label_12")
+
+        self.unitsLayout.addWidget(self.label_12)
+
+
+        self.configLayout.addLayout(self.unitsLayout)
+
+        self.statusGroup = QGroupBox(self.tabGen)
+        self.statusGroup.setObjectName(u"statusGroup")
+        self.statusGroup.setGeometry(QRect(530, 330, 261, 111))
+        self.statusText = QPlainTextEdit(self.statusGroup)
+        self.statusText.setObjectName(u"statusText")
+        self.statusText.setGeometry(QRect(10, 30, 161, 70))
+        self.statusText.setReadOnly(True)
+        self.groupBox_5 = QGroupBox(self.tabGen)
+        self.groupBox_5.setObjectName(u"groupBox_5")
+        self.groupBox_5.setGeometry(QRect(530, 230, 261, 101))
+        self.verticalLayoutWidget_2 = QWidget(self.groupBox_5)
+        self.verticalLayoutWidget_2.setObjectName(u"verticalLayoutWidget_2")
+        self.verticalLayoutWidget_2.setGeometry(QRect(10, 30, 241, 61))
+        self.verticalLayout_4 = QVBoxLayout(self.verticalLayoutWidget_2)
+        self.verticalLayout_4.setObjectName(u"verticalLayout_4")
+        self.verticalLayout_4.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout_2 = QHBoxLayout()
+        self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
+        self.batLoad = QPushButton(self.verticalLayoutWidget_2)
+        self.batLoad.setObjectName(u"batLoad")
+
+        self.horizontalLayout_2.addWidget(self.batLoad)
+
+        self.batSave = QPushButton(self.verticalLayoutWidget_2)
+        self.batSave.setObjectName(u"batSave")
+
+        self.horizontalLayout_2.addWidget(self.batSave)
+
+        self.batRefresh = QPushButton(self.verticalLayoutWidget_2)
+        self.batRefresh.setObjectName(u"batRefresh")
+
+        self.horizontalLayout_2.addWidget(self.batRefresh)
+
+
+        self.verticalLayout_4.addLayout(self.horizontalLayout_2)
+
+        self.comboBox_2 = QComboBox(self.verticalLayoutWidget_2)
+        self.comboBox_2.addItem("")
+        self.comboBox_2.addItem("")
+        self.comboBox_2.setObjectName(u"comboBox_2")
+
+        self.verticalLayout_4.addWidget(self.comboBox_2)
+
         self.Tabs.addTab(self.tabGen, "")
         self.tabCons = QWidget()
         self.tabCons.setObjectName(u"tabCons")
+        self.groupBox_2 = QGroupBox(self.tabCons)
+        self.groupBox_2.setObjectName(u"groupBox_2")
+        self.groupBox_2.setGeometry(QRect(530, 270, 261, 171))
+        self.horizontalLayoutWidget_4 = QWidget(self.groupBox_2)
+        self.horizontalLayoutWidget_4.setObjectName(u"horizontalLayoutWidget_4")
+        self.horizontalLayoutWidget_4.setGeometry(QRect(10, 30, 241, 130))
+        self.configLayout_2 = QHBoxLayout(self.horizontalLayoutWidget_4)
+        self.configLayout_2.setObjectName(u"configLayout_2")
+        self.configLayout_2.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_2 = QVBoxLayout()
+        self.verticalLayout_2.setObjectName(u"verticalLayout_2")
+        self.label_15 = QLabel(self.horizontalLayoutWidget_4)
+        self.label_15.setObjectName(u"label_15")
+
+        self.verticalLayout_2.addWidget(self.label_15)
+
+        self.label_16 = QLabel(self.horizontalLayoutWidget_4)
+        self.label_16.setObjectName(u"label_16")
+
+        self.verticalLayout_2.addWidget(self.label_16)
+
+        self.label_17 = QLabel(self.horizontalLayoutWidget_4)
+        self.label_17.setObjectName(u"label_17")
+
+        self.verticalLayout_2.addWidget(self.label_17)
+
+        self.label_18 = QLabel(self.horizontalLayoutWidget_4)
+        self.label_18.setObjectName(u"label_18")
+
+        self.verticalLayout_2.addWidget(self.label_18)
+
+        self.label_19 = QLabel(self.horizontalLayoutWidget_4)
+        self.label_19.setObjectName(u"label_19")
+
+        self.verticalLayout_2.addWidget(self.label_19)
+
+        self.label_20 = QLabel(self.horizontalLayoutWidget_4)
+        self.label_20.setObjectName(u"label_20")
+
+        self.verticalLayout_2.addWidget(self.label_20)
+
+
+        self.configLayout_2.addLayout(self.verticalLayout_2)
+
+        self.consConfLayout = QVBoxLayout()
+        self.consConfLayout.setObjectName(u"consConfLayout")
+        self.batNameLab = QLabel(self.horizontalLayoutWidget_4)
+        self.batNameLab.setObjectName(u"batNameLab")
+
+        self.consConfLayout.addWidget(self.batNameLab)
+
+        self.vMLab = QLabel(self.horizontalLayoutWidget_4)
+        self.vMLab.setObjectName(u"vMLab")
+
+        self.consConfLayout.addWidget(self.vMLab)
+
+        self.iMLab = QLabel(self.horizontalLayoutWidget_4)
+        self.iMLab.setObjectName(u"iMLab")
+
+        self.consConfLayout.addWidget(self.iMLab)
+
+        self.imLab = QLabel(self.horizontalLayoutWidget_4)
+        self.imLab.setObjectName(u"imLab")
+
+        self.consConfLayout.addWidget(self.imLab)
+
+        self.tMLab = QLabel(self.horizontalLayoutWidget_4)
+        self.tMLab.setObjectName(u"tMLab")
+
+        self.consConfLayout.addWidget(self.tMLab)
+
+        self.ctLab = QLabel(self.horizontalLayoutWidget_4)
+        self.ctLab.setObjectName(u"ctLab")
+
+        self.consConfLayout.addWidget(self.ctLab)
+
+
+        self.configLayout_2.addLayout(self.consConfLayout)
+
+        self.unitsLayout_2 = QVBoxLayout()
+        self.unitsLayout_2.setObjectName(u"unitsLayout_2")
+        self.label_21 = QLabel(self.horizontalLayoutWidget_4)
+        self.label_21.setObjectName(u"label_21")
+
+        self.unitsLayout_2.addWidget(self.label_21)
+
+        self.label_22 = QLabel(self.horizontalLayoutWidget_4)
+        self.label_22.setObjectName(u"label_22")
+
+        self.unitsLayout_2.addWidget(self.label_22)
+
+        self.label_23 = QLabel(self.horizontalLayoutWidget_4)
+        self.label_23.setObjectName(u"label_23")
+
+        self.unitsLayout_2.addWidget(self.label_23)
+
+        self.label_24 = QLabel(self.horizontalLayoutWidget_4)
+        self.label_24.setObjectName(u"label_24")
+
+        self.unitsLayout_2.addWidget(self.label_24)
+
+        self.label_25 = QLabel(self.horizontalLayoutWidget_4)
+        self.label_25.setObjectName(u"label_25")
+
+        self.unitsLayout_2.addWidget(self.label_25)
+
+        self.label_26 = QLabel(self.horizontalLayoutWidget_4)
+        self.label_26.setObjectName(u"label_26")
+
+        self.unitsLayout_2.addWidget(self.label_26)
+
+
+        self.configLayout_2.addLayout(self.unitsLayout_2)
+
+        self.horizontalLayoutWidget_5 = QWidget(self.tabCons)
+        self.horizontalLayoutWidget_5.setObjectName(u"horizontalLayoutWidget_5")
+        self.horizontalLayoutWidget_5.setGeometry(QRect(0, 0, 521, 451))
+        self.consLayout = QHBoxLayout(self.horizontalLayoutWidget_5)
+        self.consLayout.setObjectName(u"consLayout")
+        self.consLayout.setContentsMargins(0, 0, 0, 0)
+        self.groupBox_3 = QGroupBox(self.tabCons)
+        self.groupBox_3.setObjectName(u"groupBox_3")
+        self.groupBox_3.setGeometry(QRect(530, 20, 261, 101))
+        self.verticalLayoutWidget = QWidget(self.groupBox_3)
+        self.verticalLayoutWidget.setObjectName(u"verticalLayoutWidget")
+        self.verticalLayoutWidget.setGeometry(QRect(10, 30, 241, 61))
+        self.verticalLayout_3 = QVBoxLayout(self.verticalLayoutWidget)
+        self.verticalLayout_3.setObjectName(u"verticalLayout_3")
+        self.verticalLayout_3.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout = QHBoxLayout()
+        self.horizontalLayout.setObjectName(u"horizontalLayout")
+        self.btLoad = QPushButton(self.verticalLayoutWidget)
+        self.btLoad.setObjectName(u"btLoad")
+
+        self.horizontalLayout.addWidget(self.btLoad)
+
+        self.btRefresh = QPushButton(self.verticalLayoutWidget)
+        self.btRefresh.setObjectName(u"btRefresh")
+
+        self.horizontalLayout.addWidget(self.btRefresh)
+
+
+        self.verticalLayout_3.addLayout(self.horizontalLayout)
+
+        self.comboBox = QComboBox(self.verticalLayoutWidget)
+        self.comboBox.addItem("")
+        self.comboBox.addItem("")
+        self.comboBox.setObjectName(u"comboBox")
+
+        self.verticalLayout_3.addWidget(self.comboBox)
+
+        self.groupBox_4 = QGroupBox(self.tabCons)
+        self.groupBox_4.setObjectName(u"groupBox_4")
+        self.groupBox_4.setGeometry(QRect(530, 120, 261, 151))
+        self.horizontalLayoutWidget_7 = QWidget(self.groupBox_4)
+        self.horizontalLayoutWidget_7.setObjectName(u"horizontalLayoutWidget_7")
+        self.horizontalLayoutWidget_7.setGeometry(QRect(10, 30, 241, 111))
+        self.horizontalLayout_3 = QHBoxLayout(self.horizontalLayoutWidget_7)
+        self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
+        self.horizontalLayout_3.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_5 = QVBoxLayout()
+        self.verticalLayout_5.setObjectName(u"verticalLayout_5")
+        self.label_27 = QLabel(self.horizontalLayoutWidget_7)
+        self.label_27.setObjectName(u"label_27")
+        self.label_27.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing|Qt.AlignmentFlag.AlignVCenter)
+
+        self.verticalLayout_5.addWidget(self.label_27)
+
+        self.label_28 = QLabel(self.horizontalLayoutWidget_7)
+        self.label_28.setObjectName(u"label_28")
+        self.label_28.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing|Qt.AlignmentFlag.AlignVCenter)
+
+        self.verticalLayout_5.addWidget(self.label_28)
+
+        self.label_29 = QLabel(self.horizontalLayoutWidget_7)
+        self.label_29.setObjectName(u"label_29")
+        self.label_29.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing|Qt.AlignmentFlag.AlignVCenter)
+
+        self.verticalLayout_5.addWidget(self.label_29)
+
+        self.label_30 = QLabel(self.horizontalLayoutWidget_7)
+        self.label_30.setObjectName(u"label_30")
+        self.label_30.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing|Qt.AlignmentFlag.AlignVCenter)
+
+        self.verticalLayout_5.addWidget(self.label_30)
+
+        self.label_31 = QLabel(self.horizontalLayoutWidget_7)
+        self.label_31.setObjectName(u"label_31")
+        self.label_31.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing|Qt.AlignmentFlag.AlignVCenter)
+
+        self.verticalLayout_5.addWidget(self.label_31)
+
+
+        self.horizontalLayout_3.addLayout(self.verticalLayout_5)
+
+        self.verticalLayout_6 = QVBoxLayout()
+        self.verticalLayout_6.setObjectName(u"verticalLayout_6")
+        self.StartLb = QLabel(self.horizontalLayoutWidget_7)
+        self.StartLb.setObjectName(u"StartLb")
+
+        self.verticalLayout_6.addWidget(self.StartLb)
+
+        self.StopLb = QLabel(self.horizontalLayoutWidget_7)
+        self.StopLb.setObjectName(u"StopLb")
+
+        self.verticalLayout_6.addWidget(self.StopLb)
+
+        self.vLb = QLabel(self.horizontalLayoutWidget_7)
+        self.vLb.setObjectName(u"vLb")
+
+        self.verticalLayout_6.addWidget(self.vLb)
+
+        self.iLb = QLabel(self.horizontalLayoutWidget_7)
+        self.iLb.setObjectName(u"iLb")
+
+        self.verticalLayout_6.addWidget(self.iLb)
+
+        self.tLb = QLabel(self.horizontalLayoutWidget_7)
+        self.tLb.setObjectName(u"tLb")
+
+        self.verticalLayout_6.addWidget(self.tLb)
+
+
+        self.horizontalLayout_3.addLayout(self.verticalLayout_6)
+
         self.Tabs.addTab(self.tabCons, "")
         self.tabAju = QWidget()
         self.tabAju.setObjectName(u"tabAju")
@@ -60,7 +417,7 @@ class Ui_MainWindow(object):
         __qtablewidgetitem1 = QTableWidgetItem()
         self.tabla.setHorizontalHeaderItem(1, __qtablewidgetitem1)
         self.tabla.setObjectName(u"tabla")
-        self.tabla.setGeometry(QRect(0, 240, 221, 192))
+        self.tabla.setGeometry(QRect(0, 240, 211, 192))
         self.layoutWidget = QWidget(self.tabAju)
         self.layoutWidget.setObjectName(u"layoutWidget")
         self.layoutWidget.setGeometry(QRect(360, 150, 221, 21))
@@ -83,6 +440,9 @@ class Ui_MainWindow(object):
         self.svrIN = QHBoxLayout(self.horizontalLayoutWidget)
         self.svrIN.setObjectName(u"svrIN")
         self.svrIN.setContentsMargins(0, 0, 0, 0)
+        self.checkBox = QCheckBox(self.tabAju)
+        self.checkBox.setObjectName(u"checkBox")
+        self.checkBox.setGeometry(QRect(390, 290, 78, 22))
         self.Tabs.addTab(self.tabAju, "")
         MainWindow.setCentralWidget(self.centralwidget)
         self.Tabs.raise_()
@@ -100,8 +460,67 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
         self.btClose.setText(QCoreApplication.translate("MainWindow", u"Close", None))
+        self.btCharge.setText(QCoreApplication.translate("MainWindow", u"Charge with current settings", None))
+        self.groupBox.setTitle(QCoreApplication.translate("MainWindow", u"Charge conficguration", None))
+        self.label_13.setText(QCoreApplication.translate("MainWindow", u"NAME", None))
+        self.label_2.setText(QCoreApplication.translate("MainWindow", u"MAX VOLTAGE ", None))
+        self.label_4.setText(QCoreApplication.translate("MainWindow", u"MAX CURRENT ", None))
+        self.label_5.setText(QCoreApplication.translate("MainWindow", u"MIN CURRENT ", None))
+        self.label_10.setText(QCoreApplication.translate("MainWindow", u"MAX TEMP", None))
+        self.label_11.setText(QCoreApplication.translate("MainWindow", u"TEMP COMP", None))
+        self.label_14.setText("")
+        self.label_6.setText(QCoreApplication.translate("MainWindow", u"V", None))
+        self.label_7.setText(QCoreApplication.translate("MainWindow", u"A", None))
+        self.label_8.setText(QCoreApplication.translate("MainWindow", u"A", None))
+        self.label_9.setText(QCoreApplication.translate("MainWindow", u"\u00baC", None))
+        self.label_12.setText(QCoreApplication.translate("MainWindow", u"-mV/\u00baC", None))
+        self.statusGroup.setTitle(QCoreApplication.translate("MainWindow", u"State", None))
+        self.statusText.setPlainText(QCoreApplication.translate("MainWindow", u"Waiting", None))
+        self.groupBox_5.setTitle(QCoreApplication.translate("MainWindow", u"Select battery model", None))
+        self.batLoad.setText(QCoreApplication.translate("MainWindow", u"Load", None))
+        self.batSave.setText(QCoreApplication.translate("MainWindow", u"Save", None))
+        self.batRefresh.setText(QCoreApplication.translate("MainWindow", u"Refresh", None))
+        self.comboBox_2.setItemText(0, QCoreApplication.translate("MainWindow", u"MVH1290", None))
+        self.comboBox_2.setItemText(1, QCoreApplication.translate("MainWindow", u"MVH1291", None))
+
         self.Tabs.setTabText(self.Tabs.indexOf(self.tabGen), QCoreApplication.translate("MainWindow", u"General", None))
-        self.Tabs.setTabText(self.Tabs.indexOf(self.tabCons), QCoreApplication.translate("MainWindow", u"Consulta", None))
+        self.groupBox_2.setTitle(QCoreApplication.translate("MainWindow", u"Charge configuration", None))
+        self.label_15.setText(QCoreApplication.translate("MainWindow", u"NAME", None))
+        self.label_16.setText(QCoreApplication.translate("MainWindow", u"MAX VOLTAGE ", None))
+        self.label_17.setText(QCoreApplication.translate("MainWindow", u"MAX CURRENT ", None))
+        self.label_18.setText(QCoreApplication.translate("MainWindow", u"MIN CURRENT ", None))
+        self.label_19.setText(QCoreApplication.translate("MainWindow", u"MAX TEMP", None))
+        self.label_20.setText(QCoreApplication.translate("MainWindow", u"TEMP COMP", None))
+        self.batNameLab.setText(QCoreApplication.translate("MainWindow", u"-", None))
+        self.vMLab.setText(QCoreApplication.translate("MainWindow", u"-", None))
+        self.iMLab.setText(QCoreApplication.translate("MainWindow", u"-", None))
+        self.imLab.setText(QCoreApplication.translate("MainWindow", u"-", None))
+        self.tMLab.setText(QCoreApplication.translate("MainWindow", u"-", None))
+        self.ctLab.setText(QCoreApplication.translate("MainWindow", u"-", None))
+        self.label_21.setText("")
+        self.label_22.setText(QCoreApplication.translate("MainWindow", u"V", None))
+        self.label_23.setText(QCoreApplication.translate("MainWindow", u"A", None))
+        self.label_24.setText(QCoreApplication.translate("MainWindow", u"A", None))
+        self.label_25.setText(QCoreApplication.translate("MainWindow", u"\u00baC", None))
+        self.label_26.setText(QCoreApplication.translate("MainWindow", u"-mV/\u00baC", None))
+        self.groupBox_3.setTitle(QCoreApplication.translate("MainWindow", u"Select charge", None))
+        self.btLoad.setText(QCoreApplication.translate("MainWindow", u"Load", None))
+        self.btRefresh.setText(QCoreApplication.translate("MainWindow", u"Refresh", None))
+        self.comboBox.setItemText(0, QCoreApplication.translate("MainWindow", u"MVH1290_DEV0_2025-05-26T23:00:48", None))
+        self.comboBox.setItemText(1, QCoreApplication.translate("MainWindow", u"MVH1290_DEV0_2025-05-26T23:00:49", None))
+
+        self.groupBox_4.setTitle(QCoreApplication.translate("MainWindow", u"Charge summary", None))
+        self.label_27.setText(QCoreApplication.translate("MainWindow", u"Start:", None))
+        self.label_28.setText(QCoreApplication.translate("MainWindow", u"Stop:", None))
+        self.label_29.setText(QCoreApplication.translate("MainWindow", u"Voltage range:", None))
+        self.label_30.setText(QCoreApplication.translate("MainWindow", u"Current range:", None))
+        self.label_31.setText(QCoreApplication.translate("MainWindow", u"Temperature range:", None))
+        self.StartLb.setText(QCoreApplication.translate("MainWindow", u"--", None))
+        self.StopLb.setText(QCoreApplication.translate("MainWindow", u"--", None))
+        self.vLb.setText(QCoreApplication.translate("MainWindow", u"--", None))
+        self.iLb.setText(QCoreApplication.translate("MainWindow", u"--", None))
+        self.tLb.setText(QCoreApplication.translate("MainWindow", u"--", None))
+        self.Tabs.setTabText(self.Tabs.indexOf(self.tabCons), QCoreApplication.translate("MainWindow", u"Summary", None))
         self.lbIP.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
         self.lbHTTP.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
         ___qtablewidgetitem = self.tabla.horizontalHeaderItem(0)
@@ -110,6 +529,7 @@ class Ui_MainWindow(object):
         ___qtablewidgetitem1.setText(QCoreApplication.translate("MainWindow", u"Name", None));
         self.label_3.setText(QCoreApplication.translate("MainWindow", u"Nombre", None))
         self.label.setText(QCoreApplication.translate("MainWindow", u"Direcci\u00f3n IP", None))
-        self.Tabs.setTabText(self.Tabs.indexOf(self.tabAju), QCoreApplication.translate("MainWindow", u"Ajustes", None))
+        self.checkBox.setText(QCoreApplication.translate("MainWindow", u"CheckBox", None))
+        self.Tabs.setTabText(self.Tabs.indexOf(self.tabAju), QCoreApplication.translate("MainWindow", u"Settings", None))
     # retranslateUi
 

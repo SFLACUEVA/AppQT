@@ -4,15 +4,21 @@ import time
 import sqlite3 
 from PySide6.QtWidgets import QApplication, QMainWindow, QPushButton, QLabel, QTableWidget, QTableWidgetItem, QHBoxLayout
 import urllib.request
-import LocalDB as LDB
+
 from sys import platform
 from setup import StartServerIn
 from PySide6 import QtCore
 from ui_form import Ui_MainWindow
+from buttons import *
+from clases import *
 
 ip = None
 srvrName = None
 confPath= "./Resources/conf.db"
+charge = carga()
+cloud = cloudComm() 
+
+
 
 # Important:
 # You need to run the following command to generate the ui_form.py file
@@ -27,23 +33,33 @@ class MainWindow(QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         print("INICIANDO")
-        db = LDB.ConfigDB(confPath)
+        
+        db = ConfigDB(confPath)
         tmp = db.getServer()
         ip = tmp[0]
         srvrName = tmp[1]
-    
+
         IPTAG = self.findChild(QLabel,"lbIP")
         IPTAG.setText(ip)
         print(ip)
-        
+
         GET = urllib.request.urlopen("http://"+ip+"/accesoDB.php?t=u&m=t&c=10").read().decode().strip()
         TESTTAG = self.findChild(QLabel,"lbHTTP")
         print(GET)
         TESTTAG.setText(GET)
         
+        grafico = StartServerIn(self)
+        x = [0,1,2,3,4,5]
+        tension = [9,11,13,14,15,15 ]   # Voltaje
+        corriente = [3,3,3,3,2,1]  # Corriente
+        grafico.plot(tension,corriente,x)
+        
         
         closeBTN = self.findChild(QPushButton,"btClose")
-        closeBTN.clicked.connect(lambda: btClose(closeBTN,self))
+        closeBTN.clicked.connect(lambda: btClose(closeBTN,self,charge))
+        
+        chargeBTN = self.findChild(QPushButton,"btCharge")
+        chargeBTN.clicked.connect(lambda: btCharge(chargeBTN,self,charge,grafico))
         
         lista = db.getServerList()
         tabla = self.findChild(QTableWidget,"tabla")
@@ -56,13 +72,9 @@ class MainWindow(QMainWindow):
             tabla.setItem(i,0,cIP)
             tabla.setItem(i,1,cNam)
             
-        grafico = StartServerIn(self)
         
-        x = [0,1,2,3,4,5]
-        tension = [9,11,13,14,15,15 ]   # Voltaje
-        corriente = [3,3,3,3,2,1]  # Corriente
         
-        grafico.plot(tension,corriente,x)
+       
         
         self.show()
         if platform == "linux":
@@ -70,12 +82,8 @@ class MainWindow(QMainWindow):
             self.showFullScreen()
 
 
-        
 
-def btClose(bt,wndw):
-    print("Close")
-    bt.setText("CLICK")
-    wndw.close()
+
 
 
 
