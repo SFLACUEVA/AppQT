@@ -1,7 +1,6 @@
 # This Python file uses the following encoding: utf-8
 import sys
-import time
-import sqlite3 
+
 from PySide6.QtWidgets import QApplication, QMainWindow, QPushButton, QLabel, QTableWidget, QTableWidgetItem, QHBoxLayout
 import urllib.request
 
@@ -11,12 +10,8 @@ from PySide6 import QtCore
 from ui_form import Ui_MainWindow
 from buttons import *
 from clases import *
+import pathlib
 
-ip = None
-srvrName = None
-confPath= ".\\Resources\\conf.db"
-charge = carga()
-cloud = cloudComm() 
 
 
 
@@ -33,6 +28,13 @@ class MainWindow(QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         print("INICIANDO")
+        
+        ip = None
+        srvrName = None
+        confPath= str(pathlib.Path(__file__).parent.resolve() / "Resources" / "conf.db")
+        charge = carga()
+        cloud = cloudComm() 
+        
         
         db = ConfigDB(confPath)
         tmp = db.getServer()

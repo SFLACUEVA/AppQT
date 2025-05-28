@@ -1,6 +1,7 @@
 import datetime;
 import time
 import sqlite3 
+import pathlib
 
 class carga():
     
@@ -74,8 +75,8 @@ class carga():
         
     def updateLocal(self):
         
-        
-        con = sqlite3.connect("Resources\\measures.db")
+        sqlpath = str(pathlib.Path(__file__).parent.resolve() / "Resources" / "measures.db")
+        con = sqlite3.connect(sqlpath)
         cur = con.cursor()
         
         self.tableName = self.batName + "_" + self.dev + "_" + str(self.StartTime)
