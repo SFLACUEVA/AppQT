@@ -14,7 +14,7 @@ from clases import *
 
 ip = None
 srvrName = None
-confPath= "./Resources/conf.db"
+confPath= ".\\Resources\\conf.db"
 charge = carga()
 cloud = cloudComm() 
 
