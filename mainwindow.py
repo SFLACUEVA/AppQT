@@ -43,8 +43,9 @@ class MainWindow(QMainWindow):
         IPTAG.setText(ip)
         print(ip)
 
-        GET = urllib.request.urlopen("http://"+ip+"/accesoDB.php?t=u&m=t&c=10").read().decode().strip()
+        #GET = urllib.request.urlopen("http://"+ip+"/accesoDB.php?t=u&m=t&c=10").read().decode().strip()
         TESTTAG = self.findChild(QLabel,"lbHTTP")
+        GET = "OFFLINE"
         print(GET)
         TESTTAG.setText(GET)
         
