@@ -126,6 +126,7 @@ class ConfigDB():
     
     def  __init__(self,db):
         self.path = db
+        print(db)
         self.con = sqlite3.connect(self.path)
         self.cur = self.con.cursor()
         
