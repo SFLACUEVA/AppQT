@@ -9,6 +9,7 @@ from matplotlib.backends.backend_qtagg import FigureCanvasQTAgg as FigureCanvas
 
 def StartServerIn(wd):
     ventana = wd
+    ventana.showNormal()
     grid = ventana.findChild(QHBoxLayout,"svrIN")
     
     ipIN = LineEdit("")

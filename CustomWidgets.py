@@ -67,12 +67,12 @@ class LineEdit(QLineEdit):
     def OnKB(self):
         if self.plat == "linux":
             sleep(0.1)
-            self.ventana.showNormal()
+            #self.ventana.showNormal()
             
     def OffKB(self):
         if self.plat == "linux":
-            #sleep(0.5)
-            self.ventana.showFullScreen()
+            sleep(0.1)
+            #self.ventana.showFullScreen()
             
         
     def setOutFocusAct(self, funcion ):

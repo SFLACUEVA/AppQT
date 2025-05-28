@@ -82,7 +82,7 @@ class MainWindow(QMainWindow):
         self.show()
         if platform == "linux":
             self.setWindowFlag(QtCore.Qt.WindowType.FramelessWindowHint)
-            self.showFullScreen()
+            self.showMaximized()
 
 
 
