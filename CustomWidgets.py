@@ -34,17 +34,17 @@ class DualAxisChart(QWidget):
         ax2.set_ylim(0,3.5)
         
         # Primer eje (Tensión)
-        ax1.plot(tiempo, tension, 'b-', label="Tensión (V)")
-        ax1.set_ylabel("Tensión (V)", color='b')
+        ax1.plot(tiempo, tension, 'b-', label="Voltage (V)")
+        ax1.set_ylabel("Voltage (V)", color='b')
         ax1.tick_params(axis='y', labelcolor='b')
 
         # Segundo eje (Corriente)
-        ax2.plot(tiempo, corriente, 'r--', label="Corriente (A)")
-        ax2.set_ylabel("Corriente (A)", color='r')
+        ax2.plot(tiempo, corriente, 'r--', label="Current (A)")
+        ax2.set_ylabel("Current (A)", color='r')
         ax2.tick_params(axis='y', labelcolor='r')
 
         # Eje X
-        ax1.set_xlabel("Tiempo (s)")
+        ax1.set_xlabel("")
 
         # Leyenda combinada (opcional)
         lines1, labels1 = ax1.get_legend_handles_labels()
