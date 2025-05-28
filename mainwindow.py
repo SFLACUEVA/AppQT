@@ -64,6 +64,15 @@ class MainWindow(QMainWindow):
         chargeBTN = self.findChild(QPushButton,"btCharge")
         chargeBTN.clicked.connect(lambda: btCharge(chargeBTN,self,charge,grafico))
         
+        saveBTN = self.findChild(QPushButton,"batSave")
+        saveBTN.clicked.connect(lambda: batSave(self,confPath))
+        
+        batRefreshBTN = self.findChild(QPushButton,"batRefresh")
+        batRefreshBTN.clicked.connect(lambda: batRefresh(self,confPath))
+        
+        batLoadBTN = self.findChild(QPushButton,"batLoad")
+        batLoadBTN.clicked.connect(lambda: batLoad(self,confPath))
+        
         lista = db.getServerList()
         tabla = self.findChild(QTableWidget,"tabla")
         

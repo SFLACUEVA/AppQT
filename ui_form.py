@@ -141,7 +141,7 @@ class Ui_MainWindow(object):
         self.groupBox_5.setGeometry(QRect(530, 230, 261, 101))
         self.verticalLayoutWidget_2 = QWidget(self.groupBox_5)
         self.verticalLayoutWidget_2.setObjectName(u"verticalLayoutWidget_2")
-        self.verticalLayoutWidget_2.setGeometry(QRect(10, 30, 241, 61))
+        self.verticalLayoutWidget_2.setGeometry(QRect(10, 30, 256, 61))
         self.verticalLayout_4 = QVBoxLayout(self.verticalLayoutWidget_2)
         self.verticalLayout_4.setObjectName(u"verticalLayout_4")
         self.verticalLayout_4.setContentsMargins(0, 0, 0, 0)
@@ -165,12 +165,12 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_4.addLayout(self.horizontalLayout_2)
 
-        self.comboBox_2 = QComboBox(self.verticalLayoutWidget_2)
-        self.comboBox_2.addItem("")
-        self.comboBox_2.addItem("")
-        self.comboBox_2.setObjectName(u"comboBox_2")
+        self.batCombo = QComboBox(self.verticalLayoutWidget_2)
+        self.batCombo.addItem("")
+        self.batCombo.addItem("")
+        self.batCombo.setObjectName(u"batCombo")
 
-        self.verticalLayout_4.addWidget(self.comboBox_2)
+        self.verticalLayout_4.addWidget(self.batCombo)
 
         self.Tabs.addTab(self.tabGen, "")
         self.tabCons = QWidget()
@@ -461,7 +461,7 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
         self.btClose.setText(QCoreApplication.translate("MainWindow", u"Close", None))
         self.btCharge.setText(QCoreApplication.translate("MainWindow", u"Charge with current settings", None))
-        self.groupBox.setTitle(QCoreApplication.translate("MainWindow", u"Charge conficguration", None))
+        self.groupBox.setTitle(QCoreApplication.translate("MainWindow", u"Charge configuration", None))
         self.label_13.setText(QCoreApplication.translate("MainWindow", u"NAME", None))
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"MAX VOLTAGE ", None))
         self.label_4.setText(QCoreApplication.translate("MainWindow", u"MAX CURRENT ", None))
@@ -480,8 +480,8 @@ class Ui_MainWindow(object):
         self.batLoad.setText(QCoreApplication.translate("MainWindow", u"Load", None))
         self.batSave.setText(QCoreApplication.translate("MainWindow", u"Save", None))
         self.batRefresh.setText(QCoreApplication.translate("MainWindow", u"Refresh", None))
-        self.comboBox_2.setItemText(0, QCoreApplication.translate("MainWindow", u"MVH1290", None))
-        self.comboBox_2.setItemText(1, QCoreApplication.translate("MainWindow", u"MVH1291", None))
+        self.batCombo.setItemText(0, QCoreApplication.translate("MainWindow", u"MVH1290", None))
+        self.batCombo.setItemText(1, QCoreApplication.translate("MainWindow", u"MVH1291", None))
 
         self.Tabs.setTabText(self.Tabs.indexOf(self.tabGen), QCoreApplication.translate("MainWindow", u"General", None))
         self.groupBox_2.setTitle(QCoreApplication.translate("MainWindow", u"Charge configuration", None))
