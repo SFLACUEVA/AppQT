@@ -98,7 +98,7 @@ class carga():
         
         
         
-        req = ("INSERT INTO summary ('Name','Start','Stop','Table','LimVMax','LimIMax','LimIMin','ct','LimTMax','MeasVMax','MeasVMin','MeasIMax','MeasIMin','MeasTMax','MeasTMin','DeviceName') VALUES (")
+        req = ("INSERT INTO summary ('Name','Start','Stop','Tabla','LimVMax','LimIMax','LimIMin','ct','LimTMax','MeasVMax','MeasVMin','MeasIMax','MeasIMin','MeasTMax','MeasTMin','DeviceName') VALUES (")
         req= req + "'" + self.batName + "',"
         req= req + "'" + str(self.StartTime) + "',"
         req= req + "'" + str(self.StopTime) + "',"

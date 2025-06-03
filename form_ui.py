@@ -39,9 +39,9 @@ class Ui_MainWindow(object):
         self.horizontalLayoutWidget_2 = QWidget(self.tabGen)
         self.horizontalLayoutWidget_2.setObjectName(u"horizontalLayoutWidget_2")
         self.horizontalLayoutWidget_2.setGeometry(QRect(0, 0, 521, 451))
-        self.grapLayout = QHBoxLayout(self.horizontalLayoutWidget_2)
-        self.grapLayout.setObjectName(u"grapLayout")
-        self.grapLayout.setContentsMargins(0, 0, 0, 0)
+        self.chaLayout = QHBoxLayout(self.horizontalLayoutWidget_2)
+        self.chaLayout.setObjectName(u"chaLayout")
+        self.chaLayout.setContentsMargins(0, 0, 0, 0)
         self.btCharge = QPushButton(self.tabGen)
         self.btCharge.setObjectName(u"btCharge")
         self.btCharge.setGeometry(QRect(530, 0, 261, 41))
@@ -167,7 +167,6 @@ class Ui_MainWindow(object):
 
         self.batCombo = QComboBox(self.verticalLayoutWidget_2)
         self.batCombo.addItem("")
-        self.batCombo.addItem("")
         self.batCombo.setObjectName(u"batCombo")
 
         self.verticalLayout_4.addWidget(self.batCombo)
@@ -223,31 +222,37 @@ class Ui_MainWindow(object):
         self.consConfLayout.setObjectName(u"consConfLayout")
         self.batNameLab = QLabel(self.horizontalLayoutWidget_4)
         self.batNameLab.setObjectName(u"batNameLab")
+        self.batNameLab.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing|Qt.AlignmentFlag.AlignVCenter)
 
         self.consConfLayout.addWidget(self.batNameLab)
 
         self.vMLab = QLabel(self.horizontalLayoutWidget_4)
         self.vMLab.setObjectName(u"vMLab")
+        self.vMLab.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing|Qt.AlignmentFlag.AlignVCenter)
 
         self.consConfLayout.addWidget(self.vMLab)
 
         self.iMLab = QLabel(self.horizontalLayoutWidget_4)
         self.iMLab.setObjectName(u"iMLab")
+        self.iMLab.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing|Qt.AlignmentFlag.AlignVCenter)
 
         self.consConfLayout.addWidget(self.iMLab)
 
         self.imLab = QLabel(self.horizontalLayoutWidget_4)
         self.imLab.setObjectName(u"imLab")
+        self.imLab.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing|Qt.AlignmentFlag.AlignVCenter)
 
         self.consConfLayout.addWidget(self.imLab)
 
         self.tMLab = QLabel(self.horizontalLayoutWidget_4)
         self.tMLab.setObjectName(u"tMLab")
+        self.tMLab.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing|Qt.AlignmentFlag.AlignVCenter)
 
         self.consConfLayout.addWidget(self.tMLab)
 
         self.ctLab = QLabel(self.horizontalLayoutWidget_4)
         self.ctLab.setObjectName(u"ctLab")
+        self.ctLab.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing|Qt.AlignmentFlag.AlignVCenter)
 
         self.consConfLayout.addWidget(self.ctLab)
 
@@ -319,12 +324,10 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_3.addLayout(self.horizontalLayout)
 
-        self.comboBox = QComboBox(self.verticalLayoutWidget)
-        self.comboBox.addItem("")
-        self.comboBox.addItem("")
-        self.comboBox.setObjectName(u"comboBox")
+        self.sumCombo = QComboBox(self.verticalLayoutWidget)
+        self.sumCombo.setObjectName(u"sumCombo")
 
-        self.verticalLayout_3.addWidget(self.comboBox)
+        self.verticalLayout_3.addWidget(self.sumCombo)
 
         self.groupBox_4 = QGroupBox(self.tabCons)
         self.groupBox_4.setObjectName(u"groupBox_4")
@@ -481,7 +484,6 @@ class Ui_MainWindow(object):
         self.batSave.setText(QCoreApplication.translate("MainWindow", u"Save", None))
         self.batRefresh.setText(QCoreApplication.translate("MainWindow", u"Refresh", None))
         self.batCombo.setItemText(0, QCoreApplication.translate("MainWindow", u"MVH1290", None))
-        self.batCombo.setItemText(1, QCoreApplication.translate("MainWindow", u"MVH1291", None))
 
         self.Tabs.setTabText(self.Tabs.indexOf(self.tabGen), QCoreApplication.translate("MainWindow", u"General", None))
         self.groupBox_2.setTitle(QCoreApplication.translate("MainWindow", u"Charge configuration", None))
@@ -506,9 +508,6 @@ class Ui_MainWindow(object):
         self.groupBox_3.setTitle(QCoreApplication.translate("MainWindow", u"Select charge", None))
         self.btLoad.setText(QCoreApplication.translate("MainWindow", u"Load", None))
         self.btRefresh.setText(QCoreApplication.translate("MainWindow", u"Refresh", None))
-        self.comboBox.setItemText(0, QCoreApplication.translate("MainWindow", u"MVH1290_DEV0_2025-05-26T23:00:48", None))
-        self.comboBox.setItemText(1, QCoreApplication.translate("MainWindow", u"MVH1290_DEV0_2025-05-26T23:00:49", None))
-
         self.groupBox_4.setTitle(QCoreApplication.translate("MainWindow", u"Charge summary", None))
         self.label_27.setText(QCoreApplication.translate("MainWindow", u"Start:", None))
         self.label_28.setText(QCoreApplication.translate("MainWindow", u"Stop:", None))

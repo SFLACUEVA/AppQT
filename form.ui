@@ -52,7 +52,7 @@
         <height>451</height>
        </rect>
       </property>
-      <layout class="QHBoxLayout" name="grapLayout"/>
+      <layout class="QHBoxLayout" name="chaLayout"/>
      </widget>
      <widget class="QPushButton" name="btCharge">
       <property name="geometry">
@@ -270,11 +270,6 @@
             <string>MVH1290</string>
            </property>
           </item>
-          <item>
-           <property name="text">
-            <string>MVH1291</string>
-           </property>
-          </item>
          </widget>
         </item>
        </layout>
@@ -360,12 +355,18 @@
             <property name="text">
              <string>-</string>
             </property>
+            <property name="alignment">
+             <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+            </property>
            </widget>
           </item>
           <item>
            <widget class="QLabel" name="vMLab">
             <property name="text">
              <string>-</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
             </property>
            </widget>
           </item>
@@ -374,12 +375,18 @@
             <property name="text">
              <string>-</string>
             </property>
+            <property name="alignment">
+             <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+            </property>
            </widget>
           </item>
           <item>
            <widget class="QLabel" name="imLab">
             <property name="text">
              <string>-</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
             </property>
            </widget>
           </item>
@@ -388,12 +395,18 @@
             <property name="text">
              <string>-</string>
             </property>
+            <property name="alignment">
+             <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+            </property>
            </widget>
           </item>
           <item>
            <widget class="QLabel" name="ctLab">
             <property name="text">
              <string>-</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
             </property>
            </widget>
           </item>
@@ -500,18 +513,7 @@
          </layout>
         </item>
         <item>
-         <widget class="QComboBox" name="comboBox">
-          <item>
-           <property name="text">
-            <string>MVH1290_DEV0_2025-05-26T23:00:48</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>MVH1290_DEV0_2025-05-26T23:00:49</string>
-           </property>
-          </item>
-         </widget>
+         <widget class="QComboBox" name="sumCombo"/>
         </item>
        </layout>
       </widget>

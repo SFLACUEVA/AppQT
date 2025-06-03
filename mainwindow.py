@@ -32,6 +32,7 @@ class MainWindow(QMainWindow):
         ip = None
         srvrName = None
         confPath= str(pathlib.Path(__file__).parent.resolve() / "Resources" / "conf.db")
+        measPath = str(pathlib.Path(__file__).parent.resolve() / "Resources" / "measures.db")
         charge = carga()
         cloud = cloudComm() 
         
@@ -51,18 +52,18 @@ class MainWindow(QMainWindow):
         print(GET)
         TESTTAG.setText(GET)
         
-        grafico = StartServerIn(self)
+        graficoS,graficoC = StartServerIn(self)
         x = [0,1,2,3,4,5]
         tension = [9,11,13,14,15,15 ]   # Voltaje
         corriente = [3,3,3,3,2,1]  # Corriente
-        grafico.plot(tension,corriente,x)
+        #grafico.plot(tension,corriente,x)
         
         
         closeBTN = self.findChild(QPushButton,"btClose")
         closeBTN.clicked.connect(lambda: btClose(closeBTN,self,charge))
         
         chargeBTN = self.findChild(QPushButton,"btCharge")
-        chargeBTN.clicked.connect(lambda: btCharge(chargeBTN,self,charge,grafico))
+        chargeBTN.clicked.connect(lambda: btCharge(chargeBTN,self,charge,graficoC))
         
         saveBTN = self.findChild(QPushButton,"batSave")
         saveBTN.clicked.connect(lambda: batSave(self,confPath))
@@ -72,6 +73,13 @@ class MainWindow(QMainWindow):
         
         batLoadBTN = self.findChild(QPushButton,"batLoad")
         batLoadBTN.clicked.connect(lambda: batLoad(self,confPath))
+
+        btRefreshBTN = self.findChild(QPushButton,"btRefresh")
+        btRefreshBTN.clicked.connect(lambda: btRefresh(self,measPath))
+        
+        btLoadBTN = self.findChild(QPushButton,"btLoad")
+        btLoadBTN.clicked.connect(lambda: btLoad(self,measPath,graficoS))       
+        
         
         lista = db.getServerList()
         tabla = self.findChild(QTableWidget,"tabla")

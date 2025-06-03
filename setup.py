@@ -23,7 +23,9 @@ def StartServerIn(wd):
     grid.addWidget(nameIN)
     grid.addWidget(ipIN)
     
-    grafico = DualAxisChart(wd)
+    graficoC = DualAxisChart(wd,"chaLayout")
+    graficoS = DualAxisChart(wd,"consLayout")
+    
     gridLim = ventana.findChild(QVBoxLayout,"limLayout")
     
     nameIN = LineEdit("")
@@ -68,7 +70,7 @@ def StartServerIn(wd):
     
     
     
-    return grafico
+    return graficoS,graficoC
     
     
     
