@@ -41,7 +41,8 @@ def are_ok(vM,iM,im,tM,ct):
 def threadCargar(carga: clases.carga,graf: DualAxisChart):
     
     IO=io()
-    IO.pot.write(0)
+    IO.pot.write(1023)
+    IO.iLim(45)
     IO.buckEn.off()
     IO.RELAY0.on()
     sleep(0.5)

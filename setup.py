@@ -3,7 +3,7 @@ from PySide6.QtCore import QEvent
 from PySide6 import QtCore
 from PySide6.QtGui import QFocusEvent
 from CustomWidgets import LineEdit, DualAxisChart 
-
+from PySide6.QtCore import Qt
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_qtagg import FigureCanvasQTAgg as FigureCanvas
 
@@ -15,6 +15,7 @@ def StartServerIn(wd):
     ipIN = LineEdit("")
     ipIN.setObjectName("ipIN")
     ipIN.setWD(wd)
+    
     
     nameIN = LineEdit("")
     nameIN.setObjectName("nameIN")
@@ -32,6 +33,7 @@ def StartServerIn(wd):
     nameIN.setText("MVH1290")
     nameIN.setObjectName("batNameIN")
     nameIN.setWD(wd)
+    nameIN.setFocusPolicy(Qt.FocusPolicy.ClickFocus)
     
     vMaxIN = LineEdit("")
     vMaxIN.setObjectName("vMaxIN")

@@ -34,6 +34,7 @@ class Ui_MainWindow(object):
         self.Tabs = QTabWidget(self.centralwidget)
         self.Tabs.setObjectName(u"Tabs")
         self.Tabs.setGeometry(QRect(0, 0, 800, 480))
+        self.Tabs.setFocusPolicy(Qt.FocusPolicy.ClickFocus)
         self.tabGen = QWidget()
         self.tabGen.setObjectName(u"tabGen")
         self.horizontalLayoutWidget_2 = QWidget(self.tabGen)
