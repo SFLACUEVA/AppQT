@@ -66,8 +66,8 @@ def threadCargar(carga: clases.carga,graf: DualAxisChart):
 
 def cargar(carga: clases.carga,graf: DualAxisChart,IO:io):
     print("CARGA")
-    IO.getVI()
-    carga.add(random.randrange(13,15),random.randrange(0,3),random.randrange(25,55))
+    v,i=IO.getVI()
+    carga.add(v,i/1000,random.randrange(25,55))
     graf.plot(carga.V,carga.I,carga.D)
     
 
