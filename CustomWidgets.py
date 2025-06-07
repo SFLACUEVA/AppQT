@@ -9,6 +9,7 @@ from datetime import datetime
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_qtagg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.ticker import MaxNLocator
+import subprocess
 
 class DualAxisChart(QWidget):
     def __init__(self,wd,lo):
@@ -62,8 +63,6 @@ class DualAxisChart(QWidget):
 
         self.canvas.draw()
 
-
-
 class LineEdit(QLineEdit):
     
     plat = platform
@@ -76,11 +75,13 @@ class LineEdit(QLineEdit):
     def OnKB(self):
         if self.plat == "linux":
             sleep(0.1)
+            subprocess.run(["wvkbd-mobintl"])
             #self.ventana.showNormal()
             
     def OffKB(self):
         if self.plat == "linux":
             sleep(0.1)
+            subprocess.run(["killall wvkbd-mobintl"])
             #self.ventana.showFullScreen()
             
         
