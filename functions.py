@@ -42,7 +42,7 @@ def threadCargar(carga: clases.carga,graf: DualAxisChart):
     
     IO=io()
     IO.pot.write(1023)
-    IO.iLim(45)
+    IO.iLim.setDuty(45)
     IO.buckEn.off()
     IO.RELAY0.on()
     sleep(0.5)
