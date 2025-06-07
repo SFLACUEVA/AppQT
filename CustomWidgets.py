@@ -75,13 +75,13 @@ class LineEdit(QLineEdit):
     def OnKB(self):
         if self.plat == "linux":
             sleep(0.1)
-            subprocess.run(["wvkbd-mobintl"])
+            subprocess.run(["cd","wvkbd-mobintl"])
             #self.ventana.showNormal()
             
     def OffKB(self):
         if self.plat == "linux":
             sleep(0.1)
-            subprocess.run(["killall wvkbd-mobintl"])
+            subprocess.run(["cd","killall wvkbd-mobintl"])
             #self.ventana.showFullScreen()
             
         
