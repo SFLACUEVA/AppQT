@@ -9,20 +9,34 @@ from matplotlib.backends.backend_qtagg import FigureCanvasQTAgg as FigureCanvas
 
 def StartServerIn(wd):
     ventana = wd
-    ventana.showNormal()
-    grid = ventana.findChild(QHBoxLayout,"svrIN")
+    confGrid = ventana.findChild(QHBoxLayout,"confLayout")
     
     ipIN = LineEdit("")
     ipIN.setObjectName("ipIN")
     ipIN.setWD(wd)
     
+    devIN = LineEdit("")
+    devIN.setObjectName("devIN")
+    devIN.setWD(wd)
     
-    nameIN = LineEdit("")
-    nameIN.setObjectName("nameIN")
-    nameIN.setWD(wd)
+    rIN = LineEdit("")
+    rIN.setObjectName("rIN")
+    rIN.setText("30")
+    rIN.setWD(wd)    
     
-    grid.addWidget(nameIN)
-    grid.addWidget(ipIN)
+    ssidIN = LineEdit("")
+    ssidIN.setObjectName("ssidIN")
+    ssidIN.setWD(wd)
+    
+    pwdIN = LineEdit("")
+    pwdIN.setObjectName("pwdIN")
+    pwdIN.setWD(wd)      
+    
+
+    
+    confGrid.addWidget(nameIN)
+    confGrid.addWidget(ipIN)
+    confGrid.addWidget(ipIN)
     
     graficoC = DualAxisChart(wd,"chaLayout")
     graficoS = DualAxisChart(wd,"consLayout")
@@ -34,7 +48,6 @@ def StartServerIn(wd):
     nameIN.setText("MVH1290")
     nameIN.setObjectName("batNameIN")
     nameIN.setWD(wd)
-    nameIN.setFocusPolicy(Qt.FocusPolicy.ClickFocus)
     
     vMaxIN = LineEdit("")
     vMaxIN.setObjectName("vMaxIN")

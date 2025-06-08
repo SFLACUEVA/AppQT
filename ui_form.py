@@ -522,6 +522,55 @@ class Ui_MainWindow(object):
         self.Tabs.addTab(self.tabTest, "")
         self.tabAju = QWidget()
         self.tabAju.setObjectName(u"tabAju")
+        self.groupBox_8 = QGroupBox(self.tabAju)
+        self.groupBox_8.setObjectName(u"groupBox_8")
+        self.groupBox_8.setGeometry(QRect(10, 10, 241, 151))
+        self.horizontalLayoutWidget = QWidget(self.groupBox_8)
+        self.horizontalLayoutWidget.setObjectName(u"horizontalLayoutWidget")
+        self.horizontalLayoutWidget.setGeometry(QRect(10, 30, 221, 111))
+        self.horizontalLayout_6 = QHBoxLayout(self.horizontalLayoutWidget)
+        self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
+        self.horizontalLayout_6.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_12 = QVBoxLayout()
+        self.verticalLayout_12.setObjectName(u"verticalLayout_12")
+        self.label = QLabel(self.horizontalLayoutWidget)
+        self.label.setObjectName(u"label")
+        self.label.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing|Qt.AlignmentFlag.AlignVCenter)
+
+        self.verticalLayout_12.addWidget(self.label)
+
+        self.label_37 = QLabel(self.horizontalLayoutWidget)
+        self.label_37.setObjectName(u"label_37")
+        self.label_37.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing|Qt.AlignmentFlag.AlignVCenter)
+
+        self.verticalLayout_12.addWidget(self.label_37)
+
+        self.label_38 = QLabel(self.horizontalLayoutWidget)
+        self.label_38.setObjectName(u"label_38")
+        self.label_38.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing|Qt.AlignmentFlag.AlignVCenter)
+
+        self.verticalLayout_12.addWidget(self.label_38)
+
+        self.label_36 = QLabel(self.horizontalLayoutWidget)
+        self.label_36.setObjectName(u"label_36")
+        self.label_36.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing|Qt.AlignmentFlag.AlignVCenter)
+
+        self.verticalLayout_12.addWidget(self.label_36)
+
+        self.label_3 = QLabel(self.horizontalLayoutWidget)
+        self.label_3.setObjectName(u"label_3")
+        self.label_3.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing|Qt.AlignmentFlag.AlignVCenter)
+
+        self.verticalLayout_12.addWidget(self.label_3)
+
+
+        self.horizontalLayout_6.addLayout(self.verticalLayout_12)
+
+        self.verticalLayout_13 = QVBoxLayout()
+        self.verticalLayout_13.setObjectName(u"verticalLayout_13")
+
+        self.horizontalLayout_6.addLayout(self.verticalLayout_13)
+
         self.Tabs.addTab(self.tabAju, "")
         MainWindow.setCentralWidget(self.centralwidget)
         self.Tabs.raise_()
@@ -530,7 +579,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.Tabs.setCurrentIndex(2)
+        self.Tabs.setCurrentIndex(3)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -610,6 +659,12 @@ class Ui_MainWindow(object):
         self.label_39.setText(QCoreApplication.translate("MainWindow", u"Battery name:", None))
         self.testBtn_2.setText(QCoreApplication.translate("MainWindow", u"Start test", None))
         self.Tabs.setTabText(self.Tabs.indexOf(self.tabTest), QCoreApplication.translate("MainWindow", u"Test", None))
+        self.groupBox_8.setTitle(QCoreApplication.translate("MainWindow", u"Settings", None))
+        self.label.setText(QCoreApplication.translate("MainWindow", u"Server address:", None))
+        self.label_37.setText(QCoreApplication.translate("MainWindow", u"Device name:", None))
+        self.label_38.setText(QCoreApplication.translate("MainWindow", u"Load resistor:", None))
+        self.label_36.setText(QCoreApplication.translate("MainWindow", u"SSID:", None))
+        self.label_3.setText(QCoreApplication.translate("MainWindow", u"SSID Password:", None))
         self.Tabs.setTabText(self.Tabs.indexOf(self.tabAju), QCoreApplication.translate("MainWindow", u"Settings", None))
     # retranslateUi
 

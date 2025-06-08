@@ -32,7 +32,7 @@ class MainWindow(QMainWindow):
         confPath= str(pathlib.Path(__file__).parent.resolve() / "Resources" / "conf.db")
         measPath = str(pathlib.Path(__file__).parent.resolve() / "Resources" / "measures.db")
         charge = carga()
-        cloud = cloudComm() 
+        #cloud = cloudComm() 
         
         graficoS,graficoC,graficoD = StartServerIn(self)
         
