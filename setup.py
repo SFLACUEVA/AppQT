@@ -26,6 +26,7 @@ def StartServerIn(wd):
     
     graficoC = DualAxisChart(wd,"chaLayout")
     graficoS = DualAxisChart(wd,"consLayout")
+    graficoD = DualAxisChart(wd,"loadLayout")
     
     gridLim = ventana.findChild(QVBoxLayout,"limLayout")
     
@@ -37,11 +38,11 @@ def StartServerIn(wd):
     
     vMaxIN = LineEdit("")
     vMaxIN.setObjectName("vMaxIN")
-    vMaxIN.setText("14.9")
+    vMaxIN.setText("14")
     vMaxIN.setWD(wd)
     
     iMinIN = LineEdit("")
-    iMinIN.setText("0.5")
+    iMinIN.setText("0.25")
     iMinIN.setObjectName("iMinIN")
     iMinIN.setWD(wd)
     
@@ -60,6 +61,8 @@ def StartServerIn(wd):
     ctIN.setObjectName("ctIN")
     ctIN.setWD(wd)
     
+    
+    
     gridLim.addWidget(nameIN)
     gridLim.addWidget(vMaxIN)
     gridLim.addWidget(iMaxIN)
@@ -72,7 +75,7 @@ def StartServerIn(wd):
     
     
     
-    return graficoS,graficoC
+    return graficoS,graficoC,graficoD
     
     
     

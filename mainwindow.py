@@ -29,35 +29,12 @@ class MainWindow(QMainWindow):
         self.ui.setupUi(self)
         print("INICIANDO")
         
-        ip = None
-        srvrName = None
         confPath= str(pathlib.Path(__file__).parent.resolve() / "Resources" / "conf.db")
         measPath = str(pathlib.Path(__file__).parent.resolve() / "Resources" / "measures.db")
         charge = carga()
         cloud = cloudComm() 
         
-        
-        db = ConfigDB(confPath)
-        tmp = db.getServer()
-        ip = tmp[0]
-        srvrName = tmp[1]
-
-        IPTAG = self.findChild(QLabel,"lbIP")
-        IPTAG.setText(ip)
-        print(ip)
-
-        #GET = urllib.request.urlopen("http://"+ip+"/accesoDB.php?t=u&m=t&c=10").read().decode().strip()
-        TESTTAG = self.findChild(QLabel,"lbHTTP")
-        GET = "OFFLINE"
-        print(GET)
-        TESTTAG.setText(GET)
-        
-        graficoS,graficoC = StartServerIn(self)
-        x = [0,1,2,3,4,5]
-        tension = [9,11,13,14,15,15 ]   # Voltaje
-        corriente = [3,3,3,3,2,1]  # Corriente
-        #grafico.plot(tension,corriente,x)
-        
+        graficoS,graficoC,graficoD = StartServerIn(self)
         
         closeBTN = self.findChild(QPushButton,"btClose")
         closeBTN.clicked.connect(lambda: btClose(closeBTN,self,charge))
@@ -79,22 +56,7 @@ class MainWindow(QMainWindow):
         
         btLoadBTN = self.findChild(QPushButton,"btLoad")
         btLoadBTN.clicked.connect(lambda: btLoad(self,measPath,graficoS))       
-        
-        
-        lista = db.getServerList()
-        tabla = self.findChild(QTableWidget,"tabla")
-        
-        tabla.setRowCount(len(lista))
-        for i in range(len(lista)):
-            cIP = QTableWidgetItem(lista[i][0])
-            cNam = QTableWidgetItem(lista[i][1])
-            #fila.setText("1")
-            tabla.setItem(i,0,cIP)
-            tabla.setItem(i,1,cNam)
-            
-        
-        
-       
+              
         
         self.show()
         if platform == "linux":

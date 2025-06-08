@@ -2,6 +2,7 @@ import datetime;
 import time
 import sqlite3 
 import pathlib
+import urllib
 
 class carga():
     
@@ -146,9 +147,28 @@ class ConfigDB():
         
 class cloudComm():
     isActtive = False
-    ip = None
 
+    
+    def __init__(self,ip):
+        self.ip
+    
+    def createTable(carga:carga):
+        req = "http://"+cloud.ip+"/measures.php?name="+carga.batName
+        req = req +"&start=" + str(carga)
+        req = req +"&tabla=" + str(carga)
+        req = req +"&LimVMax=" + str(carga)
+        req = req +"&LimIMax=" + str(carga)
+        req = req +"&LimIMin=" + str(carga)
+        req = req +"&ct=" + str(carga)
+        req = req +"&LimTMax=" + str(carga)
+        req = req +"&DeviceName=" + str(carga)
         
+        urllib.request.urlopen(req).read().decode().strip()
+
+if __name__=='__main__':  
+    
+    cloud = cloudComm("SFLTFG")
+    cloud.createTable()
         
         
     
