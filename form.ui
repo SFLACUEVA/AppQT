@@ -40,7 +40,7 @@
      <enum>Qt::FocusPolicy::ClickFocus</enum>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="tabGen">
      <attribute name="title">
@@ -936,7 +936,7 @@
      <widget class="QLabel" name="label_40">
       <property name="geometry">
        <rect>
-        <x>640</x>
+        <x>0</x>
         <y>430</y>
         <width>151</width>
         <height>16</height>
@@ -950,7 +950,7 @@
    </widget>
    <widget class="QCheckBox" name="checkBox">
     <property name="enabled">
-     <bool>true</bool>
+     <bool>false</bool>
     </property>
     <property name="geometry">
      <rect>

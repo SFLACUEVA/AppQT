@@ -580,11 +580,11 @@ class Ui_MainWindow(object):
         self.pushButton_2.setGeometry(QRect(260, 60, 111, 24))
         self.label_40 = QLabel(self.tabAju)
         self.label_40.setObjectName(u"label_40")
-        self.label_40.setGeometry(QRect(640, 430, 151, 16))
+        self.label_40.setGeometry(QRect(0, 430, 151, 16))
         self.Tabs.addTab(self.tabAju, "")
         self.checkBox = QCheckBox(self.centralwidget)
         self.checkBox.setObjectName(u"checkBox")
-        self.checkBox.setEnabled(True)
+        self.checkBox.setEnabled(False)
         self.checkBox.setGeometry(QRect(640, 0, 78, 22))
         self.checkBox.setChecked(True)
         MainWindow.setCentralWidget(self.centralwidget)
@@ -595,7 +595,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.Tabs.setCurrentIndex(3)
+        self.Tabs.setCurrentIndex(1)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
