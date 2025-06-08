@@ -17,6 +17,7 @@ def StartServerIn(wd):
     
     devIN = LineEdit("")
     devIN.setObjectName("devIN")
+    devIN.setText("DEV0")
     devIN.setWD(wd)
     
     rIN = LineEdit("")
@@ -34,9 +35,11 @@ def StartServerIn(wd):
     
 
     
-    confGrid.addWidget(nameIN)
     confGrid.addWidget(ipIN)
-    confGrid.addWidget(ipIN)
+    confGrid.addWidget(devIN)
+    confGrid.addWidget(rIN)
+    confGrid.addWidget(ssidIN)
+    confGrid.addWidget(pwdIN)    
     
     graficoC = DualAxisChart(wd,"chaLayout")
     graficoS = DualAxisChart(wd,"consLayout")

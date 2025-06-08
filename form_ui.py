@@ -15,9 +15,10 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QComboBox, QGroupBox, QHBoxLayout,
-    QLabel, QMainWindow, QPlainTextEdit, QPushButton,
-    QSizePolicy, QTabWidget, QVBoxLayout, QWidget)
+from PySide6.QtWidgets import (QApplication, QCheckBox, QComboBox, QGroupBox,
+    QHBoxLayout, QLabel, QMainWindow, QPlainTextEdit,
+    QPushButton, QSizePolicy, QTabWidget, QVBoxLayout,
+    QWidget)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -571,10 +572,25 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_6.addLayout(self.settingsLayout)
 
+        self.pushButton = QPushButton(self.tabAju)
+        self.pushButton.setObjectName(u"pushButton")
+        self.pushButton.setGeometry(QRect(260, 30, 111, 24))
+        self.pushButton_2 = QPushButton(self.tabAju)
+        self.pushButton_2.setObjectName(u"pushButton_2")
+        self.pushButton_2.setGeometry(QRect(260, 60, 111, 24))
+        self.label_40 = QLabel(self.tabAju)
+        self.label_40.setObjectName(u"label_40")
+        self.label_40.setGeometry(QRect(640, 430, 151, 16))
         self.Tabs.addTab(self.tabAju, "")
+        self.checkBox = QCheckBox(self.centralwidget)
+        self.checkBox.setObjectName(u"checkBox")
+        self.checkBox.setEnabled(True)
+        self.checkBox.setGeometry(QRect(640, 0, 78, 22))
+        self.checkBox.setChecked(True)
         MainWindow.setCentralWidget(self.centralwidget)
         self.Tabs.raise_()
         self.btClose.raise_()
+        self.checkBox.raise_()
         QWidget.setTabOrder(self.Tabs, self.btClose)
 
         self.retranslateUi(MainWindow)
@@ -665,6 +681,10 @@ class Ui_MainWindow(object):
         self.label_38.setText(QCoreApplication.translate("MainWindow", u"Load resistor:", None))
         self.label_36.setText(QCoreApplication.translate("MainWindow", u"SSID:", None))
         self.label_3.setText(QCoreApplication.translate("MainWindow", u"SSID Password:", None))
+        self.pushButton.setText(QCoreApplication.translate("MainWindow", u"Connect to server", None))
+        self.pushButton_2.setText(QCoreApplication.translate("MainWindow", u"Connect to WiFi", None))
+        self.label_40.setText(QCoreApplication.translate("MainWindow", u"Sergio Franco Lacueva, 2025", None))
         self.Tabs.setTabText(self.Tabs.indexOf(self.tabAju), QCoreApplication.translate("MainWindow", u"Settings", None))
+        self.checkBox.setText(QCoreApplication.translate("MainWindow", u"Online", None))
     # retranslateUi
 
