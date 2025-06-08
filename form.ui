@@ -40,7 +40,7 @@
      <enum>Qt::FocusPolicy::ClickFocus</enum>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>3</number>
     </property>
     <widget class="QWidget" name="tabGen">
      <attribute name="title">
@@ -938,7 +938,7 @@
        <rect>
         <x>0</x>
         <y>430</y>
-        <width>151</width>
+        <width>791</width>
         <height>16</height>
        </rect>
       </property>
