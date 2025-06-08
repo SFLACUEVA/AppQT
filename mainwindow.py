@@ -25,6 +25,7 @@ import pathlib
 class MainWindow(QMainWindow):
     def __init__(self, parent=None):
         super().__init__(parent)
+        
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         print("INICIANDO")
@@ -32,7 +33,6 @@ class MainWindow(QMainWindow):
         confPath= str(pathlib.Path(__file__).parent.resolve() / "Resources" / "conf.db")
         measPath = str(pathlib.Path(__file__).parent.resolve() / "Resources" / "measures.db")
         charge = carga()
-        #cloud = cloudComm() 
         
         graficoS,graficoC,graficoD = StartServerIn(self)
         

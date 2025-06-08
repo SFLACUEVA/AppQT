@@ -566,10 +566,10 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_6.addLayout(self.verticalLayout_12)
 
-        self.verticalLayout_13 = QVBoxLayout()
-        self.verticalLayout_13.setObjectName(u"verticalLayout_13")
+        self.settingsLayout = QVBoxLayout()
+        self.settingsLayout.setObjectName(u"settingsLayout")
 
-        self.horizontalLayout_6.addLayout(self.verticalLayout_13)
+        self.horizontalLayout_6.addLayout(self.settingsLayout)
 
         self.Tabs.addTab(self.tabAju, "")
         MainWindow.setCentralWidget(self.centralwidget)

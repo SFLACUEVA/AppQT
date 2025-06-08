@@ -902,7 +902,7 @@
          </layout>
         </item>
         <item>
-         <layout class="QVBoxLayout" name="verticalLayout_13"/>
+         <layout class="QVBoxLayout" name="settingsLayout"/>
         </item>
        </layout>
       </widget>
