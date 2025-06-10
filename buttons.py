@@ -68,7 +68,6 @@ def btCharge(bt: QPushButton,wd,carga: carga,graf: DualAxisChart):
         wd.findChild(LineEdit,"ctIN").setEnabled(True)
         wd.findChild(LineEdit,"batNameIN").setEnabled(True) 
         bt.setText("Cargar")
-        carga.Stop()
         stLb.setPlainText("Esperando")
         carga.isActive = False
         carga.hilo.join()
