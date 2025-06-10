@@ -49,6 +49,7 @@ class io():
         except Exception as e:
             print(e)
             print("Error leyendo la temperatura")
+            return 25
     
     def SetPot(self, value):
         self.pot = AD5272()

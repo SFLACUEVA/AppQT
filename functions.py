@@ -83,6 +83,7 @@ def threadCargar(carga: clases.carga,graf: DualAxisChart,wd):
     sleep(0.5)
     mTimer.stop()
     
+    stLb = wd.findChild(QPlainTextEdit,"statusText") 
     bt= wd.findChild(QPushButton,"btCharge")
     wd.findChild(LineEdit,"vMaxIN").setEnabled(True)
     wd.findChild(LineEdit,"iMaxIN").setEnabled(True)
