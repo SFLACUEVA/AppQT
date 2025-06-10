@@ -100,7 +100,7 @@ def threadCargar(carga: clases.carga,graf: DualAxisChart,wd):
 def cargar(carga: clases.carga,graf: DualAxisChart,IO:io):
     if carga.isActive:
         print("CARGA")
-        n=5
+        n=10
         mv=0
         mi=0
         mt = 0
