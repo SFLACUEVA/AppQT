@@ -100,14 +100,25 @@ def threadCargar(carga: clases.carga,graf: DualAxisChart,wd):
 def cargar(carga: clases.carga,graf: DualAxisChart,IO:io):
     if carga.isActive:
         print("CARGA")
-        v,i=IO.getVI()
-        t = IO.getTemp()
-        carga.add(v,i/1000,t)
+        n=5
+        mv=0
+        mi=0
+        mt = 0
+        for i in range(n):
+            v,i=IO.getVI()
+            t = IO.getTemp()
+            mv=mv+v/n
+            mi=mi+i/n
+            mt =mt+t/n
+            
+            
         
-        tmp = np.clip((1-(15-(carga.LimVMax-carga.ct*t/1000)/2)*1023),0,1023)
+        carga.add(mv,mi/1000,mt)
+        
+        tmp = np.clip((1-(15-(carga.LimVMax-carga.ct*mt/1000)/2))*1023,0,1023)
         IO.SetPot(tmp)
         
         graf.plot(carga.V,carga.I,carga.D)
-        if i/1000 < carga.LimIMin or t > carga.LimTMax:
+        if mi/1000 < carga.LimIMin or t > carga.LimTMax:
             carga.isActive=False
     
