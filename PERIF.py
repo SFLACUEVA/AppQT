@@ -18,8 +18,7 @@ class io():
             self.RELAY1 = DigitalOutputDevice(23,active_high=True)
             self.RELAY2 = DigitalOutputDevice(18,active_high=True)
             self.buckEn = DigitalOutputDevice(6,active_high=False)
-            self.iLim = PWMPin(20000,50,12)
-            self.pot = AD5272(0x2F,self.bus)
+            self.iLim = PWMPin(20000,0,12)
         except Exception as e:
             print(e)
             print("Error iniciando los pines")

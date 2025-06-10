@@ -56,7 +56,7 @@ def threadCargar(carga: clases.carga,graf: DualAxisChart,wd):
     
     IO=io()
     tmp = (1-(15-carga.LimVMax)/2)*1023
-    IO.pot.write(tmp)
+    IO.SetPot(tmp)
     tmp = i_to_dt(carga.LimIMax)
     IO.iLim.setDuty(tmp)
     IO.buckEn.off()
@@ -103,7 +103,7 @@ def cargar(carga: clases.carga,graf: DualAxisChart,IO:io):
         carga.add(v,i/1000,t)
         
         tmp = np.clip((1-(15-(carga.LimVMax-carga.ct*t)/2)*1023),0,1023)
-        IO.pot.write(tmp)
+        IO.SetPot(tmp)
         
         graf.plot(carga.V,carga.I,carga.D)
         if i/1000 < carga.LimIMin or t > carga.LimTMax:
