@@ -53,7 +53,7 @@ class carga():
         self.isActive = True
         
     def Stop(self):
-        self.isActive = True
+        self.isActive = False
         self.StopTime = datetime.datetime.now().replace(microsecond=0).isoformat()
         self.MeasVMax = max(self.V)
         self.MeasVMin = min(self.V)
@@ -169,13 +169,3 @@ if __name__=='__main__':
     
     cloud = cloudComm("SFLTFG")
     cloud.createTable()
-        
-        
-    
-        
-        
-        
-        
-
-
-        

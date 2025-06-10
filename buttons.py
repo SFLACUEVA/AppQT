@@ -43,7 +43,7 @@ def btCharge(bt: QPushButton,wd,carga: carga,graf: DualAxisChart):
                 carga.setConf(vM,iM,im,ct,tM)
                 carga.setName(wd.findChild(LineEdit,"batNameIN").text())
                 
-                carga.hilo = Thread(target=threadCargar,args=(carga,graf))
+                carga.hilo = Thread(target=threadCargar,args=(carga,graf,wd))
                 carga.hilo.setDaemon(True)
                 
                 stLb.setPlainText("Charging battery")
