@@ -72,7 +72,8 @@ def threadCargar(carga: clases.carga,graf: DualAxisChart,wd):
     while carga.isActive:
         #print("Check")
         time.sleep(0.01)
-        
+    
+    mTimer.stop()
     carga.Stop()
     print("acabado")
     IO.buckEn.off() 
@@ -81,7 +82,7 @@ def threadCargar(carga: clases.carga,graf: DualAxisChart,wd):
     sleep(0.5)
     IO.RELAY0.off()
     sleep(0.5)
-    mTimer.stop()
+    
     
     stLb = wd.findChild(QPlainTextEdit,"statusText") 
     bt= wd.findChild(QPushButton,"btCharge")

@@ -70,9 +70,9 @@ def btCharge(bt: QPushButton,wd,carga: carga,graf: DualAxisChart):
         bt.setText("Cargar")
         carga.Stop()
         stLb.setPlainText("Esperando")
-        carga.isActive= not carga.isActive
+        carga.isActive = False
         carga.hilo.join()
-        pass
+        
     
 def batSave(wd,db):
     
