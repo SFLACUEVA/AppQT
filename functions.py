@@ -96,7 +96,7 @@ def threadCargar(carga: clases.carga,graf: DualAxisChart,wd):
     
 
 def cargar(carga: clases.carga,graf: DualAxisChart,IO:io):
-    if carga.isActive():
+    if carga.isActive:
         print("CARGA")
         v,i=IO.getVI()
         t = IO.getTemp()
