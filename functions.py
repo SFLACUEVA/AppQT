@@ -104,7 +104,7 @@ def cargar(carga: clases.carga,graf: DualAxisChart,IO:io):
         t = IO.getTemp()
         carga.add(v,i/1000,t)
         
-        tmp = np.clip((1-(15-(carga.LimVMax-carga.ct*t)/2)*1023),0,1023)
+        tmp = np.clip((1-(15-(carga.LimVMax-carga.ct*t/1000)/2)*1023),0,1023)
         IO.SetPot(tmp)
         
         graf.plot(carga.V,carga.I,carga.D)
