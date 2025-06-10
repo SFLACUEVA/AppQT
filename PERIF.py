@@ -52,7 +52,8 @@ class io():
             print("Error leyendo la temperatura")
     
     def SetPot(self, value):
-        
+        self.pot = AD5272()
+        self.pot.write(int(value))
         pass
               
 if __name__=='__main__':       
