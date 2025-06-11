@@ -38,7 +38,7 @@ class MainWindow(QMainWindow):
         graficoS,graficoC,graficoD = StartServerIn(self)
         
         closeBTN = self.findChild(QPushButton,"btClose")
-        closeBTN.clicked.connect(lambda: btClose(closeBTN,self,charge))
+        closeBTN.clicked.connect(lambda: btClose(closeBTN,self,charge,discharge))
         
         chargeBTN = self.findChild(QPushButton,"btCharge")
         chargeBTN.clicked.connect(lambda: btCharge(chargeBTN,self,charge,graficoC))

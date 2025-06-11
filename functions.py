@@ -76,6 +76,8 @@ def threadCargar(carga: clases.carga,graf: DualAxisChart,wd):
     while carga.isActive:
         #print("Check")
         time.sleep(0.01)
+        
+        
     IO.LED0.off()
     mTimer.stop()
     carga.Stop()
@@ -140,7 +142,8 @@ def threadDescargar(descarga: clases.descarga,graf: DualAxisChart,wd):
     
     while descarga.isActive:
         time.sleep(0.01)
-        
+    
+    mTimer.stop()
     IO.LED1.off()
     IO.LED0.off()
     IO.RELAY0.off()
