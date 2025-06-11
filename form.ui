@@ -40,7 +40,7 @@
      <enum>Qt::FocusPolicy::ClickFocus</enum>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="tabGen">
      <attribute name="title">
@@ -601,6 +601,11 @@
          <layout class="QVBoxLayout" name="verticalLayout_6">
           <item>
            <widget class="QLabel" name="StartLb">
+            <property name="font">
+             <font>
+              <pointsize>7</pointsize>
+             </font>
+            </property>
             <property name="text">
              <string>--</string>
             </property>
@@ -608,6 +613,11 @@
           </item>
           <item>
            <widget class="QLabel" name="StopLb">
+            <property name="font">
+             <font>
+              <pointsize>7</pointsize>
+             </font>
+            </property>
             <property name="text">
              <string>--</string>
             </property>

@@ -377,11 +377,15 @@ class Ui_MainWindow(object):
         self.verticalLayout_6.setObjectName(u"verticalLayout_6")
         self.StartLb = QLabel(self.horizontalLayoutWidget_7)
         self.StartLb.setObjectName(u"StartLb")
+        font = QFont()
+        font.setPointSize(7)
+        self.StartLb.setFont(font)
 
         self.verticalLayout_6.addWidget(self.StartLb)
 
         self.StopLb = QLabel(self.horizontalLayoutWidget_7)
         self.StopLb.setObjectName(u"StopLb")
+        self.StopLb.setFont(font)
 
         self.verticalLayout_6.addWidget(self.StopLb)
 
@@ -595,7 +599,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.Tabs.setCurrentIndex(3)
+        self.Tabs.setCurrentIndex(1)
 
 
         QMetaObject.connectSlotsByName(MainWindow)

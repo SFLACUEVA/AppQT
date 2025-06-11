@@ -377,11 +377,15 @@ class Ui_MainWindow(object):
         self.verticalLayout_6.setObjectName(u"verticalLayout_6")
         self.StartLb = QLabel(self.horizontalLayoutWidget_7)
         self.StartLb.setObjectName(u"StartLb")
+        font = QFont()
+        font.setPointSize(7)
+        self.StartLb.setFont(font)
 
         self.verticalLayout_6.addWidget(self.StartLb)
 
         self.StopLb = QLabel(self.horizontalLayoutWidget_7)
         self.StopLb.setObjectName(u"StopLb")
+        self.StopLb.setFont(font)
 
         self.verticalLayout_6.addWidget(self.StopLb)
 
@@ -580,7 +584,7 @@ class Ui_MainWindow(object):
         self.pushButton_2.setGeometry(QRect(260, 60, 111, 24))
         self.label_40 = QLabel(self.tabAju)
         self.label_40.setObjectName(u"label_40")
-        self.label_40.setGeometry(QRect(0, 430, 151, 16))
+        self.label_40.setGeometry(QRect(0, 430, 791, 16))
         self.Tabs.addTab(self.tabAju, "")
         self.checkBox = QCheckBox(self.centralwidget)
         self.checkBox.setObjectName(u"checkBox")

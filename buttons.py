@@ -198,9 +198,9 @@ def btLoad(wd,db,graf: DualAxisChart):
     
     wd.findChild(QLabel,"StartLb").setText(str(resumen[0][1]))
     wd.findChild(QLabel,"StopLb").setText(str(resumen[0][2]))
-    wd.findChild(QLabel,"tLb").setText(str(resumen[0][14])+"ºC-"+str(resumen[0][13])+"ºC")
-    wd.findChild(QLabel,"iLb").setText(str(resumen[0][12])+"A-"+str(resumen[0][11])+"A")
-    wd.findChild(QLabel,"vLb").setText(str(resumen[0][10])+"V-"+str(resumen[0][9])+"V")
+    wd.findChild(QLabel,"tLb").setText(str(round(resumen[0][14]),3)+"ºC-"+str(round(resumen[0][13]),3)+"ºC")
+    wd.findChild(QLabel,"iLb").setText(str(round(resumen[0][12]),3)+"A-"+str(round(resumen[0][11]),3)+"A")
+    wd.findChild(QLabel,"vLb").setText(str(round(resumen[0][10]),3)+"V-"+str(round(resumen[0][9]),3)+"V")
     
     v = []
     i = [] 
