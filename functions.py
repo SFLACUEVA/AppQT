@@ -161,5 +161,5 @@ def descargar(descarga: clases.descarga, graf: DualAxisChart,IO:io):
             mi=mi+i/n
 
             
-        descarga.add(mv,abs(mi))
+        descarga.add(mv,abs(mi/1000))
         graf.plot(descarga.V,descarga.I,descarga.D)
