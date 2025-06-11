@@ -222,13 +222,17 @@ def testBtn(wd):
     IO.LED0.off()
     IO.LED1.on()
     vFloat,i = IO.getVI()
-    sleep(0.5)
+    sleep(0.2)
     
     IO.RELAY1.on()
-    sleep(0.5)
+    sleep(0.2)
     vLoad,iLoad = IO.getVI()
     IO.RELAY1.off()
     IO.LED1.off()
     R = (vFloat-vLoad)/iLoad
     
+    wd.findChild(QLabel,"testFloat").setText(str(round(vFloat,3))+"V")
+    wd.findChild(QLabel,"testLoad").setText(str(round(vLoad,3))+"V")
+    wd.findChild(QLabel,"testR").setText(str(round(R,3))+"Ω")
+    wd.findChild(QLabel,"testCurrent").setText(str(round(iLoad,3))+"A")
     
