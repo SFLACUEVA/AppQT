@@ -148,9 +148,6 @@ def threadDescargar(descarga: clases.descarga,graf: DualAxisChart,wd):
     IO.RELAY2.off()
     sleep(0.5)
     
-
-    
-    
 def descargar(descarga: clases.descarga, graf: DualAxisChart,IO:io):
         n=10
         mv=0
@@ -163,5 +160,5 @@ def descargar(descarga: clases.descarga, graf: DualAxisChart,IO:io):
             mi=mi+i/n
             mt =mt+t/n
             
-        descarga.add(v,i)
+        descarga.add(v,abs(i))
         graf.plot(descarga.V,descarga.I,descarga.D)
