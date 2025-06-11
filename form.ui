@@ -789,7 +789,7 @@
       <property name="title">
        <string>Discharge test</string>
       </property>
-      <widget class="QPushButton" name="testBtn_2">
+      <widget class="QPushButton" name="discBtn">
        <property name="geometry">
         <rect>
          <x>10</x>
