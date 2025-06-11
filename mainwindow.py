@@ -57,8 +57,8 @@ class MainWindow(QMainWindow):
         btLoadBTN = self.findChild(QPushButton,"btLoad")
         btLoadBTN.clicked.connect(lambda: btLoad(self,measPath,graficoS))       
               
-        testBtn = self.findChild(QPushButton,"testBtn")
-        testBtn.clicked.connect(lambda: testBtn(self))  
+        testBTN = self.findChild(QPushButton,"testBtn")
+        testBTN.clicked.connect(lambda: testBtn(self))  
         
         self.show()
         if platform == "linux":
