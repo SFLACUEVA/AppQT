@@ -491,39 +491,10 @@ class Ui_MainWindow(object):
 
         self.groupBox_7 = QGroupBox(self.tabTest)
         self.groupBox_7.setObjectName(u"groupBox_7")
-        self.groupBox_7.setGeometry(QRect(550, 230, 231, 111))
-        self.verticalLayoutWidget_6 = QWidget(self.groupBox_7)
-        self.verticalLayoutWidget_6.setObjectName(u"verticalLayoutWidget_6")
-        self.verticalLayoutWidget_6.setGeometry(QRect(10, 30, 211, 71))
-        self.verticalLayout_10 = QVBoxLayout(self.verticalLayoutWidget_6)
-        self.verticalLayout_10.setObjectName(u"verticalLayout_10")
-        self.verticalLayout_10.setContentsMargins(0, 0, 0, 0)
-        self.horizontalLayout_5 = QHBoxLayout()
-        self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
-        self.verticalLayout_11 = QVBoxLayout()
-        self.verticalLayout_11.setObjectName(u"verticalLayout_11")
-        self.label_39 = QLabel(self.verticalLayoutWidget_6)
-        self.label_39.setObjectName(u"label_39")
-        self.label_39.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing|Qt.AlignmentFlag.AlignVCenter)
-
-        self.verticalLayout_11.addWidget(self.label_39)
-
-
-        self.horizontalLayout_5.addLayout(self.verticalLayout_11)
-
-        self.discLayout = QVBoxLayout()
-        self.discLayout.setObjectName(u"discLayout")
-
-        self.horizontalLayout_5.addLayout(self.discLayout)
-
-
-        self.verticalLayout_10.addLayout(self.horizontalLayout_5)
-
-        self.testBtn_2 = QPushButton(self.verticalLayoutWidget_6)
+        self.groupBox_7.setGeometry(QRect(550, 230, 231, 61))
+        self.testBtn_2 = QPushButton(self.groupBox_7)
         self.testBtn_2.setObjectName(u"testBtn_2")
-
-        self.verticalLayout_10.addWidget(self.testBtn_2)
-
+        self.testBtn_2.setGeometry(QRect(10, 30, 209, 24))
         self.Tabs.addTab(self.tabTest, "")
         self.tabAju = QWidget()
         self.tabAju.setObjectName(u"tabAju")
@@ -599,7 +570,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.Tabs.setCurrentIndex(1)
+        self.Tabs.setCurrentIndex(2)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -676,7 +647,6 @@ class Ui_MainWindow(object):
         self.testR.setText(QCoreApplication.translate("MainWindow", u"--", None))
         self.testBtn.setText(QCoreApplication.translate("MainWindow", u"Start test", None))
         self.groupBox_7.setTitle(QCoreApplication.translate("MainWindow", u"Discharge test", None))
-        self.label_39.setText(QCoreApplication.translate("MainWindow", u"Battery name:", None))
         self.testBtn_2.setText(QCoreApplication.translate("MainWindow", u"Start test", None))
         self.Tabs.setTabText(self.Tabs.indexOf(self.tabTest), QCoreApplication.translate("MainWindow", u"Test", None))
         self.groupBox_8.setTitle(QCoreApplication.translate("MainWindow", u"Settings", None))

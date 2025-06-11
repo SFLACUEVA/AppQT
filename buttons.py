@@ -12,7 +12,7 @@ from CustomWidgets import *
 from PERIF import io
 from functions import *
 
-def btCharge(bt: QPushButton,wd,carga: carga,graf: DualAxisChart):
+def btCharge(bt: QPushButton,wd,carga: clases.carga,graf: DualAxisChart):
     print("btCharge")
     
     stLb = wd.findChild(QPlainTextEdit,"statusText") 
@@ -72,8 +72,7 @@ def btCharge(bt: QPushButton,wd,carga: carga,graf: DualAxisChart):
         stLb.setPlainText("Esperando")
         carga.isActive = False
         carga.hilo.join()
-        
-    
+           
 def batSave(wd,db):
     
     stLb = wd.findChild(QPlainTextEdit,"statusText")  
@@ -214,6 +213,7 @@ def btLoad(wd,db,graf: DualAxisChart):
     graf.plot(v,i,t)
     
 def testBtn(wd):
+
     IO = io()
     IO.RELAY0.off()
     IO.RELAY1.off()
@@ -236,3 +236,17 @@ def testBtn(wd):
     wd.findChild(QLabel,"testR").setText(str(round(R,3))+"Ω")
     wd.findChild(QLabel,"testCurrent").setText(str(round(iLoad,3))+"mA")
     
+def discBtn(bt: QPushButton,wd,descarga: clases.descarga,graf: DualAxisChart):
+    if descarga.isActive == False:
+                descarga.hilo = Thread(target=threadDescargar,args=(descarga,graf,wd))
+                descarga.hilo.setDaemon(True)
+                bt.setText("Stop")
+                
+                descarga.Start()
+                descarga.hilo.start()
+    
+    else:
+        
+        bt.setText("Start test")
+        carga.Stop()
+        carga.hilo.join()

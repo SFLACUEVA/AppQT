@@ -32,7 +32,8 @@ class MainWindow(QMainWindow):
         
         confPath= str(pathlib.Path(__file__).parent.resolve() / "Resources" / "conf.db")
         measPath = str(pathlib.Path(__file__).parent.resolve() / "Resources" / "measures.db")
-        charge = carga()
+        charge = clases.carga()
+        discharge = clases.descarga()
         
         graficoS,graficoC,graficoD = StartServerIn(self)
         
@@ -59,6 +60,9 @@ class MainWindow(QMainWindow):
               
         testBTN = self.findChild(QPushButton,"testBtn")
         testBTN.clicked.connect(lambda: testBtn(self))  
+        
+        discBTN = self.findChild(QPushButton,"discBtn")
+        discBTN.clicked.connect(lambda: discBtn(discBTN,self,discharge,graficoD))  
         
         self.show()
         if platform == "linux":

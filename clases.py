@@ -62,8 +62,7 @@ class carga():
         self.MeasTMax = max(self.T)
         self.MeasTMin = min(self.T)
         self.updateLocal()
-        
-    
+         
     def setConf(self,vM,iM,im,ct,tM):
         self.LimIMax= iM
         self.LimVMax = vM
@@ -164,6 +163,27 @@ class cloudComm():
         req = req +"&DeviceName=" + str(carga)
         
         urllib.request.urlopen(req).read().decode().strip()
+
+class descarga():
+    V = []
+    I = []
+    D = []
+    isActive = False
+    hilo = None
+    
+    def add(self,v,i):
+        self.V.append(v)
+        self.I.append(i)
+        self.D.append(datetime.datetime.now().replace(microsecond=0).isoformat())
+    
+    def Start(self):
+        self.V = []
+        self.I = []
+        self.D = []
+        self.isActive = True
+        
+    def Stop(self):
+        self.false = True
 
 if __name__=='__main__':  
     

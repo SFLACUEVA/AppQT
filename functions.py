@@ -51,10 +51,14 @@ def i_to_dt(x):
 
     return m * x + b    
 
- 
 def threadCargar(carga: clases.carga,graf: DualAxisChart,wd):
     
     IO=io()
+    IO.LED0.on()
+    IO.LED1.off()
+    IO.RELAY0.off()
+    IO.RELAY1.off()
+    IO.RELAY2.off()
     tmp = (1-(15-carga.LimVMax)/2)*1023
     IO.SetPot(tmp)
     tmp = i_to_dt(carga.LimIMax)
@@ -72,7 +76,7 @@ def threadCargar(carga: clases.carga,graf: DualAxisChart,wd):
     while carga.isActive:
         #print("Check")
         time.sleep(0.01)
-    
+    IO.LED0.off()
     mTimer.stop()
     carga.Stop()
     print("acabado")
@@ -96,7 +100,6 @@ def threadCargar(carga: clases.carga,graf: DualAxisChart,wd):
     bt.setText("Cargar")
     stLb = wd.findChild(QPlainTextEdit,"statusText") 
     
-
 def cargar(carga: clases.carga,graf: DualAxisChart,IO:io):
     if carga.isActive:
         print("CARGA")
@@ -122,3 +125,43 @@ def cargar(carga: clases.carga,graf: DualAxisChart,IO:io):
         if mi/1000 < carga.LimIMin or t > carga.LimTMax:
             carga.isActive=False
     
+def threadDescargar(descarga: clases.descarga,graf: DualAxisChart,wd):
+    
+    IO=io()
+    IO.LED1.on()
+    IO.LED0.off()
+    IO.RELAY0.off()
+    IO.RELAY1.on()
+    IO.RELAY2.off()
+    sleep(0.5)
+    
+    mTimer = multitimer.MultiTimer(interval=1,function=descargar,args=(descarga,graf,IO)) 
+    mTimer.start()
+    
+    while descarga.isActive:
+        time.sleep(0.01)
+        
+    IO.LED1.off()
+    IO.LED0.off()
+    IO.RELAY0.off()
+    IO.RELAY1.off()
+    IO.RELAY2.off()
+    sleep(0.5)
+    
+
+    
+    
+def descargar(descarga: clases.descarga, graf: DualAxisChart,IO:io):
+        n=10
+        mv=0
+        mi=0
+        mt = 0
+        for i in range(n):
+            v,i=IO.getVI()
+            t = IO.getTemp()
+            mv=mv+v/n
+            mi=mi+i/n
+            mt =mt+t/n
+            
+        descarga.add(v,i)
+        graf.plot(descarga.V,descarga.I,descarga.D)
