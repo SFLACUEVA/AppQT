@@ -229,7 +229,7 @@ def testBtn(wd):
     vLoad,iLoad = IO.getVI()
     IO.RELAY1.off()
     IO.LED1.off()
-    R = (vFloat-vLoad)/iLoad
+    R = (vFloat-vLoad)/abs(iLoad)
     
     wd.findChild(QLabel,"testFloat").setText(str(round(vFloat,3))+"V")
     wd.findChild(QLabel,"testLoad").setText(str(round(vLoad,3))+"V")
