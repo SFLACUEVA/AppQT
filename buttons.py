@@ -234,5 +234,5 @@ def testBtn(wd):
     wd.findChild(QLabel,"testFloat").setText(str(round(vFloat,3))+"V")
     wd.findChild(QLabel,"testLoad").setText(str(round(vLoad,3))+"V")
     wd.findChild(QLabel,"testR").setText(str(round(R,3))+"Ω")
-    wd.findChild(QLabel,"testCurrent").setText(str(round(iLoad,3))+"A")
+    wd.findChild(QLabel,"testCurrent").setText(str(round(iLoad,3))+"mA")
     
