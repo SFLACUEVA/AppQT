@@ -250,7 +250,7 @@ def discBtn(bt: QPushButton,wd,descarga: clases.descarga,graf: DualAxisChart):
                 descarga.hilo.start()
     
     else:
-        
+        print(descarga.I)
         bt.setText("Start test")
         descarga.Stop()
         descarga.hilo.join()
