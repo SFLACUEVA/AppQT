@@ -183,7 +183,7 @@ class descarga():
         self.isActive = True
         
     def Stop(self):
-        self.false = True
+        self.isActive = False
 
 if __name__=='__main__':  
     
