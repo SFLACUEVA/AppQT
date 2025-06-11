@@ -141,7 +141,7 @@ class Ui_MainWindow(object):
         self.groupBox_5.setGeometry(QRect(530, 230, 261, 101))
         self.verticalLayoutWidget_2 = QWidget(self.groupBox_5)
         self.verticalLayoutWidget_2.setObjectName(u"verticalLayoutWidget_2")
-        self.verticalLayoutWidget_2.setGeometry(QRect(10, 30, 256, 61))
+        self.verticalLayoutWidget_2.setGeometry(QRect(10, 30, 241, 61))
         self.verticalLayout_4 = QVBoxLayout(self.verticalLayoutWidget_2)
         self.verticalLayout_4.setObjectName(u"verticalLayout_4")
         self.verticalLayout_4.setContentsMargins(0, 0, 0, 0)
@@ -570,7 +570,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.Tabs.setCurrentIndex(2)
+        self.Tabs.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
