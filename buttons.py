@@ -155,12 +155,15 @@ def batLoad(wd,db):
     wd.findChild(LineEdit,"ctIN").setText(ct)
     stLb.setPlainText('Battery "'+nm+'" loaded succesfully!' )
 
-def btClose(bt,wd,carga: clases.carga):
+def btClose(bt,wd,carga: clases.carga,descarga: clases.descarga):
     if carga.hilo:
         carga.isActive= False
         carga.hilo.join()
-    print("Close")
-    bt.setText("CLICK")
+        
+    if descarga.hilo:
+        descarga.Stop()
+        descarga.hilo.join()
+    print("Closed")
     wd.close()
 
 def btRefresh(wd, db):

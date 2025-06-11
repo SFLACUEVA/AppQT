@@ -152,13 +152,11 @@ def descargar(descarga: clases.descarga, graf: DualAxisChart,IO:io):
         n=10
         mv=0
         mi=0
-        mt = 0
         for i in range(n):
             v,i=IO.getVI()
-            t = IO.getTemp()
             mv=mv+v/n
             mi=mi+i/n
-            mt =mt+t/n
+
             
-        descarga.add(v,abs(i))
+        descarga.add(mv,abs(mi))
         graf.plot(descarga.V,descarga.I,descarga.D)
