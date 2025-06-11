@@ -4,10 +4,9 @@ import sys
 
 from PySide6.QtWidgets import QApplication, QMainWindow, QPushButton, QLabel, QTableWidget, QTableWidgetItem, QHBoxLayout
 import urllib.request
-
 from sys import platform
 from setup import StartServerIn
-from PySide6 import QtCore
+from PySide6 import QtCore, QThre
 from ui_form import Ui_MainWindow
 from buttons import *
 from clases import *
@@ -58,6 +57,8 @@ class MainWindow(QMainWindow):
         btLoadBTN = self.findChild(QPushButton,"btLoad")
         btLoadBTN.clicked.connect(lambda: btLoad(self,measPath,graficoS))       
               
+        testBtn = self.findChild(QPushButton,"testBtn")
+        testBtn.clicked.connect(lambda: testBtn(self))  
         
         self.show()
         if platform == "linux":
@@ -71,3 +72,23 @@ if __name__ == "__main__":
     widget.show()
     
     sys.exit(app.exec())
+
+
+
+    @Slot()
+    def on_charge_finished(self):
+        """Este slot se ejecuta cuando el worker emite la señal 'finished'."""
+        print("GUI: Proceso de carga finalizado. Reactivando controles.")
+        self.charge.Stop() # Asegurarse de que el estado es inactivo
+        self.set_controls_enabled(True)
+        self.ui.btCharge.setText("Cargar")
+        self.ui.statusText.setPlainText("Esperando")
+
+    def set_controls_enabled(self, enabled: bool):
+        """Función auxiliar para habilitar/deshabilitar todos los controles."""
+        self.ui.vMaxIN.setEnabled(enabled)
+        self.ui.iMaxIN.setEnabled(enabled)
+        self.ui.iMinIN.setEnabled(enabled)
+        self.ui.tMaxIN.setEnabled(enabled)
+        self.ui.ctIN.setEnabled(enabled)
+        self.ui.batNameIN.setEnabled(enabled)

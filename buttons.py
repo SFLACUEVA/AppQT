@@ -9,6 +9,7 @@ from PySide6 import QtCore
 from ui_form import Ui_MainWindow
 from clases import *
 from CustomWidgets import *
+from PERIF import io
 from functions import *
 
 def btCharge(bt: QPushButton,wd,carga: carga,graf: DualAxisChart):
@@ -177,7 +178,6 @@ def btRefresh(wd, db):
     combo.clear()
     combo.addItems(nombres)
 
-
 def btLoad(wd,db,graf: DualAxisChart):
 
     tabName = wd.findChild(QComboBox,"sumCombo").currentText()
@@ -212,4 +212,23 @@ def btLoad(wd,db,graf: DualAxisChart):
         t.append(fila[0])
     
     graf.plot(v,i,t)
+    
+def testBtn(wd):
+    IO = io()
+    IO.RELAY0.off()
+    IO.RELAY1.off()
+    IO.RELAY2.off()
+    
+    IO.LED0.off()
+    IO.LED1.on()
+    vFloat,i = IO.getVI()
+    sleep(0.5)
+    
+    IO.RELAY1.on()
+    sleep(0.5)
+    vLoad,iLoad = IO.getVI()
+    IO.RELAY1.off()
+    IO.LED1.off()
+    R = (vFloat-vLoad)/iLoad
+    
     
