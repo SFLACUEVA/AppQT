@@ -233,11 +233,12 @@ def testBtn(wd):
     IO.RELAY1.off()
     IO.LED1.off()
     iLoad= abs(iLoad)
-    R = (vFloat-vLoad)/iLoad
+    
+    R = ((vFloat-vLoad)/(iLoad*1000))*1000
     
     wd.findChild(QLabel,"testFloat").setText(str(round(vFloat,3))+"V")
     wd.findChild(QLabel,"testLoad").setText(str(round(vLoad,3))+"V")
-    wd.findChild(QLabel,"testR").setText(str(round(R,3))+"Ω")
+    wd.findChild(QLabel,"testR").setText(str(round(R,3))+"mΩ")
     wd.findChild(QLabel,"testCurrent").setText(str(round(iLoad,3))+"mA")
     
 def discBtn(bt: QPushButton,wd,descarga: clases.descarga,graf: DualAxisChart):
