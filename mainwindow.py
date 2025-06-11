@@ -6,7 +6,7 @@ from PySide6.QtWidgets import QApplication, QMainWindow, QPushButton, QLabel, QT
 import urllib.request
 from sys import platform
 from setup import StartServerIn
-from PySide6 import QtCore, QThre
+from PySide6 import QtCore
 from ui_form import Ui_MainWindow
 from buttons import *
 from clases import *
