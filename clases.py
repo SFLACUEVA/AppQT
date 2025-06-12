@@ -148,6 +148,7 @@ class ConfigDB():
         self.con.close()
         
 class cloudComm():
+    
     isActive = False
     ip=None
     

@@ -43,7 +43,7 @@ class MainWindow(QMainWindow):
         closeBTN.clicked.connect(lambda: btClose(closeBTN,self,charge,discharge))
         
         chargeBTN = self.findChild(QPushButton,"btCharge")
-        chargeBTN.clicked.connect(lambda: btCharge(chargeBTN,self,charge,graficoC,cloud))
+        chargeBTN.clicked.connect(lambda: btCharge(chargeBTN,self,charge,graficoC,charge.cloud))
         
         saveBTN = self.findChild(QPushButton,"batSave")
         saveBTN.clicked.connect(lambda: batSave(self,confPath))
