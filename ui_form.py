@@ -141,7 +141,7 @@ class Ui_MainWindow(object):
         self.groupBox_5.setGeometry(QRect(530, 230, 261, 101))
         self.verticalLayoutWidget_2 = QWidget(self.groupBox_5)
         self.verticalLayoutWidget_2.setObjectName(u"verticalLayoutWidget_2")
-        self.verticalLayoutWidget_2.setGeometry(QRect(10, 30, 241, 61))
+        self.verticalLayoutWidget_2.setGeometry(QRect(10, 30, 256, 61))
         self.verticalLayout_4 = QVBoxLayout(self.verticalLayoutWidget_2)
         self.verticalLayout_4.setObjectName(u"verticalLayout_4")
         self.verticalLayout_4.setContentsMargins(0, 0, 0, 0)
@@ -547,12 +547,12 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_6.addLayout(self.settingsLayout)
 
-        self.pushButton = QPushButton(self.tabAju)
-        self.pushButton.setObjectName(u"pushButton")
-        self.pushButton.setGeometry(QRect(260, 30, 111, 24))
-        self.pushButton_2 = QPushButton(self.tabAju)
-        self.pushButton_2.setObjectName(u"pushButton_2")
-        self.pushButton_2.setGeometry(QRect(260, 60, 111, 24))
+        self.btServer = QPushButton(self.tabAju)
+        self.btServer.setObjectName(u"btServer")
+        self.btServer.setGeometry(QRect(260, 30, 111, 24))
+        self.btWifi = QPushButton(self.tabAju)
+        self.btWifi.setObjectName(u"btWifi")
+        self.btWifi.setGeometry(QRect(260, 60, 111, 24))
         self.label_40 = QLabel(self.tabAju)
         self.label_40.setObjectName(u"label_40")
         self.label_40.setGeometry(QRect(0, 430, 791, 16))
@@ -570,7 +570,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.Tabs.setCurrentIndex(0)
+        self.Tabs.setCurrentIndex(3)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -655,8 +655,8 @@ class Ui_MainWindow(object):
         self.label_38.setText(QCoreApplication.translate("MainWindow", u"Load resistor:", None))
         self.label_36.setText(QCoreApplication.translate("MainWindow", u"SSID:", None))
         self.label_3.setText(QCoreApplication.translate("MainWindow", u"SSID Password:", None))
-        self.pushButton.setText(QCoreApplication.translate("MainWindow", u"Connect to server", None))
-        self.pushButton_2.setText(QCoreApplication.translate("MainWindow", u"Connect to WiFi", None))
+        self.btServer.setText(QCoreApplication.translate("MainWindow", u"Connect to server", None))
+        self.btWifi.setText(QCoreApplication.translate("MainWindow", u"Connect to WiFi", None))
         self.label_40.setText(QCoreApplication.translate("MainWindow", u"Sergio Franco Lacueva, 2025", None))
         self.Tabs.setTabText(self.Tabs.indexOf(self.tabAju), QCoreApplication.translate("MainWindow", u"Settings", None))
         self.checkBox.setText(QCoreApplication.translate("MainWindow", u"Online", None))

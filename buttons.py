@@ -12,6 +12,16 @@ from CustomWidgets import *
 from PERIF import io
 from functions import *
 
+def btWifi(wd):
+    pass        
+
+def btServer(wd,cloud: clases.cloudComm):
+    
+    ip=wd.findChild(LineEdit,"ipIN").text
+    cloud.conect(ip)
+    pass
+        
+
 def btCharge(bt: QPushButton,wd,carga: clases.carga,graf: DualAxisChart):
     print("btCharge")
     

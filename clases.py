@@ -2,7 +2,7 @@ import datetime;
 import time
 import sqlite3 
 import pathlib
-import urllib
+from urllib import request
 
 class carga():
     
@@ -145,25 +145,64 @@ class ConfigDB():
         self.con.close()
         
 class cloudComm():
-    isActtive = False
+    isActive = False
+    ip=None
+    
+    def createTable(self,carga:carga):
+        if self.isActive:
+            try:        
+                req = "http://"+self.ip+"/measures.php?name="+carga.batName
+                req = req +"&start=" + str(carga)
+                req = req +"&tabla=" + str(carga)
+                req = req +"&LimVMax=" + str(carga)
+                req = req +"&LimIMax=" + str(carga)
+                req = req +"&LimIMin=" + str(carga)
+                req = req +"&ct=" + str(carga)
+                req = req +"&LimTMax=" + str(carga)
+                req = req +"&DeviceName=" + str(carga)
+                urllib.request.urlopen(req).read().decode().strip()
+            except Exception as e:
+                print(e)
+                self.isActive=False
+    
+    def sendVal(self,v,i,t,h):
+                if self.isActive:
+                    try:        
+                        req = "http://"+self.ip+"/measures.php?name="+carga.batName
+                        req = req +"&start=" + str(carga)
+                        req = req +"&tabla=" + str(carga)
+                        req = req +"&LimVMax=" + str(carga)
+                        req = req +"&LimIMax=" + str(carga)
+                        req = req +"&LimIMin=" + str(carga)
+                        req = req +"&ct=" + str(carga)
+                        req = req +"&LimTMax=" + str(carga)
+                        req = req +"&DeviceName=" + str(carga)    
+                        request.urlopen(req).read().decode().strip()
+                    except Exception as e:
+                        print(e)
+                        self.isActive=False
+    
+    def ping(self):
+        try:
+            req="http://"+self.ip+"/measures.php?f=p"
+            res = request.urlopen(req).read().decode().strip()
+            if res =="ping":
+                self.isActive=True
+                print("Connected to :"+self.ip)
+                return True
+            else:
+                self.isActive=False
+                return False
+        except Exception as e:
+                print(e)
+                self.isActive=False
+                return False
 
-    
-    def __init__(self,ip):
-        self.ip
-    
-    def createTable(carga:carga):
-        req = "http://"+cloud.ip+"/measures.php?name="+carga.batName
-        req = req +"&start=" + str(carga)
-        req = req +"&tabla=" + str(carga)
-        req = req +"&LimVMax=" + str(carga)
-        req = req +"&LimIMax=" + str(carga)
-        req = req +"&LimIMin=" + str(carga)
-        req = req +"&ct=" + str(carga)
-        req = req +"&LimTMax=" + str(carga)
-        req = req +"&DeviceName=" + str(carga)
+    def conect(self,ip):
+        self.ip = ip
+        return self.ping()
         
-        urllib.request.urlopen(req).read().decode().strip()
-
+        
 class descarga():
     V = []
     I = []
@@ -187,5 +226,6 @@ class descarga():
 
 if __name__=='__main__':  
     
-    cloud = cloudComm("SFLTFG")
-    cloud.createTable()
+    cloud = cloudComm()
+    print(cloud.conect("SFLTFG"))
+    

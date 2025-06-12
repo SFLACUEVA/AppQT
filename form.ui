@@ -40,7 +40,7 @@
      <enum>Qt::FocusPolicy::ClickFocus</enum>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>3</number>
     </property>
     <widget class="QWidget" name="tabGen">
      <attribute name="title">
@@ -236,7 +236,7 @@
         <rect>
          <x>10</x>
          <y>30</y>
-         <width>241</width>
+         <width>256</width>
          <height>61</height>
         </rect>
        </property>
@@ -890,7 +890,7 @@
        </layout>
       </widget>
      </widget>
-     <widget class="QPushButton" name="pushButton">
+     <widget class="QPushButton" name="btServer">
       <property name="geometry">
        <rect>
         <x>260</x>
@@ -903,7 +903,7 @@
        <string>Connect to server</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_2">
+     <widget class="QPushButton" name="btWifi">
       <property name="geometry">
        <rect>
         <x>260</x>
