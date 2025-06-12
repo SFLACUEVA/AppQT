@@ -37,8 +37,8 @@ class MainWindow(QMainWindow):
         self.charge = clases.carga()
         self.charge.cloud = cloudComm()
         discharge = clases.descarga()
-        self.charge.signals.finished.connect(self.on_charge_finished)
-        self.charge.cloud.offline.connect(self.uncheck)
+        self.charge.señal.finished.connect(self.on_charge_finished)
+        self.charge.cloud.señal.offline.connect(self.uncheck)
         
         graficoS,graficoC,graficoD = StartServerIn(self)
         
