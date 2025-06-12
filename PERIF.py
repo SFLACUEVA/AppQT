@@ -8,6 +8,7 @@ from pwm import PWMPin
 from pot import AD5272
 
 class io():
+    """Handles all the IO"""
     bus = 10
     
     def __init__(self):
@@ -29,6 +30,7 @@ class io():
             print("Error iniciando los pines")
       
     def getVI(self):
+        """Read INA219"""
         
         try:
             v = self.ina.voltage()
@@ -42,6 +44,7 @@ class io():
             return 0,0
                   
     def getTemp(self):
+        """Read NCT75"""
         
         try:
             C = self.sTemp.getCelsius()
@@ -53,35 +56,6 @@ class io():
             return 25
     
     def SetPot(self, value):
+        """Set the AD5272 to the desired value"""
         self.pot.write(int(value))
         pass
-              
-if __name__=='__main__':       
-    IO = io()
-
-    IO.pot.write(1023)
-    IO.buckEn.off()
-    IO.RELAY0.on()
-    sleep(0.5)
-    IO.RELAY2.on()
-    IO.buckEn.on()
-    sleep(0.5)
-    
-
-    for i in range(10):
-
-        IO.iLim.setDuty(100)
-        print("")
-        print(i)
-        #IO.buckEn.on()
-        print(IO.getVI())
-        sleep(0.5)
-
-
-
-    IO.buckEn.off() 
-    sleep(0.2)   
-    IO.RELAY2.off()
-    sleep(0.5)
-    IO.RELAY0.off()
-    sleep(0.5)

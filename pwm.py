@@ -1,8 +1,12 @@
 import pigpio
 from time import sleep
+
 class PWMPin():
+    """Handles the PWM signal"""
     
     def __init__(self,f,duty,pin):
+        """Starts the PWM"""
+        
         self.pi = pigpio.pi()
         self.range = range
         self.duty = duty
@@ -23,17 +27,9 @@ class PWMPin():
     
       
     def setDuty(self,duty):
+        """Sets the duty cycle"""
+        
         self.pi.set_PWM_dutycycle(self.pin,duty)
         self.duty=duty
         
        
-       
-if __name__=='__main__':
-    pin = PWMPin(20000,50,12)
-    print(pin.pi.get_PWM_dutycycle(pin.pin))
-    for i in range(100):
-        pin.setDuty(i)
-        print(f"Set duty to {i}")
-        sleep(2)
-    
-    

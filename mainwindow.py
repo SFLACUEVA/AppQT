@@ -31,18 +31,24 @@ class MainWindow(QMainWindow):
         self.ui.setupUi(self)
         print("INICIANDO")
         
+        """Gets the absolute path"""
         confPath= str(pathlib.Path(__file__).parent.resolve() / "Resources" / "conf.db")
         measPath = str(pathlib.Path(__file__).parent.resolve() / "Resources" / "measures.db")
         
+        """Create the necessary classes"""
         self.charge = clases.carga()
         self.charge.cloud = cloudComm()
         discharge = clases.descarga()
+        
+        """Assing funcions to the signals"""
         self.charge.señal.finished.connect(self.charge_finished) 
-        
         self.charge.cloud.señal.offline.connect(self.uncheck)
-        
+
+        """Create the plots"""
         graficoS,graficoC,graficoD = StartServerIn(self)
         
+        
+        """Assign functions to the button presses"""
         closeBTN = self.findChild(QPushButton,"btClose")
         closeBTN.clicked.connect(lambda: btClose(closeBTN,self,self.charge,discharge))
         
@@ -77,6 +83,7 @@ class MainWindow(QMainWindow):
         serverBTN = self.findChild(QPushButton,"btServer")
         serverBTN.clicked.connect(lambda: btServer(self,self.charge.cloud))        
         
+        """Configures the window size"""
         self.show()
         if platform == "linux":
             self.setWindowFlag(QtCore.Qt.WindowType.FramelessWindowHint)
@@ -86,6 +93,8 @@ class MainWindow(QMainWindow):
 
     @Slot()
     def charge_finished(self):
+        """Handles the end of charge signal"""
+        
         self.findChild(QPushButton, "testBtn").setEnabled(True)
         self.findChild(QPushButton, "discBtn").setEnabled(True)
         self.findChild(QPushButton, "btCharge").setText("Cargar")
@@ -99,6 +108,7 @@ class MainWindow(QMainWindow):
         self.findChild(QPlainTextEdit, "statusText").setPlainText("Waiting")
 
     def uncheck(self):
+        """Handles the uncheck wifi signal"""
         self.findChild(QCheckBox,"chkWifi").setChecked(False)
 
 

@@ -12,6 +12,8 @@ from matplotlib.ticker import MaxNLocator
 import subprocess
 
 class DualAxisChart(QWidget):
+    """Custom class to handle the plots"""
+    
     def __init__(self,wd,lo):
         super().__init__()
 
@@ -21,17 +23,13 @@ class DualAxisChart(QWidget):
         self.canvas = FigureCanvas(self.figure)
         layout.addWidget(self.canvas)
         
-        x = [0, 1, "patata", 3, 4, 5]
-        tension = [0, 1, 2, 3, 4, 5]   # Voltaje
-        corriente = [0, 10, 20, 30, 20, 10]  # Corriente
-        #self.plot(tension,corriente,x)
 
 
 
     def plot(self,tension,corriente,tiempo):
         self.figure.clear()
         ax1 = self.figure.add_subplot(111)
-        ax2 = ax1.twinx()  # Segundo eje Y
+        ax2 = ax1.twinx()  
         ax1.grid(True)
         ax1.set_ylim(0,16)
         ax2.set_ylim(0,3.5)
@@ -42,21 +40,18 @@ class DualAxisChart(QWidget):
             mins.append(objeto_datetime.strftime("%H:%M:%S"))
 
         
-        # Primer eje (Tensión)
         ax1.plot(mins, tension, 'b-', label="Voltage (V)")
         ax1.set_ylabel("Voltage (V)", color='b')
         ax1.tick_params(axis='y', labelcolor='b')
 
-        # Segundo eje (Corriente)
         ax2.plot(mins, corriente, 'r--', label="Current (A)")
         ax2.set_ylabel("Current (A)", color='r')
         ax2.tick_params(axis='y', labelcolor='r')
 
-        # Eje X
+
         ax1.set_xlabel("")
         ax1.xaxis.set_major_locator(MaxNLocator(nbins=6))
-        
-        # Leyenda combinada (opcional)
+
         lines1, labels1 = ax1.get_legend_handles_labels()
         lines2, labels2 = ax2.get_legend_handles_labels()
         ax1.legend(lines1 + lines2, labels1 + labels2, loc='upper left')
@@ -64,6 +59,7 @@ class DualAxisChart(QWidget):
         self.canvas.draw()
 
 class LineEdit(QLineEdit):
+    """Reimplements the focus event to be able to show the keyboard"""
     
     plat = platform
     #plat = "linux"

@@ -10,12 +10,14 @@ from PySide6.QtWidgets import QPlainTextEdit, QLabel, QComboBox
 import numpy as np
 
 def is_float(string):
+    """Checks if string is a number"""
     if string.replace(".", "").isnumeric():
         return True
     else:
         return False
     
 def are_float(string):
+    """Checks if list of strings are a number"""
     for txt in string:
         if not txt.replace(".", "").isnumeric():
             return False
@@ -23,6 +25,8 @@ def are_float(string):
     return True
          
 def are_ok(vM,iM,im,tM,ct):
+    """Validates the charge configuration input"""
+    
     if not (13<=vM<=15):
         return False
 
@@ -41,6 +45,7 @@ def are_ok(vM,iM,im,tM,ct):
     return True
     
 def i_to_dt(x):
+    """Calculates the correct duty cycle"""
     if x >=1.23:
         x1, y1 = 1.23, 7
         x2, y2 = 3, 77
@@ -54,6 +59,7 @@ def i_to_dt(x):
         return 0
 
 def threadCargar(carga: clases.carga,graf: DualAxisChart,wd):
+    """Handles the charge process in parallel to the UI"""
     
     IO=io()
     IO.LED0.on()
@@ -90,10 +96,10 @@ def threadCargar(carga: clases.carga,graf: DualAxisChart,wd):
     IO.RELAY0.off()
     sleep(0.5)
     carga.señal.finished.emit()
-    
- 
-    
+      
 def cargar(carga: clases.carga,graf: DualAxisChart,IO:io):
+    """Executed to monitor the charge"""
+    
     if carga.isActive:
         print("CARGA")
         n=10
@@ -119,6 +125,7 @@ def cargar(carga: clases.carga,graf: DualAxisChart,IO:io):
             carga.isActive=False
     
 def threadDescargar(descarga: clases.descarga,graf: DualAxisChart,wd):
+    """Handles the discharge process in parallel to the UI"""
     
     IO=io()
     IO.LED1.on()
@@ -143,15 +150,16 @@ def threadDescargar(descarga: clases.descarga,graf: DualAxisChart,wd):
     sleep(0.5)
     
 def descargar(descarga: clases.descarga, graf: DualAxisChart,IO:io):
-        n=10
-        mv=0
-        mi=0
-        for i in range(n):
-            v,i=IO.getVI()
-            mv=mv+v/n
-            mi=mi+i/n
+    """Executed to monitor the charge"""
 
-            
-        descarga.add(mv,abs(mi/1000))
-        graf.plot(descarga.V,descarga.I,descarga.D)
+    n=10
+    mv=0
+    mi=0
+    for i in range(n):
+        v,i=IO.getVI()
+        mv=mv+v/n
+        mi=mi+i/n
+        
+    descarga.add(mv,abs(mi/1000))
+    graf.plot(descarga.V,descarga.I,descarga.D)
         

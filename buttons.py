@@ -14,6 +14,8 @@ from functions import *
 import subprocess
 
 def btWifi(wd):
+    """Configures the Wifi network"""
+    
     ssid = wd.findChild(LineEdit,"ssidIN").text()
     pwd = wd.findChild(LineEdit,"pwdIN").text()
     if ssid and pwd:
@@ -24,6 +26,7 @@ def btWifi(wd):
             print(e)
 
 def btServer(wd,cloud: clases.cloudComm):
+    """Tries to connect to the server"""
     
     ip=wd.findChild(LineEdit,"ipIN").text()
     if cloud.conect(ip):
@@ -31,7 +34,7 @@ def btServer(wd,cloud: clases.cloudComm):
     pass
         
 def btCharge(bt: QPushButton,wd,carga: clases.carga,graf: DualAxisChart, cloud: clases.cloudComm):
-    print("btCharge")
+    """Starts and finishes the charge process"""
     
     stLb = wd.findChild(QPlainTextEdit,"statusText") 
 
@@ -88,6 +91,7 @@ def btCharge(bt: QPushButton,wd,carga: clases.carga,graf: DualAxisChart, cloud: 
         carga.hilo.join()
            
 def batSave(wd,db):
+    """Saves the cuurent battery configuration"""
     
     stLb = wd.findChild(QPlainTextEdit,"statusText")  
     vM = wd.findChild(LineEdit,"vMaxIN").text()
@@ -132,6 +136,8 @@ def batSave(wd,db):
        stLb.setPlainText("Invalid charaters in configuration")
 
 def batRefresh(wd,db):
+    """Refresh the available battery settings"""
+    
     combo = wd.findChild(QComboBox,"batCombo")
     
     con = sqlite3.connect(db)
@@ -147,6 +153,8 @@ def batRefresh(wd,db):
     print(combo.currentText())
 
 def batLoad(wd,db):
+    """Loads the selected battery settings"""
+    
     stLb = wd.findChild(QPlainTextEdit,"statusText")  
     batName = wd.findChild(QComboBox,"batCombo").currentText()
     con = sqlite3.connect(db)
@@ -170,6 +178,8 @@ def batLoad(wd,db):
     stLb.setPlainText('Battery "'+nm+'" loaded succesfully!' )
 
 def btClose(bt,wd,carga: clases.carga,descarga: clases.descarga):
+    """Ends the script"""
+    
     if carga.hilo:
         carga.isActive= False
         carga.hilo.join()
@@ -181,6 +191,8 @@ def btClose(bt,wd,carga: clases.carga,descarga: clases.descarga):
     wd.close()
 
 def btRefresh(wd, db):
+    """Refreshes the available summary elements"""
+    
     combo = wd.findChild(QComboBox,"sumCombo")
     con = sqlite3.connect(db)
     cur = con.cursor()
@@ -195,7 +207,8 @@ def btRefresh(wd, db):
     combo.addItems(nombres)
 
 def btLoad(wd,db,graf: DualAxisChart):
-
+    """Load the selected summary"""
+    
     tabName = wd.findChild(QComboBox,"sumCombo").currentText()
     con = sqlite3.connect(db)
     cur = con.cursor()
@@ -230,6 +243,7 @@ def btLoad(wd,db,graf: DualAxisChart):
     graf.plot(v,i,t)
     
 def testBtn(wd):
+    """Executes the load test"""
 
     wd.findChild(QPushButton, "discBtn").setEnabled(False)
     wd.findChild(QPushButton, "btCharge").setEnabled(False)
@@ -264,6 +278,8 @@ def testBtn(wd):
     wd.findChild(QPushButton, "btCharge").setEnabled(True)
     
 def discBtn(bt: QPushButton,wd,descarga: clases.descarga,graf: DualAxisChart):
+    """Executes the discharge thread"""
+    
     if descarga.isActive == False:
                 descarga.hilo = Thread(target=threadDescargar,args=(descarga,graf,wd))
                 descarga.hilo.setDaemon(True)

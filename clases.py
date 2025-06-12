@@ -7,22 +7,23 @@ from PySide6.QtCore import QObject, Signal
 
 
 class CargaSeñal(QObject):
+    """Handles the end of charge signal"""
     finished = Signal()
 
 class CheckSeñal(QObject):
+    """Handles the uncheck server indicator"""
     offline = Signal()
 
-
 class carga():
-    
+    """Handles all the charge variables and functions"""
     cloud = None
-    LimVMax = None #Limite de tension
-    LimIMax = None #Limite de corriente
-    LimIMin = None #para al llegar
-    ct = None #factor de compesación termica
-    LimTMax = None #temperatura maxima
+    LimVMax = None
+    LimIMax = None
+    LimIMin = None
+    ct = None 
+    LimTMax = None
     
-    #valores limites de las medidas
+
     MeasVMax = None 
     MeasVMin = None 
     MeasIMax = None
@@ -132,32 +133,33 @@ class carga():
         con.commit()
         con.close()
             
-class ConfigDB():
-    path = None
-    cur = None
-    con = None
+# class ConfigDB():
+#     path = None
+#     cur = None
+#     con = None
     
-    def  __init__(self,db):
-        self.path = db
-        print(db)
-        self.con = sqlite3.connect(self.path)
-        self.cur = self.con.cursor()
+#     def  __init__(self,db):
+#         self.path = db
+#         print(db)
+#         self.con = sqlite3.connect(self.path)
+#         self.cur = self.con.cursor()
         
-    def getServer(self):
-        res = self.cur.execute("SELECT * FROM SRVR_IP")
-        cosa = res.fetchone()
-        ip = cosa[0].strip()
-        name = cosa[1].strip()
-        return ip, name
+#     def getServer(self):
+#         res = self.cur.execute("SELECT * FROM SRVR_IP")
+#         cosa = res.fetchone()
+#         ip = cosa[0].strip()
+#         name = cosa[1].strip()
+#         return ip, name
     
-    def getServerList(self):
-        res = self.cur.execute("SELECT * FROM SRVR_IP")
-        return res.fetchall()
+#     def getServerList(self):
+#         res = self.cur.execute("SELECT * FROM SRVR_IP")
+#         return res.fetchall()
     
-    def close(self):
-        self.con.close()
+#     def close(self):
+#         self.con.close()
         
 class cloudComm():
+    """Handles all the cloud communication variables and functions"""
     señal = CheckSeñal()
     isActive = False
     ip=None
@@ -223,6 +225,7 @@ class cloudComm():
         return self.ping()
              
 class descarga():
+    """Handles all the discharge variables and functions"""
     V = []
     I = []
     D = []
@@ -243,8 +246,5 @@ class descarga():
     def Stop(self):
         self.isActive = False
 
-if __name__=='__main__':  
-    
-    cloud = cloudComm()
-    print(cloud.conect("SFLTFG"))
+
     
