@@ -561,7 +561,7 @@ class Ui_MainWindow(object):
         self.checkBox.setObjectName(u"checkBox")
         self.checkBox.setEnabled(False)
         self.checkBox.setGeometry(QRect(640, 0, 78, 22))
-        self.checkBox.setChecked(True)
+        self.checkBox.setChecked(False)
         MainWindow.setCentralWidget(self.centralwidget)
         self.Tabs.raise_()
         self.btClose.raise_()

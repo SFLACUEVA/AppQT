@@ -13,6 +13,7 @@ def StartServerIn(wd):
     
     ipIN = LineEdit("")
     ipIN.setObjectName("ipIN")
+    ipIN.setText("SFLTFG")
     ipIN.setWD(wd)
     
     devIN = LineEdit("")

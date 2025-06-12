@@ -1,7 +1,7 @@
 import sys
 import time
 import sqlite3 
-from PySide6.QtWidgets import QPlainTextEdit, QLabel, QComboBox
+from PySide6.QtWidgets import QPlainTextEdit, QLabel, QComboBox, QCheckBox
 import urllib.request
 from sys import platform
 from setup import StartServerIn
@@ -18,7 +18,8 @@ def btWifi(wd):
 def btServer(wd,cloud: clases.cloudComm):
     
     ip=wd.findChild(LineEdit,"ipIN").text()
-    cloud.conect(ip)
+    if cloud.conect(ip):
+        wd.findChild(QCheckBox,"chkWifi").setChecked(True)
     pass
         
 
