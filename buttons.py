@@ -17,7 +17,7 @@ def btWifi(wd):
 
 def btServer(wd,cloud: clases.cloudComm):
     
-    ip=wd.findChild(LineEdit,"ipIN").text
+    ip=wd.findChild(LineEdit,"ipIN").text()
     cloud.conect(ip)
     pass
         
