@@ -43,7 +43,7 @@ class carga():
         self.T.append(t)
         now = datetime.datetime.now().replace(microsecond=0).isoformat()
         self.D.append(now)
-        self.cloud.sendVal(v,i,t,t)
+        self.cloud.sendVal(v,i,t,t,self)
         
     def Start(self):
         
