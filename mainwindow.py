@@ -83,19 +83,19 @@ class MainWindow(QMainWindow):
 
 
 
-@Slot()
-def on_charge_finished(self):
-    self.ui.findChild(QLineEdit, "vMaxIN").setEnabled(True)
-    self.ui.findChild(QLineEdit, "iMaxIN").setEnabled(True)
-    self.ui.findChild(QLineEdit, "iMinIN").setEnabled(True)
-    self.ui.findChild(QLineEdit, "tMaxIN").setEnabled(True)
-    self.ui.findChild(QLineEdit, "ctIN").setEnabled(True)
-    self.ui.findChild(QLineEdit, "batNameIN").setEnabled(True)
-    self.ui.findChild(QPushButton, "btCharge").setText("Cargar")
-    self.ui.findChild(QPlainTextEdit, "statusText").setPlainText("Waiting")
-
-def uncheck(self):
-    self.findChild(QCheckBox,"chkWifi").setChecked(False)
+    @Slot()
+    def on_charge_finished(self):
+        self.ui.findChild(QLineEdit, "vMaxIN").setEnabled(True)
+        self.ui.findChild(QLineEdit, "iMaxIN").setEnabled(True)
+        self.ui.findChild(QLineEdit, "iMinIN").setEnabled(True)
+        self.ui.findChild(QLineEdit, "tMaxIN").setEnabled(True)
+        self.ui.findChild(QLineEdit, "ctIN").setEnabled(True)
+        self.ui.findChild(QLineEdit, "batNameIN").setEnabled(True)
+        self.ui.findChild(QPushButton, "btCharge").setText("Cargar")
+        self.ui.findChild(QPlainTextEdit, "statusText").setPlainText("Waiting")
+    
+    def uncheck(self):
+        self.findChild(QCheckBox,"chkWifi").setChecked(False)
 
 
 if __name__ == "__main__":
