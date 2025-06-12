@@ -174,7 +174,10 @@ class cloudComm():
                 req = req +"&ct=" + str(cargaAct.ct)
                 req = req +"&LimTMax=" + str(cargaAct.LimIMax)
                 req = req +"&DeviceName=" + str(cargaAct.dev)
-                res = request.urlopen(req).read().decode().strip()
+                res = request.urlopen(req,timeout=5).read().decode().strip()
+                if res is not "OK":
+                    self.señal.offline.emit()
+                    self.isActive=False 
                 print(res)
             except Exception as e:
                 print(e)
@@ -189,8 +192,10 @@ class cloudComm():
                         req = req +"&c=" + str(i)
                         req = req +"&t=" + str(t)
                         req = req +"&h=" + str(h)
-                        print(req)
-                        print(request.urlopen(req).read().decode().strip())
+                        res = request.urlopen(req,timeout=5).read().decode().strip()
+                        if res is not "OK":
+                            self.señal.offline.emit()
+                            self.isActive=False 
                     except Exception as e:
                         self.señal.offline.emit()
                         print(e)
