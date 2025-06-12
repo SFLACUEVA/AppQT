@@ -557,20 +557,20 @@ class Ui_MainWindow(object):
         self.label_40.setObjectName(u"label_40")
         self.label_40.setGeometry(QRect(0, 430, 791, 16))
         self.Tabs.addTab(self.tabAju, "")
-        self.checkBox = QCheckBox(self.centralwidget)
-        self.checkBox.setObjectName(u"checkBox")
-        self.checkBox.setEnabled(False)
-        self.checkBox.setGeometry(QRect(640, 0, 78, 22))
-        self.checkBox.setChecked(False)
+        self.chkWifi = QCheckBox(self.centralwidget)
+        self.chkWifi.setObjectName(u"chkWifi")
+        self.chkWifi.setEnabled(False)
+        self.chkWifi.setGeometry(QRect(640, 0, 78, 22))
+        self.chkWifi.setChecked(False)
         MainWindow.setCentralWidget(self.centralwidget)
         self.Tabs.raise_()
         self.btClose.raise_()
-        self.checkBox.raise_()
+        self.chkWifi.raise_()
         QWidget.setTabOrder(self.Tabs, self.btClose)
 
         self.retranslateUi(MainWindow)
 
-        self.Tabs.setCurrentIndex(3)
+        self.Tabs.setCurrentIndex(2)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -659,6 +659,6 @@ class Ui_MainWindow(object):
         self.btWifi.setText(QCoreApplication.translate("MainWindow", u"Connect to WiFi", None))
         self.label_40.setText(QCoreApplication.translate("MainWindow", u"Sergio Franco Lacueva, 2025", None))
         self.Tabs.setTabText(self.Tabs.indexOf(self.tabAju), QCoreApplication.translate("MainWindow", u"Settings", None))
-        self.checkBox.setText(QCoreApplication.translate("MainWindow", u"Online", None))
+        self.chkWifi.setText(QCoreApplication.translate("MainWindow", u"Online", None))
     # retranslateUi
 

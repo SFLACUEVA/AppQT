@@ -40,7 +40,7 @@
      <enum>Qt::FocusPolicy::ClickFocus</enum>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="tabGen">
      <attribute name="title">
@@ -931,7 +931,7 @@
      </widget>
     </widget>
    </widget>
-   <widget class="QCheckBox" name="checkBox">
+   <widget class="QCheckBox" name="chkWifi">
     <property name="enabled">
      <bool>false</bool>
     </property>
@@ -952,7 +952,7 @@
    </widget>
    <zorder>Tabs</zorder>
    <zorder>btClose</zorder>
-   <zorder>checkBox</zorder>
+   <zorder>chkWifi</zorder>
   </widget>
  </widget>
  <tabstops>
