@@ -132,32 +132,7 @@ class carga():
         cur.execute(req)
         con.commit()
         con.close()
-            
-# class ConfigDB():
-#     path = None
-#     cur = None
-#     con = None
-    
-#     def  __init__(self,db):
-#         self.path = db
-#         print(db)
-#         self.con = sqlite3.connect(self.path)
-#         self.cur = self.con.cursor()
-        
-#     def getServer(self):
-#         res = self.cur.execute("SELECT * FROM SRVR_IP")
-#         cosa = res.fetchone()
-#         ip = cosa[0].strip()
-#         name = cosa[1].strip()
-#         return ip, name
-    
-#     def getServerList(self):
-#         res = self.cur.execute("SELECT * FROM SRVR_IP")
-#         return res.fetchall()
-    
-#     def close(self):
-#         self.con.close()
-        
+              
 class cloudComm():
     """Handles all the cloud communication variables and functions"""
     señal = CheckSeñal()
@@ -165,6 +140,7 @@ class cloudComm():
     ip=None
     
     def createTable(self,cargaAct:carga):
+        """Creates a table in the cloud server"""
         if self.isActive:
             try:        
                 req = "http://"+self.ip+"/measures.php?f=c&name="+cargaAct.batName
@@ -187,21 +163,22 @@ class cloudComm():
                 self.isActive=False
     
     def sendVal(self,v,i,t,h,cargaAct:carga):
-                if self.isActive:
-                    try:        
-                        req = "http://"+self.ip+"/measures.php?f=i&tabla="+cargaAct.tableName
-                        req = req +"&v=" + str(v)
-                        req = req +"&c=" + str(i)
-                        req = req +"&t=" + str(t)
-                        req = req +"&h=" + str(h)
-                        res = request.urlopen(req,timeout=5).read().decode().strip()
-                        if res is not "OK":
-                            self.señal.offline.emit()
-                            self.isActive=False 
-                    except Exception as e:
-                        self.señal.offline.emit()
-                        print(e)
-                        self.isActive=False
+        """Sends one reading to the cloud"""
+        if self.isActive:
+            try:        
+                req = "http://"+self.ip+"/measures.php?f=i&tabla="+cargaAct.tableName
+                req = req +"&v=" + str(v)
+                req = req +"&c=" + str(i)
+                req = req +"&t=" + str(t)
+                req = req +"&h=" + str(h)
+                res = request.urlopen(req,timeout=5).read().decode().strip()
+                if res is not "OK":
+                    self.señal.offline.emit()
+                    self.isActive=False 
+            except Exception as e:
+                self.señal.offline.emit()
+                print(e)
+                self.isActive=False
     
     def ping(self):
         try:
