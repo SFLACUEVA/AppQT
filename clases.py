@@ -6,6 +6,7 @@ from urllib import request
 
 class carga():
     
+    cloud = None
     LimVMax = None #Limite de tension
     LimIMax = None #Limite de corriente
     LimIMin = None #para al llegar
@@ -25,7 +26,7 @@ class carga():
     StartTime = None
     StopTime = None
     ts = None
-    dev = "DEV0"
+    dev = ""
     tableName = ""
     
     hilo = None
@@ -40,7 +41,9 @@ class carga():
         self.V.append(v)
         self.I.append(i)
         self.T.append(t)
-        self.D.append(datetime.datetime.now().replace(microsecond=0).isoformat())
+        now = datetime.datetime.now().replace(microsecond=0).isoformat()
+        self.D.append(now)
+        self.cloud.sendVal(v,i,t,t)
         
     def Start(self):
         
@@ -50,6 +53,8 @@ class carga():
         self.D = []
         self.ts = int(time.time())
         self.StartTime = datetime.datetime.now().replace(microsecond=0).isoformat()
+        self.tableName = self.batName + "_" + self.dev + "_" + str(self.StartTime)
+        self.cloud.createTable(self)
         self.isActive = True
         
     def Stop(self):
@@ -78,8 +83,6 @@ class carga():
         sqlpath = str(pathlib.Path(__file__).parent.resolve() / "Resources" / "measures.db")
         con = sqlite3.connect(sqlpath)
         cur = con.cursor()
-        
-        self.tableName = self.batName + "_" + self.dev + "_" + str(self.StartTime)
         
         cre = 'CREATE TABLE "'+self.tableName+'" ("time" TEXT,"V" NUMERIC,"I" NUMERIC,"T" NUMERIC);'
         cur.execute(cre)
@@ -151,21 +154,21 @@ class cloudComm():
     def createTable(self,carga:carga):
         if self.isActive:
             try:        
-                req = "http://"+self.ip+"/measures.php?name="+carga.batName
-                req = req +"&start=" + str(carga)
-                req = req +"&tabla=" + str(carga)
-                req = req +"&LimVMax=" + str(carga)
-                req = req +"&LimIMax=" + str(carga)
-                req = req +"&LimIMin=" + str(carga)
-                req = req +"&ct=" + str(carga)
-                req = req +"&LimTMax=" + str(carga)
-                req = req +"&DeviceName=" + str(carga)
-                urllib.request.urlopen(req).read().decode().strip()
+                req = "http://"+self.ip+"/measures.php?f=c&name="+carga.batName
+                req = req +"&start=" + str(carga.StartTime)
+                req = req +"&tabla=" + str(carga.tableName)
+                req = req +"&LimVMax=" + str(carga.LimVMax)
+                req = req +"&LimIMax=" + str(carga.LimIMax)
+                req = req +"&LimIMin=" + str(carga.LimIMin)
+                req = req +"&ct=" + str(carga.ct)
+                req = req +"&LimTMax=" + str(carga.LimIMax)
+                req = req +"&DeviceName=" + str(carga.dev)
+                request.urlopen(req).read().decode().strip()
             except Exception as e:
                 print(e)
                 self.isActive=False
     
-    def sendVal(self,v,i,t,h):
+    def sendVal(self,v,i,t,d):
                 if self.isActive:
                     try:        
                         req = "http://"+self.ip+"/measures.php?name="+carga.batName

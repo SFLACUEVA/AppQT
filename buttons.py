@@ -11,9 +11,17 @@ from clases import *
 from CustomWidgets import *
 from PERIF import io
 from functions import *
+import subprocess
 
 def btWifi(wd):
-    pass        
+    ssid = wd.findChild(LineEdit,"ssidIN").text()
+    pwd = wd.findChild(LineEdit,"pwdIN").text()
+    if ssid and pwd:
+        try:
+            subprocess.run(["wpa_passphrase",ssid,pwd])
+            subprocess.run(["tee","/etc/wpa_supplicant/wpa_supplicant-wlan0.conf"])
+        except Exception as e:
+            print(e)
 
 def btServer(wd,cloud: clases.cloudComm):
     
@@ -22,8 +30,7 @@ def btServer(wd,cloud: clases.cloudComm):
         wd.findChild(QCheckBox,"chkWifi").setChecked(True)
     pass
         
-
-def btCharge(bt: QPushButton,wd,carga: clases.carga,graf: DualAxisChart):
+def btCharge(bt: QPushButton,wd,carga: clases.carga,graf: DualAxisChart, cloud: clases.cloudComm):
     print("btCharge")
     
     stLb = wd.findChild(QPlainTextEdit,"statusText") 
@@ -51,7 +58,7 @@ def btCharge(bt: QPushButton,wd,carga: clases.carga,graf: DualAxisChart):
                 wd.findChild(LineEdit,"tMaxIN").setEnabled(False)
                 wd.findChild(LineEdit,"ctIN").setEnabled(False)
                 wd.findChild(LineEdit,"batNameIN").setEnabled(False) 
-                
+                carga.dev = wd.findChild(LineEdit,"devIN").text()
                 carga.setConf(vM,iM,im,ct,tM)
                 carga.setName(wd.findChild(LineEdit,"batNameIN").text())
                 
