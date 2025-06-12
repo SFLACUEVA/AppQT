@@ -37,6 +37,8 @@ class MainWindow(QMainWindow):
         charge = clases.carga()
         charge.cloud = cloudComm()
         discharge = clases.descarga()
+        charge.signals.finished.connect(self.on_charge_finished)
+        charge.cloud.offline.connect(self.uncheck)
         
         graficoS,graficoC,graficoD = StartServerIn(self)
         
@@ -92,7 +94,8 @@ def on_charge_finished(self):
     self.ui.findChild(QPushButton, "btCharge").setText("Cargar")
     self.ui.findChild(QPlainTextEdit, "statusText").setPlainText("Waiting")
 
-
+def uncheck(self):
+    self.findChild(QCheckBox,"chkWifi").setChecked(False)
 
 
 if __name__ == "__main__":

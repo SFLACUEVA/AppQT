@@ -80,12 +80,7 @@ def btCharge(bt: QPushButton,wd,carga: clases.carga,graf: DualAxisChart, cloud: 
     else:
         
         
-        wd.findChild(LineEdit,"vMaxIN").setEnabled(True)
-        wd.findChild(LineEdit,"iMaxIN").setEnabled(True)
-        wd.findChild(LineEdit,"iMinIN").setEnabled(True)
-        wd.findChild(LineEdit,"tMaxIN").setEnabled(True)
-        wd.findChild(LineEdit,"ctIN").setEnabled(True)
-        wd.findChild(LineEdit,"batNameIN").setEnabled(True) 
+        carga.señal.finished.emit()
         bt.setText("Cargar")
         stLb.setPlainText("Esperando")
         carga.isActive = False

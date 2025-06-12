@@ -9,6 +9,9 @@ from PySide6.QtCore import QObject, Signal
 class CargaSeñal(QObject):
     finished = Signal()
 
+class CheckSeñal(QObject):
+    offline = Signal()
+
 
 class carga():
     
@@ -155,7 +158,7 @@ class ConfigDB():
         self.con.close()
         
 class cloudComm():
-    
+    señal = CheckSeñal()
     isActive = False
     ip=None
     
@@ -175,6 +178,7 @@ class cloudComm():
                 print(res)
             except Exception as e:
                 print(e)
+                self.señal.offline.emit()
                 self.isActive=False
     
     def sendVal(self,v,i,t,h,cargaAct:carga):
@@ -188,6 +192,7 @@ class cloudComm():
                         print(req)
                         print(request.urlopen(req).read().decode().strip())
                     except Exception as e:
+                        self.señal.offline.emit()
                         print(e)
                         self.isActive=False
     
@@ -204,6 +209,7 @@ class cloudComm():
                 return False
         except Exception as e:
                 print(e)
+                self.señal.offline.emit()
                 self.isActive=False
                 return False
 
