@@ -164,7 +164,8 @@ class cloudComm():
                 req = req +"&ct=" + str(cargaAct.ct)
                 req = req +"&LimTMax=" + str(cargaAct.LimIMax)
                 req = req +"&DeviceName=" + str(cargaAct.dev)
-                request.urlopen(req).read().decode().strip()
+                res = request.urlopen(req).read().decode().strip()
+                print(res)
             except Exception as e:
                 print(e)
                 self.isActive=False
