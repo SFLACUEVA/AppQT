@@ -37,7 +37,8 @@ class MainWindow(QMainWindow):
         self.charge = clases.carga()
         self.charge.cloud = cloudComm()
         discharge = clases.descarga()
-        self.charge.señal.finished.connect(self.on_charge_finished)
+        self.charge.señal.finished.connect(self.charge_finished) 
+        
         self.charge.cloud.señal.offline.connect(self.uncheck)
         
         graficoS,graficoC,graficoD = StartServerIn(self)
@@ -84,7 +85,7 @@ class MainWindow(QMainWindow):
 
 
     @Slot()
-    def on_charge_finished(self):
+    def charge_finished(self):
         self.findChild(QLineEdit, "vMaxIN").setEnabled(True)
         self.findChild(QLineEdit, "iMaxIN").setEnabled(True)
         self.findChild(QLineEdit, "iMinIN").setEnabled(True)
