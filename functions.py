@@ -79,7 +79,8 @@ def threadCargar(carga: clases.carga,graf: DualAxisChart,wd):
         #print("Check")
         time.sleep(0.01)
         
-        
+    
+    
     IO.LED0.off()
     mTimer.stop()
     carga.Stop()
@@ -90,19 +91,19 @@ def threadCargar(carga: clases.carga,graf: DualAxisChart,wd):
     sleep(0.5)
     IO.RELAY0.off()
     sleep(0.5)
+    carga.señal.finished.emit()
     
-    
-    stLb = wd.findChild(QPlainTextEdit,"statusText") 
-    bt= wd.findChild(QPushButton,"btCharge")
-    wd.findChild(LineEdit,"vMaxIN").setEnabled(True)
-    wd.findChild(LineEdit,"iMaxIN").setEnabled(True)
-    wd.findChild(LineEdit,"iMinIN").setEnabled(True)
-    wd.findChild(LineEdit,"tMaxIN").setEnabled(True)
-    wd.findChild(LineEdit,"ctIN").setEnabled(True)
-    wd.findChild(LineEdit,"batNameIN").setEnabled(True)
-    stLb.setPlainText("Esperando")
-    bt.setText("Cargar")
-    stLb = wd.findChild(QPlainTextEdit,"statusText") 
+    #stLb = wd.findChild(QPlainTextEdit,"statusText") 
+    #bt= wd.findChild(QPushButton,"btCharge")
+    #wd.findChild(LineEdit,"vMaxIN").setEnabled(True)
+    #wd.findChild(LineEdit,"iMaxIN").setEnabled(True)
+    #wd.findChild(LineEdit,"iMinIN").setEnabled(True)
+    #wd.findChild(LineEdit,"tMaxIN").setEnabled(True)
+    #wd.findChild(LineEdit,"ctIN").setEnabled(True)
+    #wd.findChild(LineEdit,"batNameIN").setEnabled(True)
+    #stLb.setPlainText("Esperando")
+    #bt.setText("Cargar")
+    #stLb = wd.findChild(QPlainTextEdit,"statusText") 
     
 def cargar(carga: clases.carga,graf: DualAxisChart,IO:io):
     if carga.isActive:

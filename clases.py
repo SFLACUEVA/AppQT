@@ -3,6 +3,12 @@ import time
 import sqlite3 
 import pathlib
 from urllib import request
+from PySide6.QtCore import QObject, Signal
+
+
+class CargaSeñal(QObject):
+    finished = Signal()
+
 
 class carga():
     
@@ -29,6 +35,7 @@ class carga():
     dev = ""
     tableName = ""
     
+    señal = CargaSeñal()
     hilo = None
     
     V = []
@@ -203,8 +210,7 @@ class cloudComm():
     def conect(self,ip):
         self.ip = ip
         return self.ping()
-        
-        
+             
 class descarga():
     V = []
     I = []
