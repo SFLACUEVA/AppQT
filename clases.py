@@ -43,7 +43,7 @@ class carga():
         self.T.append(t)
         now = datetime.datetime.now().replace(microsecond=0).isoformat()
         self.D.append(now)
-        #self.cloud.sendVal(v,i,t,t)
+        self.cloud.sendVal(v,i,t,t)
         
     def Start(self):
         
@@ -170,19 +170,15 @@ class cloudComm():
                 print(e)
                 self.isActive=False
     
-    def sendVal(self,v,i,t,d):
+    def sendVal(self,v,i,t,h,cargaAct:carga):
                 if self.isActive:
                     try:        
-                        req = "http://"+self.ip+"/measures.php?name="+carga.batName
-                        req = req +"&start=" + str(carga)
-                        req = req +"&tabla=" + str(carga)
-                        req = req +"&LimVMax=" + str(carga)
-                        req = req +"&LimIMax=" + str(carga)
-                        req = req +"&LimIMin=" + str(carga)
-                        req = req +"&ct=" + str(carga)
-                        req = req +"&LimTMax=" + str(carga)
-                        req = req +"&DeviceName=" + str(carga)    
-                        request.urlopen(req).read().decode().strip()
+                        req = "http://"+self.ip+"/measures.php?f=i&tabla="+cargaAct.tableName
+                        req = req +"&v=" + str(v)
+                        req = req +"&i=" + str(i)
+                        req = req +"&t=" + str(t)
+                        req = req +"&h=" + str(h)
+                        print(request.urlopen(req).read().decode().strip())
                     except Exception as e:
                         print(e)
                         self.isActive=False
