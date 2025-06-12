@@ -204,7 +204,7 @@ class cloudComm():
     def ping(self):
         try:
             req="http://"+self.ip+"/measures.php?f=p"
-            res = request.urlopen(req).read().decode().strip()
+            res = request.urlopen(req,timeout=5).read().decode().strip()
             if res =="ping":
                 self.isActive=True
                 print("Connected to :"+self.ip)
