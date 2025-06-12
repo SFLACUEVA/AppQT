@@ -178,6 +178,7 @@ class cloudComm():
                         req = req +"&i=" + str(i)
                         req = req +"&t=" + str(t)
                         req = req +"&h=" + str(h)
+                        print(req)
                         print(request.urlopen(req).read().decode().strip())
                     except Exception as e:
                         print(e)
