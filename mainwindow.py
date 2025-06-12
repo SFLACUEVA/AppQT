@@ -34,8 +34,8 @@ class MainWindow(QMainWindow):
         confPath= str(pathlib.Path(__file__).parent.resolve() / "Resources" / "conf.db")
         measPath = str(pathlib.Path(__file__).parent.resolve() / "Resources" / "measures.db")
         
-        charge = clases.carga()
-        charge.cloud = cloudComm()
+        self.charge = clases.carga()
+        self.charge.cloud = cloudComm()
         discharge = clases.descarga()
         self.charge.signals.finished.connect(self.on_charge_finished)
         self.charge.cloud.offline.connect(self.uncheck)
@@ -43,10 +43,10 @@ class MainWindow(QMainWindow):
         graficoS,graficoC,graficoD = StartServerIn(self)
         
         closeBTN = self.findChild(QPushButton,"btClose")
-        closeBTN.clicked.connect(lambda: btClose(closeBTN,self,charge,discharge))
+        closeBTN.clicked.connect(lambda: btClose(closeBTN,self,self.charge,discharge))
         
         chargeBTN = self.findChild(QPushButton,"btCharge")
-        chargeBTN.clicked.connect(lambda: btCharge(chargeBTN,self,charge,graficoC,charge.cloud))
+        chargeBTN.clicked.connect(lambda: btCharge(chargeBTN,self,self.charge,graficoC,self.charge.cloud))
         
         saveBTN = self.findChild(QPushButton,"batSave")
         saveBTN.clicked.connect(lambda: batSave(self,confPath))
@@ -74,7 +74,7 @@ class MainWindow(QMainWindow):
         wifiBTN.clicked.connect(lambda: btWifi(self))  
         
         serverBTN = self.findChild(QPushButton,"btServer")
-        serverBTN.clicked.connect(lambda: btServer(self,charge.cloud))        
+        serverBTN.clicked.connect(lambda: btServer(self,self.charge.cloud))        
         
         self.show()
         if platform == "linux":
