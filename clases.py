@@ -152,18 +152,18 @@ class cloudComm():
     isActive = False
     ip=None
     
-    def createTable(self,carga:carga):
+    def createTable(self,cargaAct:carga):
         if self.isActive:
             try:        
-                req = "http://"+self.ip+"/measures.php?f=c&name="+carga.batName
-                req = req +"&start=" + str(carga.StartTime)
-                req = req +"&tabla=" + str(carga.tableName)
-                req = req +"&LimVMax=" + str(carga.LimVMax)
-                req = req +"&LimIMax=" + str(carga.LimIMax)
-                req = req +"&LimIMin=" + str(carga.LimIMin)
-                req = req +"&ct=" + str(carga.ct)
-                req = req +"&LimTMax=" + str(carga.LimIMax)
-                req = req +"&DeviceName=" + str(carga.dev)
+                req = "http://"+self.ip+"/measures.php?f=c&name="+cargaAct.batName
+                req = req +"&start=" + str(cargaAct.StartTime)
+                req = req +"&tabla=" + str(cargaAct.tableName)
+                req = req +"&LimVMax=" + str(cargaAct.LimVMax)
+                req = req +"&LimIMax=" + str(cargaAct.LimIMax)
+                req = req +"&LimIMin=" + str(cargaAct.LimIMin)
+                req = req +"&ct=" + str(cargaAct.ct)
+                req = req +"&LimTMax=" + str(cargaAct.LimIMax)
+                req = req +"&DeviceName=" + str(cargaAct.dev)
                 request.urlopen(req).read().decode().strip()
             except Exception as e:
                 print(e)
