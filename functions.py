@@ -26,7 +26,7 @@ def are_ok(vM,iM,im,tM,ct):
     if not (13<=vM<=15):
         return False
 
-    if not (1.23<=iM<=3):
+    if not (0.5<=iM<=3):
         return False
     
     if not (im<=3 and im<iM):
@@ -41,15 +41,17 @@ def are_ok(vM,iM,im,tM,ct):
     return True
     
 def i_to_dt(x):
+    if x >=1.23:
+        x1, y1 = 1.23, 7
+        x2, y2 = 3, 77
 
-    x1, y1 = 1.23, 7
-    x2, y2 = 3, 77
+        m = (y2 - y1) / (x2 - x1)
 
-    m = (y2 - y1) / (x2 - x1)
+        b = y1 - m * x1
 
-    b = y1 - m * x1
-
-    return m * x + b    
+        return m * x + b    
+    else: 
+        return 0
 
 def threadCargar(carga: clases.carga,graf: DualAxisChart,wd):
     
