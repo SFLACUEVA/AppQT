@@ -86,6 +86,9 @@ class MainWindow(QMainWindow):
 
     @Slot()
     def charge_finished(self):
+        self.findChild(QPushButton, "testBtn").setEnabled(True)
+        self.findChild(QPushButton, "discBtn").setEnabled(True)
+        self.findChild(QPushButton, "btCharge").setText("Cargar")
         self.findChild(QLineEdit, "vMaxIN").setEnabled(True)
         self.findChild(QLineEdit, "iMaxIN").setEnabled(True)
         self.findChild(QLineEdit, "iMinIN").setEnabled(True)

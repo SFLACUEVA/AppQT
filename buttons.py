@@ -64,7 +64,8 @@ def btCharge(bt: QPushButton,wd,carga: clases.carga,graf: DualAxisChart, cloud: 
                 
                 carga.hilo = Thread(target=threadCargar,args=(carga,graf,wd))
                 carga.hilo.setDaemon(True)
-                
+                wd.findChild(QPushButton, "testBtn").setEnabled(False)
+                wd.findChild(QPushButton, "discBtn").setEnabled(False)
                 stLb.setPlainText("Charging battery")
                 bt.setText("Stop")
                 
@@ -230,6 +231,9 @@ def btLoad(wd,db,graf: DualAxisChart):
     
 def testBtn(wd):
 
+    wd.findChild(QPushButton, "discBtn").setEnabled(False)
+    wd.findChild(QPushButton, "btCharge").setEnabled(False)
+    
     IO = io()
     IO.RELAY0.off()
     IO.RELAY1.off()
@@ -254,12 +258,16 @@ def testBtn(wd):
     wd.findChild(QLabel,"testR").setText(str(round(R,3))+"mΩ")
     wd.findChild(QLabel,"testCurrent").setText(str(round(iLoad,3))+"mA")
     
+    wd.findChild(QPushButton, "discBtn").setEnabled(True)
+    wd.findChild(QPushButton, "btCharge").setEnabled(True)
+    
 def discBtn(bt: QPushButton,wd,descarga: clases.descarga,graf: DualAxisChart):
     if descarga.isActive == False:
                 descarga.hilo = Thread(target=threadDescargar,args=(descarga,graf,wd))
                 descarga.hilo.setDaemon(True)
                 bt.setText("Stop")
-                
+                wd.findChild(QPushButton, "testBtn").setEnabled(False)
+                wd.findChild(QPushButton, "btCharge").setEnabled(False)
                 descarga.Start()
                 descarga.hilo.start()
     
@@ -267,3 +275,5 @@ def discBtn(bt: QPushButton,wd,descarga: clases.descarga,graf: DualAxisChart):
         bt.setText("Start test")
         descarga.Stop()
         descarga.hilo.join()
+        wd.findChild(QPushButton, "testBtn").setEnabled(True)
+        wd.findChild(QPushButton, "btCharge").setEnabled(True)
