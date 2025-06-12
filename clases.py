@@ -175,7 +175,7 @@ class cloudComm():
                     try:        
                         req = "http://"+self.ip+"/measures.php?f=i&tabla="+cargaAct.tableName
                         req = req +"&v=" + str(v)
-                        req = req +"&i=" + str(i)
+                        req = req +"&c=" + str(i)
                         req = req +"&t=" + str(t)
                         req = req +"&h=" + str(h)
                         print(req)
